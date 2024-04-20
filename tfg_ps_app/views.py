@@ -55,14 +55,14 @@ class DetalleJugadoresView(generic.ListView):
 
 class CrearJugadorView(generic.CreateView):
     model = models.Jugadores
-    form_class = models.JugadorForm
+    form_class = models.Jugadores
     template_name = "tfg_ps_app/jugador_create.html"
     success_url = reverse_lazy("inicio")
 
 
 class ActualizarJugadorView(generic.UpdateView):
     model = models.Jugadores
-    form_class = models.JugadorForm
+    form_class = models.Jugadores
     template_name = "tfg_ps_app/jugador_update.html"
     success_url = reverse_lazy("inicio")
 
@@ -85,14 +85,14 @@ class DetalleObjetosView(generic.ListView):
 
 class CrearObjetoView(generic.CreateView):
     model = models.Objetos
-    form_class = models.ObjetoForm
+    form_class = models.Objetos
     template_name = "tfg_ps_app/objeto_create.html"
     success_url = reverse_lazy("inicio")
 
 
 class ActualizarObjetoView(generic.UpdateView):
     model = models.Objetos
-    form_class = models.ObjetoForm
+    form_class = models.Objetos
     template_name = "tfg_ps_app/objeto_update.html"
     success_url = reverse_lazy("inicio")
 
@@ -115,14 +115,14 @@ class DetalleInventarioView(generic.ListView):
 
 class CrearInventarioView(generic.CreateView):
     model = models.Inventario
-    form_class = models.InventarioForm
+    form_class = models.Inventario
     template_name = "tfg_ps_app/inventario_create.html"
     success_url = reverse_lazy("inicio")
 
 
 class ActualizarInventarioView(generic.UpdateView):
     model = models.Inventario
-    form_class = models.InventarioForm
+    form_class = models.Inventario
     template_name = "tfg_ps_app/inventario_update.html"
     success_url = reverse_lazy("inicio")
 
