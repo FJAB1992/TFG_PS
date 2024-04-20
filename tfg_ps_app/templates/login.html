@@ -1,0 +1,16 @@
+<!-- login.html -->
+{% extends "baseLogin.html" %}
+
+{% block title %}Inicio de sesión{% endblock %}
+
+{% block cuerpo %}
+<div class="container mt-4">
+    <h2>Iniciar Sesión</h2>
+    <form method="post" class="needs-validation" novalidate>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+    </form>
+    <p>¿No tienes una cuenta? <a href="{% url 'tfg_ps_app:signup' %}">Regístrate aquí</a></p>
+</div>
+{% endblock %}
