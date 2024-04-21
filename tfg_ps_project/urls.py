@@ -17,8 +17,9 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path, include
+from tfg_ps_app.views import inicio
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path('', include('tfg_ps_app.urls')),
+    path('', include('tfg_ps_app.urls',namespace='tfg_ps_app')),
 ]

@@ -6,7 +6,7 @@ from . import views
 app_name = "tfg_ps_app"
 
 urlpatterns = [
-    path('inicio/', views.inicio, name='inicio'),
+    path('', views.inicio, name='inicio'),
     # Login y Registro
     path("login/", login_view, name="login"),
     path("signup/", signup_view, name="signup"),
