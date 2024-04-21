@@ -9,8 +9,8 @@ from . import models
 
 
 # Create your views here.
-def inicio_view(request):
-    return render(request, "tfg_ps_app/inicio.html")
+def inicio(request):
+    return render(request, "inicio.html")
 
 
 # REGISTRO, LOGIN Y LOGOUT DE DJANGO
