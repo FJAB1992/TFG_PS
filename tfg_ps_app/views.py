@@ -27,7 +27,7 @@ def signup_view(request):
 
 
 @csrf_protect
-def login_usuario(request):
+def login_view(request):
     if request.method == "POST":
         form = AuthenticationForm(request=request, data=request.POST)
         if form.is_valid():
@@ -44,7 +44,7 @@ class LogoutUsuario(LogoutView):
 
 
 # VISTAS DE JUGADORES
-class DetalleJugadoresView(generic.ListView):
+class DetalleJugadorView(generic.ListView):
     model = models.Jugadores
     template_name = "tfg_ps_app/jugador_list.html"
     context_object_name = "jugadores"
