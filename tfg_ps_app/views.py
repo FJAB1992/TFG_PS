@@ -23,7 +23,7 @@ def signup_view(request):
             return redirect("login")
     else:
         form = UserCreationForm()
-    return render(request, "tfg_ps_app/signup.html", {"form": form})
+    return render(request, "signup.html", {"form": form})
 
 
 @csrf_protect
@@ -36,7 +36,7 @@ def login_view(request):
             return redirect("inicio")
     else:
         form = AuthenticationForm()
-    return render(request, "tfg_ps_app/login.html", {"form": form})
+    return render(request, "login.html", {"form": form})
 
 
 class LogoutUsuario(LogoutView):

@@ -10,7 +10,7 @@ urlpatterns = [
     # Login y Registro
     path("login/", login_view, name="login"),
     path("signup/", signup_view, name="signup"),
-    path("logout/", LogoutView.as_view(next_page="login"), name="logout"),
+    path('logout/', views.LogoutUsuario.as_view(), name='logout'),
     # Vistas de jugadores
     path("jugadores/", views.DetalleJugadorView.as_view(), name="jugadores"),
     path("jugadores/crear/", views.CrearJugadorView.as_view(), name="jugadores_crear"),
