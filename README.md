@@ -63,11 +63,8 @@ python manage.py startapp nombre
   ```
 
   3. Resolver los warnings de migración
-  ```bash
-  python manage.py migrate
-  
-  python manage.py makemigrations
-  ```
+```python manage.py migrate```
+```python manage.py makemigrations```
 
 Será necesario añadir los path de la aplicación (creados en esta), e incluirlos en el path del proyecto
 
@@ -91,9 +88,7 @@ Nota: desde el archivo pyvenv.cfg, configuramos desde donde se usa python
 
 ## Configuración de Admin
 
-```bash
-python manage.py createsuperuser
-```
+```python manage.py createsuperuser```
 
 
 # Adicional
@@ -109,3 +104,13 @@ Tendrás que hacer lo siguiente MANUALMENTE para dejarlo limpio:
 * Asegurarte de que cada ForeignKey y OneToOneField tiene `on_delete` ajustado al comportamiento que desees
 * Eliminar las líneas con  `managed=False` si quieres dejar que Django cree, modifique y borre la tabla
 * Renombra los modelos como gustes, pero NO renombres los valores de db_table o los campos de las tablas.# TFG_PS
+
+
+# Añadir gestión de imágenes a Django
+
+```pip install Pillow```
+
+## Ejecutar migraciones de nuevo
+
+```python manage.py migrate```
+```python manage.py makemigrations```
