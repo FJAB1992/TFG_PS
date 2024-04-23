@@ -8,13 +8,15 @@
 {% block cuerpo %}
 <div class="container mt-4">
     <h2>Iniciar Sesión</h2>
-    <form method="post" class="needs-validation" novalidate>
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
-    </form>
-    <div class="link">
-        <p>¿No tienes una cuenta? <a href="{% url 'tfg_ps_app:signup' %}">Regístrate aquí</a></p>
+    <div class="m-lg-5">
+        <form method="post" class="needs-validation justify-content-center" novalidate>
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+        </form>
+        <div class="link">
+            <p>¿No tienes una cuenta? <a href="{% url 'tfg_ps_app:signup' %}">Regístrate aquí</a></p>
+        </div>
     </div>
 </div>
 {% endblock %}
