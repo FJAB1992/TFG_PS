@@ -58,21 +58,27 @@ class Inventario(models.Model):
     cantidad = models.IntegerField(blank=True, null=True)
 
     class Meta:
+        verbose_name = "inventario"
+        verbose_name_plural = "inventarios"
         managed = False
         db_table = "inventario"
         unique_together = (("jugador_id", "objeto_id"),)
+        app_label = 'tfg_ps_app'
 
 
 class Jugadores(models.Model):
-    user_id = models.IntegerField(unique=True, blank=True, null=True)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     dinero = models.IntegerField(blank=True, null=True)
 
     def __str__(self):
         return self.user.username
 
     class Meta:
+        verbose_name = "jugador"
+        verbose_name_plural = "jugadores"
         managed = False
         db_table = 'jugadores'
+        app_label = 'tfg_ps_app'
         
         
 class Objetos(models.Model):
@@ -84,6 +90,9 @@ class Objetos(models.Model):
     extension = models.CharField(max_length=4, blank=True, null=True)
 
     class Meta:
+        verbose_name = "objeto"
+        verbose_name_plural = "objetos"
         managed = False
         db_table = "objetos"
+        app_label = 'tfg_ps_app'
             
