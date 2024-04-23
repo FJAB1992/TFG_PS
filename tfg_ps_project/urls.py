@@ -26,6 +26,8 @@ urlpatterns = [
     path('', include('tfg_ps_app.urls',namespace='tfg_ps_app')),
 ]
 
+#CUIDAO
+
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
     

@@ -3,10 +3,8 @@
 
 ## Preparación del entorno
 
-  1. Crear un entorno virtual ``` python –m venv nombre_entorno```
-  ```bash
-  python –m venv nombre_entorno
-  ```
+  1. Crear un entorno virtual
+  ```python –m venv nombre_entorno```
 
   2. Abrir el proyecto
 
@@ -16,37 +14,27 @@
   ```
 
   4. Intalar Django ```pip install Django```, para una versión específica ```pip install Django==5.0.1```
-  ```bash
-  pip install Django
-  ```
+  ```pip install Django```
 
  5. Crear proyecto de Django ```django-admin startproject nombre_proyecto .```
 
 ### . No creará doble carpeta
 
-  ```bash
-  django-admin startproject nombre_proyecto .
-  ``` 
+  ```django-admin startproject nombre_proyecto . ``` 
 
   6. Ejecutar el proyecto Django
-  ```bash
-   python manage.py runserver
-  ``` 
+  ```python manage.py runserver``` 
 
 ## Crear aplicación 
 
-```bash
-python manage.py startapp nombre
-```
+```python manage.py startapp nombre```
 
 ## Base de datos
 
 ### Modificar en settings.py, base de datos
 
   1. Instalar cliente de Mysql
-  ```bash
-  pip install mysqlclient
-  ```
+  ```pip install mysqlclient```
 
   2. Configurar la cadena de conexión en settings.py
   ```python

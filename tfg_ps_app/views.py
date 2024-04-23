@@ -1,12 +1,13 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
-from django.contrib.auth import login
+from django.contrib.auth import login, authenticate
 from django.contrib.auth.views import LogoutView
 from django.urls import reverse_lazy
 from django.views.decorators.csrf import csrf_protect
 from django.views import generic
 from . import models
-
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 
 # Create your views here.
 def inicio(request):
@@ -15,32 +16,35 @@ def inicio(request):
 
 # REGISTRO, LOGIN Y LOGOUT DE DJANGO
 @csrf_protect
-def signup_view(request):
-    if request.method == "POST":
-        form = UserCreationForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect("login")
-    else:
-        form = UserCreationForm()
-    return render(request, "signup.html", {"form": form})
-
-
-@csrf_protect
 def login_view(request):
-    if request.method == "POST":
-        form = AuthenticationForm(request=request, data=request.POST)
+    if request.method == 'POST':
+        form = AuthenticationForm(request, data=request.POST)
         if form.is_valid():
             user = form.get_user()
             login(request, user)
-            return redirect("inicio")
+            return redirect("tfg_ps_app:tienda")
     else:
-        form = AuthenticationForm()
-    return render(request, "login.html", {"form": form})
+        form = AuthenticationForm(request)
 
+    return render(request, 'login.html', {'form': form})
+
+@csrf_protect
+def signup_view(request):
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect("tfg_ps_app:tienda")
+    else:
+        form = UserCreationForm()
+
+    return render(request, 'signup.html', {'form': form})
 
 class LogoutUsuario(LogoutView):
     next_page = reverse_lazy("inicio")
+
+
 
 
 # VISTAS DE JUGADORES
@@ -131,3 +135,26 @@ class BorrarInventarioView(generic.DeleteView):
     model = models.Inventario
     template_name = "tfg_ps_app/inventario_delete.html"
     success_url = reverse_lazy("inicio")
+
+
+def inventario_jugador(request):
+    # Suponiendo que tienes el id del jugador
+    jugador_id = request.user.id  # ID del jugador, esto debería ser dinámico
+
+    # Obtén el jugador
+    jugador = request.user
+
+    # Obtén el inventario del jugador
+    inventario = models.Inventario.objects.filter(
+        jugador_id=jugador_id
+    ).prefetch_related("objeto")
+
+    # Obtiene los tipos de objeto
+    tipos = models.Objetos.objects.values("tipo_objeto").distinct()
+
+    # Renderiza el template con el inventario del jugador
+    return render(
+        request,
+        "tienda.html",
+        {"inventario": inventario, "jugador": jugador, "tipos": tipos},
+    )

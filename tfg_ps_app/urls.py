@@ -26,5 +26,7 @@ urlpatterns = [
     path('inventario/crear/', views.CrearInventarioView.as_view(), name="inventario_crear"),
     path('inventario/editar/<int:pk>/', views.ActualizarInventarioView.as_view(), name="inventario_editar"),
     path('inventario/borrar/<int:pk>/', views.BorrarInventarioView.as_view(), name="inventario_borrar"),
+    # Vista de la tienda
+    path('tienda/', views.inventario_jugador, name="tienda"),
     
 ]
