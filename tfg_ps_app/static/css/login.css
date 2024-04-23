@@ -1,0 +1,170 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+.container {
+    margin-top: 50px;
+}
+
+.card {
+    width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #d1d1ff;
+
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+    }
+
+    .container {
+        margin-top: 50px;
+    }
+
+    .card {
+        width: 300px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #d1d1ff;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+        color: #4b0082;
+        text-align: center;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-control {
+        border: 1px solid #4b0082;
+        border-radius: 5px;
+    }
+
+    .form-control:focus {
+        border-color: #800080;
+        box-shadow: none;
+    }
+
+    .btn-primary {
+        background-color: #800080;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        font-size: 16px;
+        color: #fff;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn-primary:hover {
+        background-color: #4b0082;
+    }
+
+    .text-center {
+        text-align: center;
+    }
+
+    .btn-secondary {
+        background-color: #4b0082;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        font-size: 16px;
+        color: #fff;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn-secondary:hover {
+        background-color: #800080;
+    }
+
+    .link {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .link a {
+        text-decoration: none;
+        color: #4b0082;
+    }
+
+    .link a:hover {
+        color: #800080;
+    }
+
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #4b0082;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-control {
+    border: 1px solid #4b0082;
+    border-radius: 5px;
+}
+
+.form-control:focus {
+    border-color: #800080;
+    box-shadow: none;
+}
+
+.btn-primary {
+    background-color: #800080;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #4b0082;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.btn-secondary {
+    background-color: #4b0082;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background-color: #800080;
+}
+
+.link {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.link a {
+    text-decoration: none;
+    color: #4b0082;
+}
+
+.link a:hover {
+    color: #800080;
+}

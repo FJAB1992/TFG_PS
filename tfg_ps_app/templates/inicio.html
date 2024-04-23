@@ -2,11 +2,19 @@
 {% load static %}
 {% block titulo %} Inicio {% endblock %}
 {% block cabecera %} 
+<link rel="stylesheet" href="{% static 'css/inicio.css' %}">
 {% endblock %}
 
 {% block cuerpo %}
 
-<h1 class="text-center"> Welcome Stranger </h1>
-    
+<div class="container">
+    <div class="card">
+        <h1 class="text-center">Welcome Stranger</h1>
+        <div class="button-container">
+            <a href="{% url 'tfg_ps_app:login' %}" class="btn btn-primary btn-lg btn-block">Login</a>
+            <a href="{% url 'tfg_ps_app:signup' %}" class="btn btn-success btn-lg btn-block">SignUp</a>
+        </div>
+    </div>
+</div>
 
 {% endblock %}

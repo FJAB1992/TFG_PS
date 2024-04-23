@@ -1,8 +1,9 @@
 {% extends "base_tfg.html" %}
-
+{% load static %}
 {% block titulo %}Inicio de sesión{% endblock %}
-
-{% block cabecera %} {% endblock %}
+{% block cabecera %} 
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+{% endblock %}
 
 {% block cuerpo %}
 <div class="container mt-4">
@@ -12,6 +13,9 @@
         {{ form.as_p }}
         <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
     </form>
-    <p>¿No tienes una cuenta? <a href="{% url 'tfg_ps_app:signup' %}">Regístrate aquí</a></p>
+    <div class="link">
+        <p>¿No tienes una cuenta? <a href="{% url 'tfg_ps_app:signup' %}">Regístrate aquí</a></p>
+    </div>
 </div>
 {% endblock %}
+

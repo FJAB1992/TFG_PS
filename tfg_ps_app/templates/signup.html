@@ -1,6 +1,11 @@
 {% extends "base_tfg.html" %}
+{% load static %}
 
 {% block titulo %}Registro{% endblock %}
+
+{% block cabecera %} 
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+{% endblock %}
 
 {% block cuerpo %}
 <div class="container mt-4">
