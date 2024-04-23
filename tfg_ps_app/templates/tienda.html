@@ -3,7 +3,9 @@
 
 {% block titulo %}Tienda Online{% endblock %}
 
-{% block cabecera %} {% endblock %}
+{% block cabecera %}
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+{% endblock %}
 
 {% block cuerpo %}
 <h1>Inventario del {{ jugador.username }}</h1>
