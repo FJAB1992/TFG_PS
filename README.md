@@ -103,7 +103,7 @@ Tendrás que hacer lo siguiente MANUALMENTE para dejarlo limpio:
 * Asegurarte de que cada modelo tiene un campo con primary_key=True
 * Asegurarte de que cada ForeignKey y OneToOneField tiene `on_delete` ajustado al comportamiento que desees
 * Eliminar las líneas con  `managed=False` si quieres dejar que Django cree, modifique y borre la tabla
-* Renombra los modelos como gustes, pero NO renombres los valores de db_table o los campos de las tablas.# TFG_PS
+* Renombra los modelos como gustes, pero NO renombres los valores de db_table o los campos de las tablas.
 
 
 # Añadir gestión de imágenes a Django
