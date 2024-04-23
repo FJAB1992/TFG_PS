@@ -68,28 +68,17 @@ class Jugadores(models.Model):
     class Meta:
         managed = False
         db_table = "jugadores"
-
-
-# class Objetos(models.Model):
-#     nombre = models.CharField(max_length=50)
-#     descripcion = models.TextField(blank=True, null=True)
-#     precio = models.IntegerField()
-#     tipo_objeto = models.CharField(max_length=8, blank=True, null=True)
-#     imagen = models.TextField(blank=True, null=True)
-
-#     class Meta:
-#         managed = False
-#         db_table = "objetos"
-
-
-# Modelo de importacion para la base de datosy tratamiento de imagenes
+        
+        
 class Objetos(models.Model):
     nombre = models.CharField(max_length=50)
     descripcion = models.TextField(blank=True, null=True)
     precio = models.IntegerField()
     tipo_objeto = models.CharField(max_length=8, blank=True, null=True)
-    imagen = models.ImageField(upload_to="imagenes/", blank=True, null=True)
+    imagen = models.ImageField(upload_to="img/", blank=True, null=True)
+    extension = models.CharField(max_length=4, blank=True, null=True)
 
     class Meta:
         managed = False
         db_table = "objetos"
+            

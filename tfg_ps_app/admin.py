@@ -24,7 +24,8 @@ class ObjetosAdmin(admin.ModelAdmin):
             try:
                 # Si la imagen se almacena en la base de datos como bytes (MEDIUMBLOB)
                 with Image.open(BytesIO(obj.imagen)) as img:
-                    return format_html('<img src="data:image/jpeg;base64,{}" width="100" />', img)
+                    # Se utiliza el formato de la imagen en la URL
+                    return format_html('<img src="data:static/img/{};base64,{}" width="100" />', obj.extension, img)
             except Exception as e:
                 return "Error al mostrar la imagen"
         else:

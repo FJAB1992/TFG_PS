@@ -16,7 +16,8 @@ CREATE TABLE IF NOT EXISTS Objetos (
     descripcion TEXT,
     precio INT NOT NULL,
     tipo_objeto ENUM('Arma', 'Municion', 'Curacion', 'Armadura', 'Skin'),
-    imagen MEDIUMBLOB
+    imagen MEDIUMBLOB,
+    extension VARCHAR(4)
 );
 
 -- tabla de inventario
@@ -29,6 +30,7 @@ CREATE TABLE IF NOT EXISTS Inventario (
     FOREIGN KEY (objeto_id) REFERENCES Objetos(id),
     UNIQUE (jugador_id, objeto_id)
 );
+
 
 
 

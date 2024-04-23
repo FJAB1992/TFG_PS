@@ -18,8 +18,17 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from tfg_ps_app.views import inicio
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path('', include('tfg_ps_app.urls',namespace='tfg_ps_app')),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    
+# Esto se debe a que esta configuración se encarga de servir los archivos multimedia en el entorno de desarrollo (DEBUG=True). 
+# Cuando DEBUG está activado, Django sirve automáticamente los archivos estáticos y multimedia. Pero en producción, 
+# estos deben ser manejados por el servidor web, como Nginx o Apache.
