@@ -1,4 +1,5 @@
 {% extends "base_tfg.html" %}
+{% load static %}
 
 {% block titulo %}Cerrar sesión{% endblock %}
 
@@ -8,7 +9,7 @@
 <div class="container mt-4">
     <h2>Cerrar sesión</h2>
     <p>¿Estás seguro de que deseas cerrar sesión?</p>
-    <form action="{% url 'logout' %}" method="post">
+    <form action="{% url 'tfg_ps_app:logout' %}" method="post">
         {% csrf_token %}
         <button type="submit" class="btn btn-danger">Cerrar sesión</button>
     </form>

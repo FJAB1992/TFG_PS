@@ -12,11 +12,14 @@
         <form method="post" class="needs-validation justify-content-center" novalidate>
             {% csrf_token %}
             {{ form.as_p }}
-            <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+            <button type="submit" class="btn btn-primary mt-lg-5" style="width: 50%; margin: 0 auto; display: block;">Iniciar Sesión</button>
         </form>
         <div class="link">
             <p>¿No tienes una cuenta? <a href="{% url 'tfg_ps_app:signup' %}">Regístrate aquí</a></p>
         </div>
+    </div>
+    <div>
+        <a href="{% url 'tfg_ps_app:inicio' %}" class="btn btn-primary mt-lg-5" style="width: 50%; margin: 0 auto; display: block;">Inicio</a>
     </div>
 </div>
 {% endblock %}
