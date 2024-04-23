@@ -14,7 +14,9 @@
         <form method="post" class="needs-validation" novalidate>
             {% csrf_token %}
             {{ form.as_p }}
-            <button type="submit" class="btn btn-primary">Registrarse</button>
+            <div class="text-center m-lg-5">
+                <button type="submit" class="btn btn-primary">Registrarse</button>
+            </div>
         </form>
         <p>¿Tienes una cuenta? <a href="{% url 'tfg_ps_app:login' %}">Inicia sesión</a></p>
     </div>
