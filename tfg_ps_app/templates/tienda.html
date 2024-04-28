@@ -26,7 +26,7 @@
         <tr>
             <td colspan="6" style="background-color: lightgrey;"><strong>{{ tipo.tipo_objeto }}</strong></td>
         </tr>
-        {% for item in tipo.inventario_set.all %}
+        {% for item in tipo.inventario %}
         <tr>
             <td>{{ item.objeto.nombre }}</td>
             <td>{{ item.objeto.descripcion }}</td>
@@ -69,7 +69,7 @@
         <tr>
             <td colspan="6" style="background-color: lightgrey;"><strong>{{ tipo.tipo_objeto }}</strong></td>
         </tr>
-        {% for objeto in tipo.objetos_set.all %}
+        {% for objeto in tipo.objetos %}
         <tr>
             <td>{{ objeto.nombre }}</td>
             <td>{{ objeto.descripcion }}</td>
@@ -100,3 +100,4 @@
 </table>
 
 {% endblock %}
+

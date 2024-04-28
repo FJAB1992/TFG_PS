@@ -10,6 +10,7 @@ from . import models
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib import messages
+from django.views.decorators.http import require_POST
 
 
 # Create your views here.
@@ -140,6 +141,7 @@ class BorrarInventarioView(generic.DeleteView):
     success_url = reverse_lazy("inicio")
 
 
+@login_required
 def inventario_jugador(request):
     jugador_id = request.user.id
     try:
@@ -149,6 +151,7 @@ def inventario_jugador(request):
             jugador_id=jugador_id
         ).select_related("objeto")
         tipos = models.Objetos.objects.values("tipo_objeto").distinct()
+        print(inventario)  # Agrega esta línea para verificar el inventario
         return render(
             request,
             "tienda.html",
@@ -158,6 +161,7 @@ def inventario_jugador(request):
         return HttpResponseBadRequest("No se encontró al jugador.")
 
 
+@require_POST
 @csrf_protect
 def comprar_objeto(request, objeto_id):
     if request.method == "POST":
@@ -188,6 +192,7 @@ def comprar_objeto(request, objeto_id):
         return HttpResponseBadRequest("Método no permitido")
 
 
+@require_POST
 @csrf_protect
 def vender_objeto(request, inventario_id):
     if request.method == "POST":
