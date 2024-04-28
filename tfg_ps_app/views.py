@@ -7,6 +7,7 @@ from django.urls import reverse_lazy
 from django.views.decorators.csrf import csrf_protect
 from django.views import generic
 from . import models
+from .models import Jugadores
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib import messages
@@ -35,16 +36,16 @@ def login_view(request):
 
 @csrf_protect
 def signup_view(request):
-    if request.method == "POST":
+    if request.method == 'POST':
         form = UserCreationForm(request.POST)
         if form.is_valid():
             user = form.save()
+            jugador = Jugadores.objects.create(user=user)
             login(request, user)
-            return redirect("tfg_ps_app:tienda")
+            return redirect('tfg_ps_app:tienda')
     else:
         form = UserCreationForm()
-
-    return render(request, "signup.html", {"form": form})
+    return render(request, 'signup.html', {'form': form})
 
 
 class LogoutUsuario(LogoutView):
