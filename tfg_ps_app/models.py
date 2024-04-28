@@ -2,73 +2,23 @@ from django.contrib.auth.models import User
 from django.db import models
 
 
-# Create your models here.
-class AuthPermission(models.Model):
-    name = models.CharField(max_length=255)
-    content_type_id = models.IntegerField()
-    codename = models.CharField(max_length=100)
-
-    class Meta:
-        managed = False
-        db_table = "auth_permission"
-        unique_together = (("content_type_id", "codename"),)
-
-
-class AuthUser(models.Model):
-    password = models.CharField(max_length=128)
-    last_login = models.DateTimeField(blank=True, null=True)
-    is_superuser = models.IntegerField()
-    username = models.CharField(unique=True, max_length=150)
-    first_name = models.CharField(max_length=150)
-    last_name = models.CharField(max_length=150)
-    email = models.CharField(max_length=254)
-    is_staff = models.IntegerField()
-    is_active = models.IntegerField()
-    date_joined = models.DateTimeField()
-
-    class Meta:
-        managed = False
-        db_table = "auth_user"
-
-
-class AuthUserUserPermissions(models.Model):
-    id = models.BigAutoField(primary_key=True)
-    user_id = models.IntegerField()
-    permission_id = models.IntegerField()
-
-    class Meta:
-        managed = False
-        db_table = "auth_user_user_permissions"
-        unique_together = (("user_id", "permission_id"),)
-
-
-class DjangoSession(models.Model):
-    session_key = models.CharField(primary_key=True, max_length=40)
-    session_data = models.TextField()
-    expire_date = models.DateTimeField()
-
-    class Meta:
-        managed = False
-        db_table = "django_session"
-
-
 class Inventario(models.Model):
-    jugador_id = models.IntegerField(blank=True, null=True)
-    objeto_id = models.IntegerField(blank=True, null=True)
+    jugador = models.ForeignKey("Jugadores", on_delete=models.CASCADE)
+    objeto = models.ForeignKey("Objetos", on_delete=models.CASCADE)
     cantidad = models.IntegerField(blank=True, null=True)
 
     class Meta:
         verbose_name = "inventario"
         verbose_name_plural = "inventarios"
-        managed = False
         db_table = "inventario"
+        # La restricción unique_together asegura que no haya duplicados en la tabla de inventario.
         unique_together = (("jugador_id", "objeto_id"),)
-        app_label = 'tfg_ps_app'
+        app_label = "tfg_ps_app"
 
 
 class Jugadores(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    dinero = models.IntegerField(blank=True, null=True)
+    dinero = models.IntegerField(default=5000)  # Default value added
 
     def __str__(self):
         return self.user.username
@@ -76,23 +26,31 @@ class Jugadores(models.Model):
     class Meta:
         verbose_name = "jugador"
         verbose_name_plural = "jugadores"
-        managed = False
-        db_table = 'jugadores'
-        app_label = 'tfg_ps_app'
-        
-        
+        db_table = "jugadores"
+        app_label = "tfg_ps_app"
+
+
 class Objetos(models.Model):
     nombre = models.CharField(max_length=50)
     descripcion = models.TextField(blank=True, null=True)
     precio = models.IntegerField()
-    tipo_objeto = models.CharField(max_length=8, blank=True, null=True)
+    tipo_objeto = models.CharField(
+        max_length=8,
+        choices=[
+            ("Arma", "Arma"),
+            ("Municion", "Municion"),
+            ("Curacion", "Curacion"),
+            ("Armadura", "Armadura"),
+            ("Skin", "Skin"),
+        ],
+        blank=True,
+        null=True,
+    )  # Changed to choices
     imagen = models.ImageField(upload_to="img/", blank=True, null=True)
     extension = models.CharField(max_length=4, blank=True, null=True)
 
     class Meta:
         verbose_name = "objeto"
         verbose_name_plural = "objetos"
-        managed = False
         db_table = "objetos"
-        app_label = 'tfg_ps_app'
-            
+        app_label = "tfg_ps_app"

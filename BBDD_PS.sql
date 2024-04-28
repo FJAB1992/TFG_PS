@@ -74,4 +74,10 @@ INSERT INTO Inventario (jugador_id, objeto_id, cantidad) VALUES
 (4, 1, 2), (4, 4, 4), (4, 7, 1), (4, 10, 2),
 (5, 2, 2), (5, 5, 4), (5, 8, 2), (5, 11, 4);
 
+
+INSERT INTO Objetos (nombre, descripcion, precio, tipo_objeto, imagen, extension) VALUES
+('Skin de Leon S. Kennedy', 'Una skin que transforma el aspecto del personaje en Leon S. Kennedy, el protagonista de Resident Evil 2.', 800, 'Skin', NULL, NULL),
+('Skin de Jill Valentine', 'Una skin que cambia el aspecto del personaje en Jill Valentine, la heroína de Resident Evil 3.', 850, 'Skin', NULL, NULL),
+('Skin de Nemesis', 'Una skin que convierte al personaje en Nemesis, la temible criatura de Resident Evil 3.', 1000, 'Skin', NULL, NULL);
+
 */

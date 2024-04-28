@@ -1,3 +1,4 @@
+from django.http import HttpResponseBadRequest
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import login, authenticate
@@ -8,6 +9,8 @@ from django.views import generic
 from . import models
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from django.contrib import messages
+
 
 # Create your views here.
 def inicio(request):
@@ -17,7 +20,7 @@ def inicio(request):
 # REGISTRO, LOGIN Y LOGOUT DE DJANGO
 @csrf_protect
 def login_view(request):
-    if request.method == 'POST':
+    if request.method == "POST":
         form = AuthenticationForm(request, data=request.POST)
         if form.is_valid():
             user = form.get_user()
@@ -26,11 +29,12 @@ def login_view(request):
     else:
         form = AuthenticationForm(request)
 
-    return render(request, 'login.html', {'form': form})
+    return render(request, "login.html", {"form": form})
+
 
 @csrf_protect
 def signup_view(request):
-    if request.method == 'POST':
+    if request.method == "POST":
         form = UserCreationForm(request.POST)
         if form.is_valid():
             user = form.save()
@@ -39,12 +43,11 @@ def signup_view(request):
     else:
         form = UserCreationForm()
 
-    return render(request, 'signup.html', {'form': form})
+    return render(request, "signup.html", {"form": form})
+
 
 class LogoutUsuario(LogoutView):
     next_page = reverse_lazy("inicio")
-
-
 
 
 # VISTAS DE JUGADORES
@@ -138,23 +141,73 @@ class BorrarInventarioView(generic.DeleteView):
 
 
 def inventario_jugador(request):
-    # Suponiendo que tienes el id del jugador
-    jugador_id = request.user.id  # ID del jugador, esto debería ser dinámico
+    jugador_id = request.user.id
+    try:
+        jugador = models.Jugadores.objects.get(user_id=jugador_id)
+        # Obtiene el inventario del jugador y los tipos de objeto
+        inventario = models.Inventario.objects.filter(
+            jugador_id=jugador_id
+        ).select_related("objeto")
+        tipos = models.Objetos.objects.values("tipo_objeto").distinct()
+        return render(
+            request,
+            "tienda.html",
+            {"inventario": inventario, "jugador": jugador, "tipos": tipos},
+        )
+    except models.Jugadores.DoesNotExist:
+        return HttpResponseBadRequest("No se encontró al jugador.")
 
-    # Obtén el jugador
-    jugador = request.user
 
-    # Obtén el inventario del jugador
-    inventario = models.Inventario.objects.filter(
-        jugador_id=jugador_id
-    ).prefetch_related("objeto")
+@csrf_protect
+def comprar_objeto(request, objeto_id):
+    if request.method == "POST":
+        jugador_id = request.user.id
+        try:
+            jugador = models.Jugadores.objects.get(user_id=jugador_id)
+            objeto = models.Objetos.objects.get(id=objeto_id)
+            if jugador.dinero >= objeto.precio:
+                jugador.dinero -= objeto.precio
+                jugador.save()
+                inventario_objeto, created = models.Inventario.objects.get_or_create(
+                    jugador=jugador, objeto=objeto
+                )
+                if not created:
+                    inventario_objeto.cantidad += 1
+                    inventario_objeto.save()
+                messages.success(request, f"¡Has comprado {objeto.nombre}!")
+            else:
+                messages.error(
+                    request, "No tienes suficiente dinero para comprar este objeto."
+                )
+        except models.Objetos.DoesNotExist:
+            messages.error(request, "El objeto que intentas comprar no existe.")
+        except models.Jugadores.DoesNotExist:
+            return HttpResponseBadRequest("No se encontró al jugador.")
+        return redirect("tienda.html")
+    else:
+        return HttpResponseBadRequest("Método no permitido")
 
-    # Obtiene los tipos de objeto
-    tipos = models.Objetos.objects.values("tipo_objeto").distinct()
 
-    # Renderiza el template con el inventario del jugador
-    return render(
-        request,
-        "tienda.html",
-        {"inventario": inventario, "jugador": jugador, "tipos": tipos},
-    )
+@csrf_protect
+def vender_objeto(request, inventario_id):
+    if request.method == "POST":
+        jugador_id = request.user.id
+        try:
+            jugador = models.Jugadores.objects.get(user_id=jugador_id)
+            inventario_objeto = models.Inventario.objects.get(id=inventario_id)
+            objeto = inventario_objeto.objeto
+            jugador.dinero += objeto.precio
+            jugador.save()
+            if inventario_objeto.cantidad > 1:
+                inventario_objeto.cantidad -= 1
+                inventario_objeto.save()
+            else:
+                inventario_objeto.delete()
+            messages.success(request, f"¡Has vendido {objeto.nombre}!")
+        except models.Inventario.DoesNotExist:
+            messages.error(request, "El objeto que intentas vender no existe.")
+        except models.Jugadores.DoesNotExist:
+            return HttpResponseBadRequest("No se encontró al jugador.")
+        return redirect("tienda.html")
+    else:
+        return HttpResponseBadRequest("Método no permitido")
