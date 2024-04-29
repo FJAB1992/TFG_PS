@@ -12,6 +12,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.views.decorators.http import require_POST
+from django.http import JsonResponse
 
 
 # Create your views here.
@@ -31,7 +32,7 @@ def login_view(request):
     else:
         form = AuthenticationForm(request)
 
-    return render(request, "login.html", {"form": form})
+    return render(request, "login.html", {"form": form, "user": request.user})
 
 
 @csrf_protect
@@ -45,7 +46,7 @@ def signup_view(request):
             return redirect('tfg_ps_app:tienda')
     else:
         form = UserCreationForm()
-    return render(request, 'signup.html', {'form': form})
+    return render(request, 'signup.html', {'form': form, "user": request.user})
 
 
 class LogoutUsuario(LogoutView):
@@ -156,7 +157,7 @@ def inventario_jugador(request):
         return render(
             request,
             "tienda.html",
-            {"inventario": inventario, "jugador": jugador, "tipos": tipos},
+            {"inventario": inventario, "jugador": jugador, "tipos": tipos, "user": request.user},
         )
     except models.Jugadores.DoesNotExist:
         return HttpResponseBadRequest("No se encontró al jugador.")
@@ -164,6 +165,7 @@ def inventario_jugador(request):
 
 @require_POST
 @csrf_protect
+@login_required
 def comprar_objeto(request, objeto_id):
     if request.method == "POST":
         jugador_id = request.user.id
@@ -195,6 +197,7 @@ def comprar_objeto(request, objeto_id):
 
 @require_POST
 @csrf_protect
+@login_required
 def vender_objeto(request, inventario_id):
     if request.method == "POST":
         jugador_id = request.user.id
@@ -217,3 +220,9 @@ def vender_objeto(request, inventario_id):
         return redirect("tienda.html")
     else:
         return HttpResponseBadRequest("Método no permitido")
+
+def check_session_status(request):
+    if request.user.is_authenticated:
+        return JsonResponse({'logged_in': True})
+    else:
+        return JsonResponse({'logged_in': False})

@@ -30,5 +30,6 @@ urlpatterns = [
     path('tienda/', views.inventario_jugador, name="tienda"),
     path('vender_objeto/<int:inventario_id>/', views.vender_objeto, name='vender_objeto'),
     path('comprar_objeto/<int:inventario_id>/', views.comprar_objeto, name='comprar_objeto'),
-    
+    # Estado de la sesión
+    path('check_session_status/', views.check_session_status, name='check_session_status'),
 ]
