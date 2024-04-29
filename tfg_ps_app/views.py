@@ -49,7 +49,7 @@ def signup_view(request):
 
 
 class LogoutUsuario(LogoutView):
-    next_page = reverse_lazy("inicio")
+    next_page = reverse_lazy("tfg_ps_app:inicio")
 
 
 # VISTAS DE JUGADORES

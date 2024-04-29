@@ -1,0 +1,6 @@
+# Deshabilitar la caché para ciertas URL, en Servidor apache, ya que usamos WAMP, pues nos viene genial
+<FilesMatch "^(inicio|login|logout)/">
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+    Header set Pragma "no-cache"
+    Header set Expires 0
+</FilesMatch>

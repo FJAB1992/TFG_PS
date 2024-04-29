@@ -14,4 +14,10 @@
         <button type="submit" class="btn btn-danger">Cerrar sesión</button>
     </form>
 </div>
+
+
+<form action="{% url 'tfg_ps_app:logout' %}" method="post">
+    {% csrf_token %}
+    <button type="submit">Cerrar sesión</button>
+</form>
 {% endblock %}

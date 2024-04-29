@@ -8,6 +8,14 @@
 {% endblock %}
 
 {% block cuerpo %}
+<div class="container mt-4">
+    <h2>Cerrar sesión</h2>
+    <form action="{% url 'tfg_ps_app:logout' %}" method="post">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Cerrar sesión</button>
+    </form>
+</div>
+
 <h1>Inventario de {{ jugador.user.username }}</h1>
 <h1>Dinero: {{ jugador.dinero }}</h1>
 <table class="table table-striped">
