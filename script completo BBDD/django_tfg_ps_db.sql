@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 28-04-2024 a las 17:52:04
+-- Tiempo de generación: 29-04-2024 a las 19:16:26
 -- Versión del servidor: 8.0.31
 -- Versión de PHP: 8.0.26
 
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `django_tfg_ps_db`
 --
+CREATE DATABASE IF NOT EXISTS `django_tfg_ps_db` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
+USE `django_tfg_ps_db`;
 
 -- --------------------------------------------------------
 
@@ -158,7 +160,7 @@ INSERT INTO `auth_user` (`id`, `password`, `last_login`, `is_superuser`, `userna
 (1, 'pbkdf2_sha256$720000$3Hj8anaqdugzAhZ5WFfXjH$SAXFBA8UJff3IIMC/IqEdAfEVP7I2eHK854y7Q/G+HE=', '2024-04-28 13:15:15.570899', 1, 'curro', '', '', '', 1, 1, '2024-04-23 17:34:30.059575'),
 (2, 'pbkdf2_sha256$720000$xTBBJ1RCISmO92ocu5mTpG$qnOsF1vVNrucRnfG8liApmq1CEYkZscqRaDabg02zi0=', NULL, 0, 'paco', '', '', '', 0, 1, '2024-04-23 17:35:59.940919'),
 (3, 'pbkdf2_sha256$720000$ik1vnUd4WHCgdDVxw4PGoL$HCActxksXPcxoLWYlP1vQYVuNMzvHHh1+6jNcSdZf20=', '2024-04-23 18:15:14.920457', 0, 'raul', '', '', '', 0, 1, '2024-04-23 17:42:26.285962'),
-(4, 'pbkdf2_sha256$720000$Fp4iA7FzvgKFZS25wPUhzi$MH8hAfV20IKOp0/comXVSy1PHf1uVt8yszrAZP1WNLA=', '2024-04-28 17:48:36.604486', 0, 'luca', '', '', '', 0, 1, '2024-04-23 18:25:47.142396'),
+(4, 'pbkdf2_sha256$720000$Fp4iA7FzvgKFZS25wPUhzi$MH8hAfV20IKOp0/comXVSy1PHf1uVt8yszrAZP1WNLA=', '2024-04-29 19:14:25.679992', 0, 'luca', '', '', '', 0, 1, '2024-04-23 18:25:47.142396'),
 (5, 'pbkdf2_sha256$720000$W8ZyZ9KMTODfvYL9iyouaj$a6Hq7hL3fwkLOBCROcEa6nNC8B7Qx4lIevL1E8brUE0=', '2024-04-23 19:36:08.894727', 0, 'dani', '', '', '', 0, 1, '2024-04-23 19:33:07.697818'),
 (6, 'pbkdf2_sha256$720000$Th2b8burMU5tRdfdlQjVg5$OaX1lwubpS1qj+bHwbVK/UqL8QQc/bYqwCHREI9Avxc=', '2024-04-28 13:37:12.475358', 0, 'rucci', '', '', '', 0, 1, '2024-04-28 13:35:37.255620'),
 (7, 'pbkdf2_sha256$720000$036EBXvXF7jA5stKcXsDRW$+EOfiYeD9npGk+7ziyeNpK4kNfiplCE/ZncIXuAxKTQ=', '2024-04-28 13:52:26.456977', 0, 'pollo', '', '', '', 0, 1, '2024-04-28 13:51:02.154687');
@@ -216,7 +218,7 @@ CREATE TABLE IF NOT EXISTS `django_admin_log` (
   PRIMARY KEY (`id`),
   KEY `django_admin_log_content_type_id_c4bce8eb` (`content_type_id`),
   KEY `django_admin_log_user_id_c564eba6` (`user_id`)
-) ;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Volcado de datos para la tabla `django_admin_log`
@@ -321,7 +323,7 @@ CREATE TABLE IF NOT EXISTS `django_session` (
 INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
 ('7k4azihrn8t14bqj8sn2d85hig3tlxnx', 'e30:1rzK3C:Snml49GcF7ooKsRrxv7hHThdJTArnDyvIwag3tCZgug', '2024-05-07 17:35:26.820523'),
 ('evzto2q7qbtipmxs0f79wem3f49vjg39', '.eJxVjDsOwjAQBe_iGlm2499S0nMGazdecADZUpxUiLuTSCmgfTPz3iLhupS0dp7TlMVZWHH63QjHJ9cd5AfWe5Njq8s8kdwVedAury3z63K4fwcFe9lqr1B5RqQxOPBg7GCzIcNMNxu0hsFpUAxOI7PzAASWfLQhmrg1JorPF9fiN1Y:1s14Cg:StetKoHukJ46sE9T71g4fWlGVt3dXKqtHRpx1CChkYo', '2024-05-12 13:04:26.354552'),
-('e0vv1gdv99r8lp2uuxmrpe8bzv3zyog3', '.eJxVjDsOwjAQBe_iGlm2499S0nMGazdecADZUpxUiLuTSCmgfTPz3iLhupS0dp7TlMVZWHH63QjHJ9cd5AfWe5Njq8s8kdwVedAury3z63K4fwcFe9lqr1B5RqQxOPBg7GCzIcNMNxu0hsFpUAxOI7PzAASWfLQhmrg1JorPF9fiN1Y:1s18dg:WTfy8kYRo7BkbuL0Jv1POg4FbdKg4Cyda33RXmKsQFc', '2024-05-12 17:48:36.605487');
+('e0vv1gdv99r8lp2uuxmrpe8bzv3zyog3', '.eJxVjDsOwjAQBe_iGlm2499S0nMGazdecADZUpxUiLuTSCmgfTPz3iLhupS0dp7TlMVZWHH63QjHJ9cd5AfWe5Njq8s8kdwVedAury3z63K4fwcFe9lqr1B5RqQxOPBg7GCzIcNMNxu0hsFpUAxOI7PzAASWfLQhmrg1JorPF9fiN1Y:1s1WSH:vvOnpAAecsj1UEVjJNv7LAenLGqVkLRBv36Fbrf5CII', '2024-05-13 19:14:25.681000');
 
 -- --------------------------------------------------------
 
