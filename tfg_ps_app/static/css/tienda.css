@@ -1,0 +1,15 @@
+/* Estilos para la página de tienda */
+aside {
+    float: right;
+    width: 30%;
+}
+
+.container {
+    width: 70%; /* Ajusta el ancho del contenedor principal */
+    float: left; /* Asegura que el contenedor principal no se superponga con el aside */
+}
+
+/* Estilos para el botón de cerrar sesión */
+#cerrar-sesion-btn {
+    float: right;
+}

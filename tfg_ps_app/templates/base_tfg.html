@@ -22,7 +22,6 @@
     {% endblock %}
     {% if user.is_authenticated %}
         <div class="container mt-4">
-            <h2>Cerrar sesión</h2>
             <form action="{% url 'tfg_ps_app:logout' %}" method="post">
                 {% csrf_token %}
                 <button id="logout-button" type="submit" class="btn btn-danger">Cerrar sesión</button>
