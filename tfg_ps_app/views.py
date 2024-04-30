@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.views import LogoutView
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse 
 from django.views.decorators.csrf import csrf_protect
 from django.views import generic
 from . import models
@@ -13,6 +13,7 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from django.views.decorators.http import require_POST
 from django.http import JsonResponse
+from collections import defaultdict
 
 
 # Create your views here.
@@ -162,6 +163,27 @@ def inventario_jugador(request):
     except models.Jugadores.DoesNotExist:
         return HttpResponseBadRequest("No se encontró al jugador.")
 
+# @login_required
+# def inventario_jugador(request):
+#     jugador_id = request.user.id
+#     try:
+#         jugador = models.Jugadores.objects.get(user_id=jugador_id)
+#         # Obtiene el inventario del jugador y los tipos de objeto
+#         inventario = models.Inventario.objects.filter(jugador_id=jugador_id).select_related("objeto")
+#         tipos = defaultdict(list)
+
+#         for item in inventario:
+#             tipos[item.objeto.tipo_objeto].append(item)
+
+#         return render(
+#             request,
+#             "tienda.html",
+#             {"inventario": inventario, "jugador": jugador, "tipos": tipos, "user": request.user},
+#         )
+#     except models.Jugadores.DoesNotExist:
+#         return HttpResponseBadRequest("No se encontró al jugador.")
+
+
 
 @require_POST
 @csrf_protect
@@ -190,7 +212,7 @@ def comprar_objeto(request, objeto_id):
             messages.error(request, "El objeto que intentas comprar no existe.")
         except models.Jugadores.DoesNotExist:
             return HttpResponseBadRequest("No se encontró al jugador.")
-        return redirect("tienda.html")
+        return redirect("tienda")
     else:
         return HttpResponseBadRequest("Método no permitido")
 
@@ -217,10 +239,11 @@ def vender_objeto(request, inventario_id):
             messages.error(request, "El objeto que intentas vender no existe.")
         except models.Jugadores.DoesNotExist:
             return HttpResponseBadRequest("No se encontró al jugador.")
-        return redirect("tienda.html")
+        return redirect("tienda")
     else:
         return HttpResponseBadRequest("Método no permitido")
 
+#Verifica si un usuario está autenticado y devuelve un JSON con el estado de la sesión.
 def check_session_status(request):
     if request.user.is_authenticated:
         return JsonResponse({'logged_in': True})

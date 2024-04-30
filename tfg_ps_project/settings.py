@@ -54,7 +54,7 @@ MIDDLEWARE = [
 # Configuración de cookies
 SESSION_COOKIE_SECURE = True  # Para usar cookies seguras (solo HTTPS)
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True  # Expirar sesión al cerrar el navegador
-SESSION_COOKIE_AGE = 300  # Tiempo de vida de la sesión en segundos 
+SESSION_COOKIE_AGE = 3600  # Tiempo de vida de la sesión en segundos 
 
 ROOT_URLCONF = 'tfg_ps_project.urls'
 
