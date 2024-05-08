@@ -11,94 +11,96 @@
 <div class="container mt-4">
     <h1>Inventario de {{ jugador.user.username }}</h1>
     <h1>Dinero: {{ jugador.dinero }}</h1>
-    <table class="text-center table table-striped">
-        <thead>
-            <tr>
-                <th>Nombre</th>
-                <th>Descripción</th>
-                <th>Precio</th>
-                <th>Tipo</th>
-                <th>Imagen</th>
-                <th>Acción</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for tipo in tipos %}
-            <tr>
-                <td colspan="6" style="background-color: lightgrey;"><strong>{{ tipo.tipo_objeto }}</strong></td>
-            </tr>
-            {% for item in tipo.inventario %}
-            <tr>
-                <td>{{ item.objeto.nombre }}</td>
-                <td>{{ item.objeto.descripcion }}</td>
-                <td>{{ item.objeto.precio }}</td>
-                <td>{{ item.objeto.tipo_objeto }}</td>
-                <td>
-                    {% if item.objeto.imagen %}
-                    <img src="{{ item.objeto.imagen.url }}" alt="{{ item.objeto.nombre }}" width="100">
-                    {% else %}
-                    No imagen disponible
-                    {% endif %}
-                </td>
-                <td>
-                    <!-- Botón para vender objeto -->
-                    <form action="{% url 'vender_objeto' item.id %}" method="post">
-                        {% csrf_token %}
-                        <button type="submit" class="btn btn-danger">Vender</button>
-                    </form>
-                </td>
-            </tr>
-            {% endfor %}
-            {% endfor %}
-        </tbody>
-    </table>
+    <div class="table-responsive">
+        <table class="table table-primary">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                    <th>Precio</th>
+                    <th>Tipo</th>
+                    <th>Imagen</th>
+                    <th>Acción</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for tipo in tipos %}
+                <tr>
+                    <td colspan="6" style="background-color: lightgrey;"><strong>{{ tipo.tipo_objeto }}</strong></td>
+                </tr>
+                {% for item in tipo.inventario %}
+                <tr>
+                    <td>{{ item.objeto.nombre }}</td>
+                    <td>{{ item.objeto.descripcion }}</td>
+                    <td>{{ item.objeto.precio }}</td>
+                    <td>{{ item.objeto.tipo_objeto }}</td>
+                    <td>
+                        {% if item.objeto.imagen %}
+                        <img src="{{ item.objeto.imagen.url }}" alt="{{ item.objeto.nombre }}" width="100">
+                        {% else %}
+                        No imagen disponible
+                        {% endif %}
+                    </td>
+                    <td>
+                        <!-- Botón para vender objeto -->
+                        <form action="{% url 'vender_objeto' item.id %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-danger">Vender</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
     <br/>
     <h1 class="text-center">Tienda</h1>
     <div class="table-responsive">
-    <table class="table table-primary">
-        <thead>
-            <tr>
-                <th scope="col" >Nombre</th>
-                <th scope="col">Descripción</th>
-                <th scope="col">Precio</th>
-                <th scope="col">Tipo</th>
-                <th scope="col">Imagen</th>
-                <th scope="col">Acción</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for tipo in tipos %}
-            <tr>
-                <td colspan="6" style="background-color: lightgrey;"><strong>{{ tipo.tipo_objeto }}</strong></td>
-            </tr>
-            {% for objeto in object_list %}
-            <tr>
-                <td>{{ objeto.nombre }}</td>
-                <td>{{ objeto.descripcion }}</td>
-                <td>{{ objeto.precio }}</td>
-                <td>{{ objeto.tipo_objeto }}</td>
-                <td>
-                    {% if objeto.imagen %}
-                    <img src="{{ objeto.imagen.url }}" alt="{{ objeto.nombre }}" width="100">
-                    {% else %}
-                    No imagen disponible
-                    {% endif %}
-                </td>
-                <td>
-                    {% if jugador.dinero >= objeto.precio %}
-                    <!-- Botón para comprar objeto -->
-                    <form action="{% url 'comprar_objeto' objeto.id %}" method="post">
-                        {% csrf_token %}
-                        <button type="submit" class="btn btn-success">Comprar</button>
-                    </form>
-                    {% else %}
-                    <span class="text-danger">No tienes suficiente dinero</span>
-                    {% endif %}
-                </td>
-            </tr>
-            {% endfor %}
-            {% endfor %}
-        </tbody>
-    </table>
-</div>
+        <table class="table table-primary">
+            <thead>
+                <tr>
+                    <th scope="col" >Nombre</th>
+                    <th scope="col">Descripción</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Tipo</th>
+                    <th scope="col">Imagen</th>
+                    <th scope="col">Acción</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for tipo in tipos %}
+                <tr>
+                    <td colspan="6" style="background-color: lightgrey;"><strong>{{ tipo.tipo_objeto }}</strong></td>
+                </tr>
+                {% for objeto in object_list %}
+                <tr>
+                    <td>{{ objeto.nombre }}</td>
+                    <td>{{ objeto.descripcion }}</td>
+                    <td>{{ objeto.precio }}</td>
+                    <td>{{ objeto.tipo_objeto }}</td>
+                    <td>
+                        {% if objeto.imagen %}
+                        <img src="{{ objeto.imagen.url }}" alt="{{ objeto.nombre }}" width="100">
+                        {% else %}
+                        No imagen disponible
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if jugador.dinero >= objeto.precio %}
+                        <!-- Botón para comprar objeto -->
+                        <form action="{% url 'comprar_objeto' objeto.id %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-success">Comprar</button>
+                        </form>
+                        {% else %}
+                        <span class="text-danger">No tienes suficiente dinero</span>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 {% endblock %}
