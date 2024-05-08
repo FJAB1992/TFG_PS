@@ -145,43 +145,24 @@ class BorrarInventarioView(generic.DeleteView):
 
 
 @login_required
-def inventario_jugador(request):
+def tienda(request):
     jugador_id = request.user.id
     try:
         jugador = models.Jugadores.objects.get(user_id=jugador_id)
-        # Obtiene el inventario del jugador y los tipos de objeto
-        inventario = models.Inventario.objects.filter(
-            jugador_id=jugador_id
-        ).select_related("objeto")
+        # Obtiene el inventario del jugador
+        inventario_jugador = models.Inventario.objects.filter(jugador_id=jugador_id).select_related("objeto")
+        # Obtiene todos los objetos disponibles en la tienda
+        objetos_tienda = models.Objetos.objects.all()
         tipos = models.Objetos.objects.values("tipo_objeto").distinct()
-        print(inventario)  # Agrega esta línea para verificar el inventario
+        print(inventario_jugador)  # Agrega esta línea para verificar el inventario del jugador
+        print(objetos_tienda)  # Agrega esta línea para verificar los objetos disponibles en la tienda
         return render(
             request,
             "tienda.html",
-            {"inventario": inventario, "jugador": jugador, "tipos": tipos, "user": request.user},
+            {"inventario_jugador": inventario_jugador, "objetos_tienda": objetos_tienda, "jugador": jugador, "tipos": tipos, "user": request.user},
         )
     except models.Jugadores.DoesNotExist:
         return HttpResponseBadRequest("No se encontró al jugador.")
-
-# @login_required
-# def inventario_jugador(request):
-#     jugador_id = request.user.id
-#     try:
-#         jugador = models.Jugadores.objects.get(user_id=jugador_id)
-#         # Obtiene el inventario del jugador y los tipos de objeto
-#         inventario = models.Inventario.objects.filter(jugador_id=jugador_id).select_related("objeto")
-#         tipos = defaultdict(list)
-
-#         for item in inventario:
-#             tipos[item.objeto.tipo_objeto].append(item)
-
-#         return render(
-#             request,
-#             "tienda.html",
-#             {"inventario": inventario, "jugador": jugador, "tipos": tipos, "user": request.user},
-#         )
-#     except models.Jugadores.DoesNotExist:
-#         return HttpResponseBadRequest("No se encontró al jugador.")
 
 
 

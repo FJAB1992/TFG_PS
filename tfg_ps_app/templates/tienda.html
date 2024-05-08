@@ -4,7 +4,7 @@
 {% block titulo %}Tienda Online{% endblock %}
 
 {% block cabecera %}
-<link rel="stylesheet" href="{% static 'css/tienda.css' %}"> <!-- Cambiado a tienda.css -->
+<link rel="stylesheet" href="{% static 'css/tienda.css' %}">
 {% endblock %}
 
 {% block cuerpo %}
@@ -24,7 +24,7 @@
                 </tr>
             </thead>
             <tbody>
-                {% for item in inventario %}
+                {% for item in inventario_jugador %}
                 <tr>
                     <td>{{ item.objeto.nombre }}</td>
                     <td>{{ item.objeto.descripcion }}</td>
@@ -40,7 +40,7 @@
                     <td>
                         <!-- Botón para vender objeto -->
                         {% comment %} <form action="{% url 'vender_objeto' item.id %}" method="post">
-                            {% csrf_token %}  {% endcomment %}
+                            {% csrf_token %} {% endcomment %}
                             <button type="submit" class="btn btn-danger">Vender</button>
                         {% comment %} </form> {% endcomment %}
                     </td>
@@ -64,9 +64,12 @@
                 </tr>
             </thead>
             <tbody>
-                {% for objeto in objetos %}
+                {% for objeto in objetos_tienda %}
                 <tr>
-                    <td>{{ objeto.nombre }}</td>
+                    <td>
+                        {% comment %} <a href="{% url 'tfg_ps_app:objetos' objetos.pk %}">  {% endcomment %}
+                            {{ objeto.nombre }}
+                    </td>
                     <td>{{ objeto.descripcion }}</td>
                     <td>{{ objeto.precio }}</td>
                     <td>{{ objeto.tipo_objeto }}</td>
@@ -78,15 +81,15 @@
                         {% endif %}
                     </td>
                     <td>
-                        {% if jugador.dinero >= objeto.precio %}
+                        {% comment %} {% if jugador.dinero >= objeto.precio %}
                         <!-- Botón para comprar objeto -->
                         <form action="{% url 'comprar_objeto' objeto.id %}" method="post">
-                            {% csrf_token %}
+                            {% csrf_token %} {% endcomment %}
                             <button type="submit" class="btn btn-success">Comprar</button>
-                        </form>
+                        {% comment %} </form>
                         {% else %}
                         <span class="text-danger">No tienes suficiente dinero</span>
-                        {% endif %}
+                        {% endif %} {% endcomment %}
                     </td>
                 </tr>
                 {% endfor %}
