@@ -1,0 +1,27 @@
+{% extends "base_tfg.html" %}
+{% load static %}
+
+{% block titulo %}Detalle Objeto{% endblock %}
+
+{% block cabecera %}
+<link rel="stylesheet" href="{% static 'css/detalle_objeto.css' %}">
+{% endblock %}
+
+{% block cuerpo %}
+<div class="container mt-4">
+    <h1>Detalle del Objeto</h1>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Nombre: {{ objeto.nombre }}</h5>
+            <p class="card-text">Descripción: {{ objeto.descripcion }}</p>
+            <p class="card-text">Precio: {{ objeto.precio }}</p>
+            <p class="card-text">Tipo: {{ objeto.tipo_objeto }}</p>
+            {% if objeto.imagen %}
+            <img src="{{ objeto.imagen.url }}" alt="{{ objeto.nombre }}" class="img-fluid">
+            {% else %}
+            <p>No hay imagen disponible.</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
