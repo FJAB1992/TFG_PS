@@ -2,6 +2,7 @@ from django.urls import path
 from .views import login_view, signup_view, LogoutUsuario, inicio
 from django.contrib.auth.views import LogoutView
 from . import views
+from .views import DetalleObjetoView
 from django.contrib.auth.decorators import login_required
 
 
@@ -19,7 +20,8 @@ urlpatterns = [
     path("jugadores/editar/<int:pk>/", views.ActualizarJugadorView.as_view(), name="jugadores_editar"),
     path("jugadores/borrar/<int:pk>/", views.BorrarJugadorView.as_view(), name="jugadores_borrar"),
     # Vistas de Objetos
-    path('objetos/', views.DetalleObjetosView.as_view(), name="objetos"),
+    path('objetos/<int:pk>/', views.DetalleObjetoView.as_view(), name='detalle_objeto'),
+    # path('objetos/', views.DetalleObjetosView.as_view(), name="objetos"),
     path('objetos/crear/', views.CrearObjetoView.as_view(), name="objetos_crear"),
     path('objetos/editar/<int:pk>/', views.ActualizarObjetoView.as_view(), name="objetos_editar"),
     path('objetos/borrar/<int:pk>/', views.BorrarObjetoView.as_view(), name="objetos_borrar"),

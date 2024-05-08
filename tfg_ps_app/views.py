@@ -7,7 +7,7 @@ from django.urls import reverse_lazy, reverse
 from django.views.decorators.csrf import csrf_protect
 from django.views import generic
 from . import models
-from .models import Jugadores
+from .models import Jugadores,Objetos,Inventario
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib import messages
@@ -85,10 +85,10 @@ class BorrarJugadorView(generic.DeleteView):
 
 
 # VISTAS DE OBJETOS
-class DetalleObjetosView(generic.ListView):
-    model = models.Objetos
-    template_name = "tfg_ps_app/objeto_list.html"
-    context_object_name = "objetos"
+class DetalleObjetoView(generic.DetailView):
+    model = Objetos
+    template_name = 'tfg_ps_app/objeto_detalle.html'  # Nombre del template de detalle de objeto
+    context_object_name = 'objeto'  # Nombre del objeto en el contexto del template
 
     def get_queryset(self):
         return models.Objetos.objects.all()

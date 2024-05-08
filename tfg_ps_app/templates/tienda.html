@@ -26,7 +26,11 @@
             <tbody>
                 {% for item in inventario_jugador %}
                 <tr>
-                    <td>{{ item.objeto.nombre }}</td>
+                    <td>
+                        <form action="{% url 'tfg_ps_app:detalle_objeto' item.objeto.pk %}" method="get">
+                            <button type="submit" class="btn btn-secondary">{{ item.objeto.nombre }}</button>
+                        </form>
+                    </td>
                     <td>{{ item.objeto.descripcion }}</td>
                     <td>{{ item.objeto.precio }}</td>
                     <td>{{ item.objeto.tipo_objeto }}</td>
@@ -67,8 +71,11 @@
                 {% for objeto in objetos_tienda %}
                 <tr>
                     <td>
-                        {% comment %} <a href="{% url 'tfg_ps_app:objetos' objetos.pk %}">  {% endcomment %}
-                            {{ objeto.nombre }}
+                        {% comment %} <a href="{% url 'tfg_ps_app:detalle_objeto' objeto.pk %}">
+                            {{ objeto.nombre }} {% endcomment %}
+                        <form action="{% url 'tfg_ps_app:detalle_objeto' objeto.pk %}" method="get">
+                            <button type="submit" class="btn btn-secondary">{{ objeto.nombre }}</button>
+                        </form>
                     </td>
                     <td>{{ objeto.descripcion }}</td>
                     <td>{{ objeto.precio }}</td>
