@@ -22,7 +22,9 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path("admin/", admin.site.urls),
+    #Panel de administración
+    # path('admin/', admin.site.urls),
+    path('tfg_ps_admin/', admin.site.urls),
     path('', include('tfg_ps_app.urls',namespace='tfg_ps_app')),
 ]
 

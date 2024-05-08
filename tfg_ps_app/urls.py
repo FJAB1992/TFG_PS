@@ -5,7 +5,6 @@ from . import views
 from .views import DetalleObjetoView
 from django.contrib.auth.decorators import login_required
 
-
 app_name = "tfg_ps_app"
 
 urlpatterns = [

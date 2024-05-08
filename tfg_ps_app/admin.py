@@ -4,7 +4,10 @@ from django.utils.html import format_html
 from PIL import Image
 from io import BytesIO
 
-# Register your models here.
+admin.site.site_header = "Administración - TFG" 
+
+
+
 
 class JugadoresAdmin(admin.ModelAdmin):
     list_display = ("dinero",)
