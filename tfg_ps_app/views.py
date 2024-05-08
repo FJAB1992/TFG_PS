@@ -242,6 +242,8 @@ def vender_objeto(request, inventario_id):
         return redirect("tienda")
     else:
         return HttpResponseBadRequest("Método no permitido")
+    
+    
 
 #Verifica si un usuario está autenticado y devuelve un JSON con el estado de la sesión.
 def check_session_status(request):

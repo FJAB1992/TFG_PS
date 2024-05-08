@@ -2,6 +2,8 @@ from django.urls import path
 from .views import login_view, signup_view, LogoutUsuario, inicio
 from django.contrib.auth.views import LogoutView
 from . import views
+from django.contrib.auth.decorators import login_required
+
 
 app_name = "tfg_ps_app"
 
@@ -27,9 +29,9 @@ urlpatterns = [
     path('inventario/editar/<int:pk>/', views.ActualizarInventarioView.as_view(), name="inventario_editar"),
     path('inventario/borrar/<int:pk>/', views.BorrarInventarioView.as_view(), name="inventario_borrar"),
     # Vista de la tienda
-    path('tienda/', views.inventario_jugador, name="tienda"),
-    path('vender_objeto/<int:inventario_id>/', views.vender_objeto, name='vender_objeto'),
-    path('comprar_objeto/<int:inventario_id>/', views.comprar_objeto, name='comprar_objeto'),
+    path('tienda/', login_required(views.inventario_jugador), name="tienda"),
+    path('vender_objeto/<int:inventario_id>/', login_required(views.vender_objeto), name='vender_objeto'),
+    path('comprar_objeto/<int:inventario_id>/', login_required(views.comprar_objeto), name='comprar_objeto'),
     # Estado de la sesión
     path('check_session_status/', views.check_session_status, name='check_session_status'),
 ]

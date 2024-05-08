@@ -24,11 +24,7 @@
                 </tr>
             </thead>
             <tbody>
-                {% for tipo in tipos %}
-                <tr>
-                    <td colspan="6" style="background-color: lightgrey;"><strong>{{ tipo.tipo_objeto }}</strong></td>
-                </tr>
-                {% for item in tipo.inventario %}
+                {% for item in inventario %}
                 <tr>
                     <td>{{ item.objeto.nombre }}</td>
                     <td>{{ item.objeto.descripcion }}</td>
@@ -43,13 +39,12 @@
                     </td>
                     <td>
                         <!-- Botón para vender objeto -->
-                        <form action="{% url 'vender_objeto' item.id %}" method="post">
-                            {% csrf_token %}
+                        {% comment %} <form action="{% url 'vender_objeto' item.id %}" method="post">
+                            {% csrf_token %}  {% endcomment %}
                             <button type="submit" class="btn btn-danger">Vender</button>
-                        </form>
+                        {% comment %} </form> {% endcomment %}
                     </td>
                 </tr>
-                {% endfor %}
                 {% endfor %}
             </tbody>
         </table>
@@ -60,7 +55,7 @@
         <table class="table table-primary">
             <thead>
                 <tr>
-                    <th scope="col" >Nombre</th>
+                    <th scope="col">Nombre</th>
                     <th scope="col">Descripción</th>
                     <th scope="col">Precio</th>
                     <th scope="col">Tipo</th>
@@ -69,11 +64,7 @@
                 </tr>
             </thead>
             <tbody>
-                {% for tipo in tipos %}
-                <tr>
-                    <td colspan="6" style="background-color: lightgrey;"><strong>{{ tipo.tipo_objeto }}</strong></td>
-                </tr>
-                {% for objeto in object_list %}
+                {% for objeto in objetos %}
                 <tr>
                     <td>{{ objeto.nombre }}</td>
                     <td>{{ objeto.descripcion }}</td>
@@ -99,8 +90,9 @@
                     </td>
                 </tr>
                 {% endfor %}
-                {% endfor %}
             </tbody>
         </table>
     </div>
+</div>
 {% endblock %}
+
