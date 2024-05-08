@@ -11,7 +11,7 @@
 <div class="container mt-4">
     <h1>Inventario de {{ jugador.user.username }}</h1>
     <h1>Dinero: {{ jugador.dinero }}</h1>
-    <table class="table table-striped">
+    <table class="text-center table table-striped">
         <thead>
             <tr>
                 <th>Nombre</th>
@@ -53,16 +53,17 @@
         </tbody>
     </table>
     <br/>
-    <h1>Objetos Disponibles para Comprar</h1>
-    <table class="table table-striped">
+    <h1 class="text-center">Tienda</h1>
+    <div class="table-responsive">
+    <table class="table table-primary">
         <thead>
             <tr>
-                <th>Nombre</th>
-                <th>Descripción</th>
-                <th>Precio</th>
-                <th>Tipo</th>
-                <th>Imagen</th>
-                <th>Acción</th>
+                <th scope="col" >Nombre</th>
+                <th scope="col">Descripción</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Tipo</th>
+                <th scope="col">Imagen</th>
+                <th scope="col">Acción</th>
             </tr>
         </thead>
         <tbody>
@@ -70,7 +71,7 @@
             <tr>
                 <td colspan="6" style="background-color: lightgrey;"><strong>{{ tipo.tipo_objeto }}</strong></td>
             </tr>
-            {% for objeto in tipo.objetos %}
+            {% for objeto in object_list %}
             <tr>
                 <td>{{ objeto.nombre }}</td>
                 <td>{{ objeto.descripcion }}</td>
@@ -99,4 +100,5 @@
             {% endfor %}
         </tbody>
     </table>
+</div>
 {% endblock %}
