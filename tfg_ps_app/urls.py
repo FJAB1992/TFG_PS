@@ -33,7 +33,7 @@ urlpatterns = [
     # path('tienda/', login_required(views.inventario_jugador), name="tienda"),
     path('tienda/', login_required(views.tienda), name="tienda"),
     path('vender_objeto/<int:inventario_id>/', login_required(views.vender_objeto), name='vender_objeto'),
-    path('comprar_objeto/<int:inventario_id>/', login_required(views.comprar_objeto), name='comprar_objeto'),
+    path('comprar_objeto/<int:objeto_id>/', login_required(views.comprar_objeto), name='comprar_objeto'),
     # Estado de la sesión
     path('check_session_status/', views.check_session_status, name='check_session_status'),
 ]

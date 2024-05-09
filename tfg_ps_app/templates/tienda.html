@@ -88,15 +88,14 @@
                         {% endif %}
                     </td>
                     <td>
-                        {% comment %} {% if jugador.dinero >= objeto.precio %}
-                        <!-- Botón para comprar objeto -->
-                        <form action="{% url 'comprar_objeto' objeto.id %}" method="post">
-                            {% csrf_token %} {% endcomment %}
+                        {% if jugador.dinero >= objeto.precio %}
+                        {% comment %} <form action="{% url 'comprar_objeto' objeto.id %}" method="post">
+                            {% csrf_token %}
                             <button type="submit" class="btn btn-success">Comprar</button>
-                        {% comment %} </form>
+                        </form> {% endcomment %}
                         {% else %}
                         <span class="text-danger">No tienes suficiente dinero</span>
-                        {% endif %} {% endcomment %}
+                        {% endif %}
                     </td>
                 </tr>
                 {% endfor %}

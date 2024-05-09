@@ -3,11 +3,11 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.views import LogoutView
-from django.urls import reverse_lazy, reverse 
+from django.urls import reverse_lazy, reverse
 from django.views.decorators.csrf import csrf_protect
 from django.views import generic
 from . import models
-from .models import Jugadores,Objetos,Inventario
+from .models import Jugadores, Objetos, Inventario
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib import messages
@@ -38,16 +38,16 @@ def login_view(request):
 
 @csrf_protect
 def signup_view(request):
-    if request.method == 'POST':
+    if request.method == "POST":
         form = UserCreationForm(request.POST)
         if form.is_valid():
             user = form.save()
             jugador = Jugadores.objects.create(user=user)
             login(request, user)
-            return redirect('tfg_ps_app:tienda')
+            return redirect("tfg_ps_app:tienda")
     else:
         form = UserCreationForm()
-    return render(request, 'signup.html', {'form': form, "user": request.user})
+    return render(request, "signup.html", {"form": form, "user": request.user})
 
 
 class LogoutUsuario(LogoutView):
@@ -87,8 +87,10 @@ class BorrarJugadorView(generic.DeleteView):
 # VISTAS DE OBJETOS
 class DetalleObjetoView(generic.DetailView):
     model = Objetos
-    template_name = 'tfg_ps_app/detalle_objeto.html'  # Nombre del template de detalle de objeto
-    context_object_name = 'objeto'  # Nombre del objeto en el contexto del template
+    template_name = (
+        "tfg_ps_app/detalle_objeto.html"  # Nombre del template de detalle de objeto
+    )
+    context_object_name = "objeto"  # Nombre del objeto en el contexto del template
 
     def get_queryset(self):
         return models.Objetos.objects.all()
@@ -150,21 +152,31 @@ def tienda(request):
     try:
         jugador = models.Jugadores.objects.get(user_id=jugador_id)
         # Obtiene el inventario del jugador
-        inventario_jugador = models.Inventario.objects.filter(jugador_id=jugador_id).select_related("objeto")
+        inventario_jugador = models.Inventario.objects.filter(
+            jugador_id=jugador_id
+        ).select_related("objeto")
         # Obtiene todos los objetos disponibles en la tienda
         objetos_tienda = models.Objetos.objects.all()
         tipos = models.Objetos.objects.values("tipo_objeto").distinct()
-        print(inventario_jugador)  # Agrega esta línea para verificar el inventario del jugador
-        print(objetos_tienda)  # Agrega esta línea para verificar los objetos disponibles en la tienda
+        print(
+            inventario_jugador
+        )  # Agrega esta línea para verificar el inventario del jugador
+        print(
+            objetos_tienda
+        )  # Agrega esta línea para verificar los objetos disponibles en la tienda
         return render(
             request,
             "tienda.html",
-            {"inventario_jugador": inventario_jugador, "objetos_tienda": objetos_tienda, "jugador": jugador, "tipos": tipos, "user": request.user},
+            {
+                "inventario_jugador": inventario_jugador,
+                "objetos_tienda": objetos_tienda,
+                "jugador": jugador,
+                "tipos": tipos,
+                "user": request.user,
+            },
         )
     except models.Jugadores.DoesNotExist:
         return HttpResponseBadRequest("No se encontró al jugador.")
-
-
 
 @require_POST
 @csrf_protect
@@ -174,7 +186,7 @@ def comprar_objeto(request, objeto_id):
         jugador_id = request.user.id
         try:
             jugador = models.Jugadores.objects.get(user_id=jugador_id)
-            objeto = models.Objetos.objects.get(id=objeto_id)
+            objeto = Objeto.objects.get(id=objeto_id)
             if jugador.dinero >= objeto.precio:
                 jugador.dinero -= objeto.precio
                 jugador.save()
@@ -223,12 +235,11 @@ def vender_objeto(request, inventario_id):
         return redirect("tienda")
     else:
         return HttpResponseBadRequest("Método no permitido")
-    
-    
 
-#Verifica si un usuario está autenticado y devuelve un JSON con el estado de la sesión.
+
+# Verifica si un usuario está autenticado y devuelve un JSON con el estado de la sesión.
 def check_session_status(request):
     if request.user.is_authenticated:
-        return JsonResponse({'logged_in': True})
+        return JsonResponse({"logged_in": True})
     else:
-        return JsonResponse({'logged_in': False})
+        return JsonResponse({"logged_in": False})
