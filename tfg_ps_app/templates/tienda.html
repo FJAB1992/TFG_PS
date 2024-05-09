@@ -90,9 +90,9 @@
                     <td>
                         {% if jugador.dinero >= objeto.precio %}
                         {% comment %} <form action="{% url 'comprar_objeto' objeto.id %}" method="post">
-                            {% csrf_token %}
+                            {% csrf_token %}{% endcomment %}
                             <button type="submit" class="btn btn-success">Comprar</button>
-                        </form> {% endcomment %}
+                        {% comment %}</form> {% endcomment %}
                         {% else %}
                         <span class="text-danger">No tienes suficiente dinero</span>
                         {% endif %}
