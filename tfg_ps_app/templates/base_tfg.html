@@ -57,16 +57,13 @@
     </footer>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            fetch('/check_session_status/')
-                .then(response => response.json())
-                .then(data => {
+            fetch('/check_session_status/').then(response => response.json()).then(data => {
                     if (data.logged_in) {
                         document.getElementById('logout-button').style.display = 'block';
                     } else {
                         document.getElementById('logout-button').style.display = 'none';
                     }
-                })
-                .catch(error => {
+                }).catch(error => {
                     console.error('Error al verificar el estado de la sesión:', error);
                 });
         });
