@@ -16,6 +16,7 @@ from django.http import JsonResponse
 from collections import defaultdict
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
+
 # Create your views here.
 def inicio(request):
     return render(request, "inicio.html")
@@ -88,9 +89,7 @@ class BorrarJugadorView(generic.DeleteView):
 # VISTAS DE OBJETOS
 class DetalleObjetoView(generic.DetailView):
     model = Objetos
-    template_name = (
-        "detalle_objeto.html"  # Nombre del template de detalle de objeto
-    )
+    template_name = "detalle_objeto.html"  # Nombre del template de detalle de objeto
     context_object_name = "objeto"  # Nombre del objeto en el contexto del template
 
     def get_queryset(self):
@@ -146,25 +145,44 @@ class BorrarInventarioView(generic.DeleteView):
     template_name = "tfg_ps_app/inventario_delete.html"
     success_url = reverse_lazy("inicio")
 
+
 # @login_required
 # def tienda(request):
 #     jugador_id = request.user.id
 #     try:
 #         jugador = models.Jugadores.objects.get(user_id=jugador_id)
-#         inventario_jugador = models.Inventario.objects.filter(jugador=jugador).select_related("objeto")
-        
-#         objetos_tienda_list = models.Objetos.objects.all()
-#         tipos = models.Objetos.objects.values("tipo_objeto").distinct()
 
-#         paginator = Paginator(objetos_tienda_list, 5)  # 5 objetos por página
-#         page = request.GET.get('page')
+#         # Inventario del jugador con paginación
+#         inventario_jugador_list = models.Inventario.objects.filter(
+#             jugador=jugador
+#         ).select_related("objeto")
+#         inventario_paginator = Paginator(
+#             inventario_jugador_list, 5
+#         )  # 5 items por página
+#         inventario_page = request.GET.get("inventario_page")
 
 #         try:
-#             objetos_tienda = paginator.page(page)
+#             inventario_jugador = inventario_paginator.page(inventario_page)
 #         except PageNotAnInteger:
-#             objetos_tienda = paginator.page(1)
+#             inventario_jugador = inventario_paginator.page(1)
 #         except EmptyPage:
-#             objetos_tienda = paginator.page(paginator.num_pages)
+#             inventario_jugador = inventario_paginator.page(
+#                 inventario_paginator.num_pages
+#             )
+
+#         # Objetos de la tienda con paginación
+#         objetos_tienda_list = models.Objetos.objects.all()
+#         tienda_paginator = Paginator(objetos_tienda_list, 5)  # 5 items por página
+#         tienda_page = request.GET.get("tienda_page")
+
+#         try:
+#             objetos_tienda = tienda_paginator.page(tienda_page)
+#         except PageNotAnInteger:
+#             objetos_tienda = tienda_paginator.page(1)
+#         except EmptyPage:
+#             objetos_tienda = tienda_paginator.page(tienda_paginator.num_pages)
+
+#         tipos = models.Objetos.objects.values("tipo_objeto").distinct()
 
 #         return render(
 #             request,
@@ -183,12 +201,14 @@ class BorrarInventarioView(generic.DeleteView):
 @login_required
 def tienda(request):
     jugador_id = request.user.id
+    query = request.GET.get('q', '')  # Obtener el parámetro de búsqueda
+
     try:
         jugador = models.Jugadores.objects.get(user_id=jugador_id)
         
         # Inventario del jugador con paginación
         inventario_jugador_list = models.Inventario.objects.filter(jugador=jugador).select_related("objeto")
-        inventario_paginator = Paginator(inventario_jugador_list, 5)  # 5 items por página
+        inventario_paginator = Paginator(inventario_jugador_list, 5)  # 10 items por página
         inventario_page = request.GET.get('inventario_page')
 
         try:
@@ -198,9 +218,9 @@ def tienda(request):
         except EmptyPage:
             inventario_jugador = inventario_paginator.page(inventario_paginator.num_pages)
         
-        # Objetos de la tienda con paginación
-        objetos_tienda_list = models.Objetos.objects.all()
-        tienda_paginator = Paginator(objetos_tienda_list, 5)  # 5 items por página
+        # Filtrar objetos de la tienda por nombre
+        objetos_tienda_list = models.Objetos.objects.filter(nombre__icontains=query) if query else models.Objetos.objects.all()
+        tienda_paginator = Paginator(objetos_tienda_list, 5)  # 10 items por página
         tienda_page = request.GET.get('tienda_page')
 
         try:
@@ -221,11 +241,11 @@ def tienda(request):
                 "jugador": jugador,
                 "tipos": tipos,
                 "user": request.user,
+                "query": query  # Pasar el query de búsqueda al contexto
             },
         )
     except models.Jugadores.DoesNotExist:
         return HttpResponseBadRequest("No se encontró al jugador.")
-
 
 @require_POST
 @login_required

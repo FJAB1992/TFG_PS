@@ -76,6 +76,12 @@
     <br/>
     <h1 class="text-center">Tienda</h1>
 
+    <!-- Formulario de búsqueda -->
+    <form method="GET" action="{% url 'tfg_ps_app:tienda' %}" class="form-inline mb-4">
+        <input type="text" name="q" class="form-control mr-sm-2" placeholder="Buscar por nombre" value="{{ query }}">
+        <button type="submit" class="btn btn-primary">Buscar</button>
+    </form>
+
     <!-- Paginación -->
     <div class="pagination">
         <span class="step-links">
