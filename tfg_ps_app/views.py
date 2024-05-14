@@ -146,6 +146,38 @@ class BorrarInventarioView(generic.DeleteView):
     success_url = reverse_lazy("inicio")
 
 
+# @login_required
+# def tienda(request):
+#     jugador_id = request.user.id
+#     try:
+#         jugador = models.Jugadores.objects.get(user_id=jugador_id)
+#         # Obtiene el inventario del jugador
+#         inventario_jugador = models.Inventario.objects.filter(
+#             jugador_id=jugador_id
+#         ).select_related("objeto")
+#         # Obtiene todos los objetos disponibles en la tienda
+#         objetos_tienda = models.Objetos.objects.all()
+#         tipos = models.Objetos.objects.values("tipo_objeto").distinct()
+#         print(
+#             inventario_jugador
+#         )  # Agrega esta línea para verificar el inventario del jugador
+#         print(
+#             objetos_tienda
+#         )  # Agrega esta línea para verificar los objetos disponibles en la tienda
+#         return render(
+#             request,
+#             "tienda.html",
+#             {
+#                 "inventario_jugador": inventario_jugador,
+#                 "objetos_tienda": objetos_tienda,
+#                 "jugador": jugador,
+#                 "tipos": tipos,
+#                 "user": request.user,
+#             },
+#         )
+#     except models.Jugadores.DoesNotExist:
+#         return HttpResponseBadRequest("No se encontró al jugador.")
+
 @login_required
 def tienda(request):
     jugador_id = request.user.id
@@ -153,17 +185,11 @@ def tienda(request):
         jugador = models.Jugadores.objects.get(user_id=jugador_id)
         # Obtiene el inventario del jugador
         inventario_jugador = models.Inventario.objects.filter(
-            jugador_id=jugador_id
+            jugador=jugador
         ).select_related("objeto")
         # Obtiene todos los objetos disponibles en la tienda
         objetos_tienda = models.Objetos.objects.all()
         tipos = models.Objetos.objects.values("tipo_objeto").distinct()
-        print(
-            inventario_jugador
-        )  # Agrega esta línea para verificar el inventario del jugador
-        print(
-            objetos_tienda
-        )  # Agrega esta línea para verificar los objetos disponibles en la tienda
         return render(
             request,
             "tienda.html",
@@ -179,6 +205,37 @@ def tienda(request):
         return HttpResponseBadRequest("No se encontró al jugador.")
 
 
+
+# @require_POST
+# @login_required
+# def comprar_objeto(request, objeto_id):
+#     jugador_id = request.user.id
+#     try:
+#         jugador = Jugadores.objects.get(user_id=jugador_id)
+#         objeto = Objetos.objects.get(id=objeto_id)
+#         if jugador.dinero >= objeto.precio:
+#             jugador.dinero -= objeto.precio
+#             jugador.save()
+#             # Obtener el inventario del jugador para el objeto dado
+#             inventario_objeto = Inventario.objects.filter(jugador=jugador, objeto=objeto).first()
+#             # Verificar si ya tiene este objeto en el inventario
+#             if inventario_objeto:
+#                 inventario_objeto.cantidad += 1
+#             else:
+#                 # Si el jugador no tiene este objeto en el inventario, crear uno nuevo
+#                 inventario_objeto = Inventario.objects.create(jugador=jugador, objeto=objeto, cantidad=1)
+#             inventario_objeto.save()
+#             messages.success(request, f"¡Has comprado {objeto.nombre}!")
+#         else:
+#             messages.error(
+#                 request, "No tienes suficiente dinero para comprar este objeto."
+#             )
+#     except Objetos.DoesNotExist:
+#         messages.error(request, "El objeto que intentas comprar no existe.")
+#     except Jugadores.DoesNotExist:
+#         return HttpResponseBadRequest("No se encontró al jugador.")
+#     return redirect("tfg_ps_app:tienda")
+
 @require_POST
 @login_required
 def comprar_objeto(request, objeto_id):
@@ -190,24 +247,25 @@ def comprar_objeto(request, objeto_id):
             jugador.dinero -= objeto.precio
             jugador.save()
             # Obtener el inventario del jugador para el objeto dado
-            inventario_objeto = Inventario.objects.filter(jugador=jugador, objeto=objeto).first()
-            # Verificar si ya tiene este objeto en el inventario
-            if inventario_objeto:
+            inventario_objeto, created = Inventario.objects.get_or_create(jugador=jugador, objeto=objeto)
+            # Incrementar la cantidad si ya existe
+            if not created:
                 inventario_objeto.cantidad += 1
             else:
-                # Si el jugador no tiene este objeto en el inventario, crear uno nuevo
-                inventario_objeto = Inventario.objects.create(jugador=jugador, objeto=objeto, cantidad=1)
+                # Si es un nuevo objeto en el inventario, inicializar la cantidad a 1
+                inventario_objeto.cantidad = 1
             inventario_objeto.save()
             messages.success(request, f"¡Has comprado {objeto.nombre}!")
         else:
-            messages.error(
-                request, "No tienes suficiente dinero para comprar este objeto."
-            )
+            messages.error(request, "No tienes suficiente dinero para comprar este objeto.")
     except Objetos.DoesNotExist:
         messages.error(request, "El objeto que intentas comprar no existe.")
     except Jugadores.DoesNotExist:
         return HttpResponseBadRequest("No se encontró al jugador.")
     return redirect("tfg_ps_app:tienda")
+
+
+
 @require_POST
 @login_required
 def vender_objeto(request, inventario_id):
