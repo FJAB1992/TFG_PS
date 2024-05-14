@@ -16,8 +16,8 @@
     <div class="pagination">
         <span class="step-links">
             {% if inventario_jugador.has_previous %}
-                <a href="?inventario_page=1">&laquo; primero</a>
-                <a href="?inventario_page={{ inventario_jugador.previous_page_number }}">anterior</a>
+                <a href="?inventario_page=1{% if query %}&q={{ query }}{% endif %}">&laquo; primero</a>
+                <a href="?inventario_page={{ inventario_jugador.previous_page_number }}{% if query %}&q={{ query }}{% endif %}">anterior</a>
             {% endif %}
 
             <span class="current">
@@ -25,8 +25,8 @@
             </span>
 
             {% if inventario_jugador.has_next %}
-                <a href="?inventario_page={{ inventario_jugador.next_page_number }}">siguiente</a>
-                <a href="?inventario_page={{ inventario_jugador.paginator.num_pages }}">último &raquo;</a>
+                <a href="?inventario_page={{ inventario_jugador.next_page_number }}{% if query %}&q={{ query }}{% endif %}">siguiente</a>
+                <a href="?inventario_page={{ inventario_jugador.paginator.num_pages }}{% if query %}&q={{ query }}{% endif %}">último &raquo;</a>
             {% endif %}
         </span>
     </div>
@@ -86,15 +86,15 @@
     <div class="pagination">
         <span class="step-links">
             {% if objetos_tienda.has_previous %}
-                <a href="?page=1">&laquo; primero</a>
-                <a href="?page={{ objetos_tienda.previous_page_number }}">anterior</a>
+                <a href="?tienda_page=1{% if query %}&q={{ query }}{% endif %}">&laquo; primero</a>
+                <a href="?tienda_page={{ objetos_tienda.previous_page_number }}{% if query %}&q={{ query }}{% endif %}">anterior</a>
             {% endif %}
             <span class="current">
                 Página {{ objetos_tienda.number }} de {{ objetos_tienda.paginator.num_pages }}.
             </span>
             {% if objetos_tienda.has_next %}
-                <a href="?page={{ objetos_tienda.next_page_number }}">siguiente</a>
-                <a href="?page={{ objetos_tienda.paginator.num_pages }}">último &raquo;</a>
+                <a href="?tienda_page={{ objetos_tienda.next_page_number }}{% if query %}&q={{ query }}{% endif %}">siguiente</a>
+                <a href="?tienda_page={{ objetos_tienda.paginator.num_pages }}{% if query %}&q={{ query }}{% endif %}">último &raquo;</a>
             {% endif %}
         </span>
     </div>

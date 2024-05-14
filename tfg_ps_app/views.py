@@ -208,7 +208,7 @@ def tienda(request):
         
         # Inventario del jugador con paginación
         inventario_jugador_list = models.Inventario.objects.filter(jugador=jugador).select_related("objeto")
-        inventario_paginator = Paginator(inventario_jugador_list, 5)  # 10 items por página
+        inventario_paginator = Paginator(inventario_jugador_list, 5)
         inventario_page = request.GET.get('inventario_page')
 
         try:
@@ -220,7 +220,7 @@ def tienda(request):
         
         # Filtrar objetos de la tienda por nombre
         objetos_tienda_list = models.Objetos.objects.filter(nombre__icontains=query) if query else models.Objetos.objects.all()
-        tienda_paginator = Paginator(objetos_tienda_list, 5)  # 10 items por página
+        tienda_paginator = Paginator(objetos_tienda_list, 5)
         tienda_page = request.GET.get('tienda_page')
 
         try:
