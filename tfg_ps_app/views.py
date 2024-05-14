@@ -188,7 +188,7 @@ def tienda(request):
         
         # Inventario del jugador con paginación
         inventario_jugador_list = models.Inventario.objects.filter(jugador=jugador).select_related("objeto")
-        inventario_paginator = Paginator(inventario_jugador_list, 10)  # 10 items por página
+        inventario_paginator = Paginator(inventario_jugador_list, 5)  # 5 items por página
         inventario_page = request.GET.get('inventario_page')
 
         try:
