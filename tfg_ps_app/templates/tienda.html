@@ -20,7 +20,7 @@
                     <th>Precio</th>
                     <th>Tipo</th>
                     <th>Imagen</th>
-                    <th>Cantidad</th> <!-- Nueva columna para cantidad -->
+                    <th>Cantidad</th>
                     <th>Acción</th>
                 </tr>
             </thead>
@@ -42,9 +42,8 @@
                         No imagen disponible
                         {% endif %}
                     </td>
-                    <td>{{ item.cantidad }}</td> <!-- Mostrar cantidad -->
+                    <td>{{ item.cantidad }}</td>
                     <td>
-                        <!-- Botón para vender objeto -->
                         <form action="{% url 'tfg_ps_app:vender_objeto' item.id %}" method="post">
                             {% csrf_token %}
                             <button type="submit" class="btn btn-danger">Vender</button>

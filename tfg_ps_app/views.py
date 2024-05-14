@@ -89,7 +89,7 @@ class BorrarJugadorView(generic.DeleteView):
 class DetalleObjetoView(generic.DetailView):
     model = Objetos
     template_name = (
-        "tfg_ps_app/detalle_objeto.html"  # Nombre del template de detalle de objeto
+        "detalle_objeto.html"  # Nombre del template de detalle de objeto
     )
     context_object_name = "objeto"  # Nombre del objeto en el contexto del template
 
