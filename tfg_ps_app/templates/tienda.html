@@ -11,6 +11,25 @@
 <div class="container mt-4 mb-5">
     <h1>Inventario de {{ jugador.user.username }}</h1>
     <h1>Dinero: {{ jugador.dinero }}</h1>
+
+    <!-- Paginación del inventario -->
+    <div class="pagination">
+        <span class="step-links">
+            {% if inventario_jugador.has_previous %}
+                <a href="?inventario_page=1">&laquo; primero</a>
+                <a href="?inventario_page={{ inventario_jugador.previous_page_number }}">anterior</a>
+            {% endif %}
+
+            <span class="current">
+                Página {{ inventario_jugador.number }} de {{ inventario_jugador.paginator.num_pages }}.
+            </span>
+
+            {% if inventario_jugador.has_next %}
+                <a href="?inventario_page={{ inventario_jugador.next_page_number }}">siguiente</a>
+                <a href="?inventario_page={{ inventario_jugador.paginator.num_pages }}">último &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
     <div class="table-responsive">
         <table class="table table-primary">
             <thead>
@@ -56,6 +75,24 @@
     </div>
     <br/>
     <h1 class="text-center">Tienda</h1>
+
+    <!-- Paginación -->
+    <div class="pagination">
+        <span class="step-links">
+            {% if objetos_tienda.has_previous %}
+                <a href="?page=1">&laquo; primero</a>
+                <a href="?page={{ objetos_tienda.previous_page_number }}">anterior</a>
+            {% endif %}
+            <span class="current">
+                Página {{ objetos_tienda.number }} de {{ objetos_tienda.paginator.num_pages }}.
+            </span>
+            {% if objetos_tienda.has_next %}
+                <a href="?page={{ objetos_tienda.next_page_number }}">siguiente</a>
+                <a href="?page={{ objetos_tienda.paginator.num_pages }}">último &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+
     <div class="table-responsive">
         <table class="table table-primary">
             <thead>
@@ -88,10 +125,10 @@
                     </td>
                     <td>
                         {% if jugador.dinero >= objeto.precio %}
-                       <form action="{% url 'tfg_ps_app:comprar_objeto' objeto.id %}" method="post">
+                        <form action="{% url 'tfg_ps_app:comprar_objeto' objeto.id %}" method="post">
                             {% csrf_token %}
                             <button type="submit" class="btn btn-success">Comprar</button>
-                        </form> 
+                        </form>
                         {% else %}
                         <span class="text-danger">No tienes suficiente dinero</span>
                         {% endif %}
