@@ -43,10 +43,10 @@
                     </td>
                     <td>
                         <!-- Botón para vender objeto -->
-                        {% comment %} <form action="{% url 'vender_objeto' item.id %}" method="post">
-                            {% csrf_token %} {% endcomment %}
+                        <form action="{% url 'tfg_ps_app:vender_objeto' item.id %}" method="post">
+                            {% csrf_token %}
                             <button type="submit" class="btn btn-danger">Vender</button>
-                        {% comment %} </form> {% endcomment %}
+                        </form>
                     </td>
                 </tr>
                 {% endfor %}
@@ -71,8 +71,6 @@
                 {% for objeto in objetos_tienda %}
                 <tr>
                     <td>
-                        {% comment %} <a href="{% url 'tfg_ps_app:detalle_objeto' objeto.pk %}">
-                            {{ objeto.nombre }} {% endcomment %}
                         <form action="{% url 'tfg_ps_app:detalle_objeto' objeto.pk %}" method="get">
                             <button type="submit" class="btn btn-secondary">{{ objeto.nombre }}</button>
                         </form>
@@ -89,10 +87,10 @@
                     </td>
                     <td>
                         {% if jugador.dinero >= objeto.precio %}
-                        {% comment %} <form action="{% url 'comprar_objeto' objeto.id %}" method="post">
-                            {% csrf_token %}{% endcomment %}
+                       <form action="{% url 'tfg_ps_app:comprar_objeto' objeto.id %}" method="post">
+                            {% csrf_token %}
                             <button type="submit" class="btn btn-success">Comprar</button>
-                        {% comment %}</form> {% endcomment %}
+                        </form> 
                         {% else %}
                         <span class="text-danger">No tienes suficiente dinero</span>
                         {% endif %}
@@ -104,4 +102,3 @@
     </div>
 </div>
 {% endblock %}
-

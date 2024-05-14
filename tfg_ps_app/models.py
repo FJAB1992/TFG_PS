@@ -18,7 +18,7 @@ class Inventario(models.Model):
 
 class Jugadores(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    dinero = models.IntegerField(default=5000)  # Default value added
+    dinero = models.IntegerField(default=5000)  # Valor por defecto, el jugador inicia con 5000 ptas
 
     def __str__(self):
         return self.user.username
@@ -45,7 +45,7 @@ class Objetos(models.Model):
         ],
         blank=True,
         null=True,
-    )  # Changed to choices
+    )
     imagen = models.ImageField(upload_to="img/", blank=True, null=True)
     extension = models.CharField(max_length=4, blank=True, null=True)
 
