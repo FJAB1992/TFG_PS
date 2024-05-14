@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 29-04-2024 a las 19:16:26
+-- Tiempo de generación: 14-05-2024 a las 10:38:27
 -- Versión del servidor: 8.0.31
 -- Versión de PHP: 8.0.26
 
@@ -22,7 +22,6 @@ SET time_zone = "+00:00";
 --
 CREATE DATABASE IF NOT EXISTS `django_tfg_ps_db` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
 USE `django_tfg_ps_db`;
-
 -- --------------------------------------------------------
 
 --
@@ -157,13 +156,10 @@ CREATE TABLE IF NOT EXISTS `auth_user` (
 --
 
 INSERT INTO `auth_user` (`id`, `password`, `last_login`, `is_superuser`, `username`, `first_name`, `last_name`, `email`, `is_staff`, `is_active`, `date_joined`) VALUES
-(1, 'pbkdf2_sha256$720000$3Hj8anaqdugzAhZ5WFfXjH$SAXFBA8UJff3IIMC/IqEdAfEVP7I2eHK854y7Q/G+HE=', '2024-04-28 13:15:15.570899', 1, 'curro', '', '', '', 1, 1, '2024-04-23 17:34:30.059575'),
-(2, 'pbkdf2_sha256$720000$xTBBJ1RCISmO92ocu5mTpG$qnOsF1vVNrucRnfG8liApmq1CEYkZscqRaDabg02zi0=', '2024-04-23 18:15:14.920441', 0, 'paco', '', '', '', 0, 1, '2024-04-23 17:35:59.940919'),
-(3, 'pbkdf2_sha256$720000$ik1vnUd4WHCgdDVxw4PGoL$HCActxksXPcxoLWYlP1vQYVuNMzvHHh1+6jNcSdZf20=', '2024-04-23 18:15:14.920457', 0, 'raul', '', '', '', 0, 1, '2024-04-23 17:42:26.285962'),
-(4, 'pbkdf2_sha256$720000$Fp4iA7FzvgKFZS25wPUhzi$MH8hAfV20IKOp0/comXVSy1PHf1uVt8yszrAZP1WNLA=', '2024-04-29 19:14:25.679992', 0, 'luca', '', '', '', 0, 1, '2024-04-23 18:25:47.142396'),
-(5, 'pbkdf2_sha256$720000$W8ZyZ9KMTODfvYL9iyouaj$a6Hq7hL3fwkLOBCROcEa6nNC8B7Qx4lIevL1E8brUE0=', '2024-04-23 19:36:08.894727', 0, 'dani', '', '', '', 0, 1, '2024-04-23 19:33:07.697818'),
-(6, 'pbkdf2_sha256$720000$Th2b8burMU5tRdfdlQjVg5$OaX1lwubpS1qj+bHwbVK/UqL8QQc/bYqwCHREI9Avxc=', '2024-04-28 13:37:12.475358', 0, 'rucci', '', '', '', 0, 1, '2024-04-28 13:35:37.255620'),
-(7, 'pbkdf2_sha256$720000$036EBXvXF7jA5stKcXsDRW$+EOfiYeD9npGk+7ziyeNpK4kNfiplCE/ZncIXuAxKTQ=', '2024-04-28 13:52:26.456977', 0, 'pollo', '', '', '', 0, 1, '2024-04-28 13:51:02.154687');
+(1, 'pbkdf2_sha256$720000$3Hj8anaqdugzAhZ5WFfXjH$SAXFBA8UJff3IIMC/IqEdAfEVP7I2eHK854y7Q/G+HE=', '2024-05-14 10:36:24.941539', 1, 'curro', '', '', '', 1, 1, '2024-04-23 17:34:30.059575'),
+(2, 'pbkdf2_sha256$720000$ik1vnUd4WHCgdDVxw4PGoL$HCActxksXPcxoLWYlP1vQYVuNMzvHHh1+6jNcSdZf20=', '2024-05-14 10:37:05.439112', 0, 'raul', '', '', '', 0, 1, '2024-04-23 17:42:26.285962'),
+(3, 'pbkdf2_sha256$720000$Fp4iA7FzvgKFZS25wPUhzi$MH8hAfV20IKOp0/comXVSy1PHf1uVt8yszrAZP1WNLA=', '2024-05-14 10:37:42.794602', 0, 'luca', '', '', '', 0, 1, '2024-04-23 18:25:47.142396'),
+(4, 'pbkdf2_sha256$720000$W8ZyZ9KMTODfvYL9iyouaj$a6Hq7hL3fwkLOBCROcEa6nNC8B7Qx4lIevL1E8brUE0=', '2024-05-14 10:37:26.562618', 0, 'dani', '', '', '', 0, 1, '2024-04-23 19:33:07.697818');
 
 -- --------------------------------------------------------
 
@@ -323,7 +319,8 @@ CREATE TABLE IF NOT EXISTS `django_session` (
 INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
 ('7k4azihrn8t14bqj8sn2d85hig3tlxnx', 'e30:1rzK3C:Snml49GcF7ooKsRrxv7hHThdJTArnDyvIwag3tCZgug', '2024-05-07 17:35:26.820523'),
 ('evzto2q7qbtipmxs0f79wem3f49vjg39', '.eJxVjDsOwjAQBe_iGlm2499S0nMGazdecADZUpxUiLuTSCmgfTPz3iLhupS0dp7TlMVZWHH63QjHJ9cd5AfWe5Njq8s8kdwVedAury3z63K4fwcFe9lqr1B5RqQxOPBg7GCzIcNMNxu0hsFpUAxOI7PzAASWfLQhmrg1JorPF9fiN1Y:1s14Cg:StetKoHukJ46sE9T71g4fWlGVt3dXKqtHRpx1CChkYo', '2024-05-12 13:04:26.354552'),
-('e0vv1gdv99r8lp2uuxmrpe8bzv3zyog3', '.eJxVjDsOwjAQBe_iGlm2499S0nMGazdecADZUpxUiLuTSCmgfTPz3iLhupS0dp7TlMVZWHH63QjHJ9cd5AfWe5Njq8s8kdwVedAury3z63K4fwcFe9lqr1B5RqQxOPBg7GCzIcNMNxu0hsFpUAxOI7PzAASWfLQhmrg1JorPF9fiN1Y:1s1WSH:vvOnpAAecsj1UEVjJNv7LAenLGqVkLRBv36Fbrf5CII', '2024-05-13 19:14:25.681000');
+('e0vv1gdv99r8lp2uuxmrpe8bzv3zyog3', '.eJxVjDsOwjAQBe_iGlm2499S0nMGazdecADZUpxUiLuTSCmgfTPz3iLhupS0dp7TlMVZWHH63QjHJ9cd5AfWe5Njq8s8kdwVedAury3z63K4fwcFe9lqr1B5RqQxOPBg7GCzIcNMNxu0hsFpUAxOI7PzAASWfLQhmrg1JorPF9fiN1Y:1s1WSH:vvOnpAAecsj1UEVjJNv7LAenLGqVkLRBv36Fbrf5CII', '2024-05-13 19:14:25.681000'),
+('83d9kleko0ai0rqcl8xgndefslu18idd', '.eJxVjMsOwiAQRf-FtSEOw6O4dN9vIAMDUjU0Ke3K-O_apAvd3nPOfYlA21rD1vMSJhYXAeL0u0VKj9x2wHdqt1mmua3LFOWuyIN2Oc6cn9fD_Tuo1Ou31smUAgm0Qu8oKU3MiOg8KhzIsEfKztpoLBdVKOPgtTmDxQzgtbLi_QHXnDcW:1s6pLv:oeP1-bAbIZWXDaBdVxLw7QFnkB1kdcd27KLaRDGUHyM', '2024-05-14 11:25:47.015852');
 
 -- --------------------------------------------------------
 
@@ -340,7 +337,7 @@ CREATE TABLE IF NOT EXISTS `inventario` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `jugador_id` (`jugador_id`,`objeto_id`),
   KEY `inventario_objeto_id_fk` (`objeto_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=30 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Volcado de datos para la tabla `inventario`
@@ -355,14 +352,14 @@ INSERT INTO `inventario` (`id`, `jugador_id`, `objeto_id`, `cantidad`) VALUES
 (6, 2, 5, 1),
 (7, 2, 8, 1),
 (8, 2, 11, 1),
-(9, 3, 3, 1),
-(10, 3, 6, 1),
-(11, 3, 9, 1),
-(12, 3, 12,1),
-(13, 4, 1, 1),
-(14, 4, 4, 1),
-(15, 4, 7, 1),
-(16, 4, 10, 1),
+(26, 3, 11, 1),
+(25, 3, 2, 1),
+(29, 3, 21, 1),
+(24, 3, 1, 1),
+(21, 4, 3, 1),
+(22, 4, 6, 1),
+(23, 4, 12, 1),
+(27, 4, 23, 1),
 (17, 5, 2, 1),
 (18, 5, 5, 1),
 (19, 5, 8, 1),
@@ -389,10 +386,9 @@ CREATE TABLE IF NOT EXISTS `jugadores` (
 
 INSERT INTO `jugadores` (`id`, `user_id`, `dinero`) VALUES
 (1, 1, 1000),
-(2, 2, 800),
-(3, 3, 600),
-(4, 4, 1200),
-(5, 5, 1500);
+(2, 2, 600),
+(3, 3, 755),
+(4, 4, 815);
 
 -- --------------------------------------------------------
 
