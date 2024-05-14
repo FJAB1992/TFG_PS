@@ -30,7 +30,6 @@ urlpatterns = [
     path('inventario/editar/<int:pk>/', views.ActualizarInventarioView.as_view(), name="inventario_editar"),
     path('inventario/borrar/<int:pk>/', views.BorrarInventarioView.as_view(), name="inventario_borrar"),
     # Vista de la tienda
-    # path('tienda/', login_required(views.inventario_jugador), name="tienda"),
     path('tienda/', login_required(views.tienda), name="tienda"),
     path('vender_objeto/<int:inventario_id>/', login_required(views.vender_objeto), name='vender_objeto'),
     path('comprar_objeto/<int:objeto_id>/', login_required(views.comprar_objeto), name='comprar_objeto'),

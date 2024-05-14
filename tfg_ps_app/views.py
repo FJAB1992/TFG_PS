@@ -179,56 +179,6 @@ def tienda(request):
         return HttpResponseBadRequest("No se encontró al jugador.")
 
 
-# @require_POST
-# @login_required
-# def comprar_objeto(request, objeto_id):
-#     jugador_id = request.user.id
-#     try:
-#         jugador = Jugadores.objects.get(user_id=jugador_id)
-#         objeto = Objetos.objects.get(id=objeto_id)
-#         if jugador.dinero >= objeto.precio:
-#             jugador.dinero -= objeto.precio
-#             jugador.save()
-#             inventario_objeto, created = Inventario.objects.get_or_create(
-#                 jugador=jugador, objeto=objeto
-#             )
-#             if not created:
-#                 inventario_objeto.cantidad += 1
-#                 inventario_objeto.save()
-#             messages.success(request, f"¡Has comprado {objeto.nombre}!")
-#         else:
-#             messages.error(
-#                 request, "No tienes suficiente dinero para comprar este objeto."
-#             )
-#     except Objetos.DoesNotExist:
-#         messages.error(request, "El objeto que intentas comprar no existe.")
-#     except Jugadores.DoesNotExist:
-#         return HttpResponseBadRequest("No se encontró al jugador.")
-#     return redirect("tfg_ps_app:tienda")
-
-# @require_POST
-# @login_required
-# def vender_objeto(request, inventario_id):
-#     jugador_id = request.user.id
-#     try:
-#         jugador = Jugadores.objects.get(user_id=jugador_id)
-#         inventario_objeto = Inventario.objects.get(id=inventario_id)
-#         objeto = inventario_objeto.objeto
-#         jugador.dinero += objeto.precio
-#         jugador.save()
-#         # if inventario_objeto.cantidad > 1:
-#         if inventario_objeto and inventario_objeto.cantidad > 1:
-#             inventario_objeto.cantidad -= 1
-#             inventario_objeto.save()
-#         else:
-#             inventario_objeto.delete()
-#         messages.success(request, f"¡Has vendido {objeto.nombre}!")
-#     except Inventario.DoesNotExist:
-#         messages.error(request, "El objeto que intentas vender no existe.")
-#     except Jugadores.DoesNotExist:
-#         return HttpResponseBadRequest("No se encontró al jugador.")
-#     return redirect("tfg_ps_app:tienda")
-
 @require_POST
 @login_required
 def comprar_objeto(request, objeto_id):
