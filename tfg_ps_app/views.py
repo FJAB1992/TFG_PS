@@ -17,7 +17,6 @@ from collections import defaultdict
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
-# Create your views here.
 def inicio(request):
     return render(request, "inicio.html")
 
@@ -43,7 +42,7 @@ def signup_view(request):
         form = UserCreationForm(request.POST)
         if form.is_valid():
             user = form.save()
-            # Crear un objeto Jugadores asociado al nuevo usuario
+            # Crea objeto Jugador asociado a la tabla de User de Django
             jugador = Jugadores.objects.create(user=user)
             login(request, user)
             return redirect("tfg_ps_app:tienda")
@@ -59,13 +58,11 @@ class LogoutUsuario(LogoutView):
 # VISTAS DE OBJETOS
 class DetalleObjetoView(generic.DetailView):
     model = Objetos
-    template_name = "detalle_objeto.html"  # Nombre del template de detalle de objeto
-    context_object_name = "objeto"  # Nombre del objeto en el contexto del template
+    template_name = "detalle_objeto.html" 
+    context_object_name = "objeto" 
 
     def get_queryset(self):
         return models.Objetos.objects.all()
-
-
 
 
 @login_required
@@ -76,7 +73,7 @@ def tienda(request):
     try:
         jugador = models.Jugadores.objects.get(user_id=jugador_id)
 
-        # Inventario del jugador con paginación
+        # Paginación para inventario
         inventario_jugador_list = models.Inventario.objects.filter(
             jugador=jugador
         ).select_related("objeto")
@@ -92,12 +89,14 @@ def tienda(request):
                 inventario_paginator.num_pages
             )
 
-        # Filtrar objetos de la tienda por nombre
+        # Filtro objetos de la tienda por nombre
         objetos_tienda_list = (
             models.Objetos.objects.filter(nombre__icontains=query)
             if query
             else models.Objetos.objects.all()
         )
+        
+        # Paginación para la tienda
         tienda_paginator = Paginator(objetos_tienda_list, 5)
         tienda_page = request.GET.get("tienda_page")
 
