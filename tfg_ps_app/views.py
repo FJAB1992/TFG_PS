@@ -56,36 +56,6 @@ class LogoutUsuario(LogoutView):
     next_page = reverse_lazy("tfg_ps_app:inicio")
 
 
-# VISTAS DE JUGADORES
-class DetalleJugadorView(generic.ListView):
-    model = models.Jugadores
-    template_name = "tfg_ps_app/jugador_list.html"
-    context_object_name = "jugadores"
-
-    def get_queryset(self):
-        return models.Jugadores.objects.all()
-
-
-class CrearJugadorView(generic.CreateView):
-    model = models.Jugadores
-    form_class = models.Jugadores
-    template_name = "tfg_ps_app/jugador_create.html"
-    success_url = reverse_lazy("inicio")
-
-
-class ActualizarJugadorView(generic.UpdateView):
-    model = models.Jugadores
-    form_class = models.Jugadores
-    template_name = "tfg_ps_app/jugador_update.html"
-    success_url = reverse_lazy("inicio")
-
-
-class BorrarJugadorView(generic.DeleteView):
-    model = models.Jugadores
-    template_name = "tfg_ps_app/jugador_delete.html"
-    success_url = reverse_lazy("inicio")
-
-
 # VISTAS DE OBJETOS
 class DetalleObjetoView(generic.DetailView):
     model = Objetos
@@ -96,54 +66,6 @@ class DetalleObjetoView(generic.DetailView):
         return models.Objetos.objects.all()
 
 
-class CrearObjetoView(generic.CreateView):
-    model = models.Objetos
-    form_class = models.Objetos
-    template_name = "tfg_ps_app/objeto_create.html"
-    success_url = reverse_lazy("inicio")
-
-
-class ActualizarObjetoView(generic.UpdateView):
-    model = models.Objetos
-    form_class = models.Objetos
-    template_name = "tfg_ps_app/objeto_update.html"
-    success_url = reverse_lazy("inicio")
-
-
-class BorrarObjetoView(generic.DeleteView):
-    model = models.Objetos
-    template_name = "tfg_ps_app/objeto_delete.html"
-    success_url = reverse_lazy("inicio")
-
-
-# VISTAS DE INVENTARIO
-class DetalleInventarioView(generic.ListView):
-    model = models.Inventario
-    template_name = "tfg_ps_app/inventario_list.html"
-    context_object_name = "inventarios"
-
-    def get_queryset(self):
-        return models.Inventario.objects.all()
-
-
-class CrearInventarioView(generic.CreateView):
-    model = models.Inventario
-    form_class = models.Inventario
-    template_name = "tfg_ps_app/inventario_create.html"
-    success_url = reverse_lazy("inicio")
-
-
-class ActualizarInventarioView(generic.UpdateView):
-    model = models.Inventario
-    form_class = models.Inventario
-    template_name = "tfg_ps_app/inventario_update.html"
-    success_url = reverse_lazy("inicio")
-
-
-class BorrarInventarioView(generic.DeleteView):
-    model = models.Inventario
-    template_name = "tfg_ps_app/inventario_delete.html"
-    success_url = reverse_lazy("inicio")
 
 
 @login_required
