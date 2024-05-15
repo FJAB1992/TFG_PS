@@ -146,82 +146,38 @@ class BorrarInventarioView(generic.DeleteView):
     success_url = reverse_lazy("inicio")
 
 
-# @login_required
-# def tienda(request):
-#     jugador_id = request.user.id
-#     try:
-#         jugador = models.Jugadores.objects.get(user_id=jugador_id)
-
-#         # Inventario del jugador con paginación
-#         inventario_jugador_list = models.Inventario.objects.filter(
-#             jugador=jugador
-#         ).select_related("objeto")
-#         inventario_paginator = Paginator(
-#             inventario_jugador_list, 5
-#         )  # 5 items por página
-#         inventario_page = request.GET.get("inventario_page")
-
-#         try:
-#             inventario_jugador = inventario_paginator.page(inventario_page)
-#         except PageNotAnInteger:
-#             inventario_jugador = inventario_paginator.page(1)
-#         except EmptyPage:
-#             inventario_jugador = inventario_paginator.page(
-#                 inventario_paginator.num_pages
-#             )
-
-#         # Objetos de la tienda con paginación
-#         objetos_tienda_list = models.Objetos.objects.all()
-#         tienda_paginator = Paginator(objetos_tienda_list, 5)  # 5 items por página
-#         tienda_page = request.GET.get("tienda_page")
-
-#         try:
-#             objetos_tienda = tienda_paginator.page(tienda_page)
-#         except PageNotAnInteger:
-#             objetos_tienda = tienda_paginator.page(1)
-#         except EmptyPage:
-#             objetos_tienda = tienda_paginator.page(tienda_paginator.num_pages)
-
-#         tipos = models.Objetos.objects.values("tipo_objeto").distinct()
-
-#         return render(
-#             request,
-#             "tienda.html",
-#             {
-#                 "inventario_jugador": inventario_jugador,
-#                 "objetos_tienda": objetos_tienda,
-#                 "jugador": jugador,
-#                 "tipos": tipos,
-#                 "user": request.user,
-#             },
-#         )
-#     except models.Jugadores.DoesNotExist:
-#         return HttpResponseBadRequest("No se encontró al jugador.")
-
 @login_required
 def tienda(request):
     jugador_id = request.user.id
-    query = request.GET.get('q', '')  # Obtener el parámetro de búsqueda
+    query = request.GET.get("q", "")  # Obtener el parámetro de búsqueda
 
     try:
         jugador = models.Jugadores.objects.get(user_id=jugador_id)
-        
+
         # Inventario del jugador con paginación
-        inventario_jugador_list = models.Inventario.objects.filter(jugador=jugador).select_related("objeto")
+        inventario_jugador_list = models.Inventario.objects.filter(
+            jugador=jugador
+        ).select_related("objeto")
         inventario_paginator = Paginator(inventario_jugador_list, 5)
-        inventario_page = request.GET.get('inventario_page')
+        inventario_page = request.GET.get("inventario_page")
 
         try:
             inventario_jugador = inventario_paginator.page(inventario_page)
         except PageNotAnInteger:
             inventario_jugador = inventario_paginator.page(1)
         except EmptyPage:
-            inventario_jugador = inventario_paginator.page(inventario_paginator.num_pages)
-        
+            inventario_jugador = inventario_paginator.page(
+                inventario_paginator.num_pages
+            )
+
         # Filtrar objetos de la tienda por nombre
-        objetos_tienda_list = models.Objetos.objects.filter(nombre__icontains=query) if query else models.Objetos.objects.all()
+        objetos_tienda_list = (
+            models.Objetos.objects.filter(nombre__icontains=query)
+            if query
+            else models.Objetos.objects.all()
+        )
         tienda_paginator = Paginator(objetos_tienda_list, 5)
-        tienda_page = request.GET.get('tienda_page')
+        tienda_page = request.GET.get("tienda_page")
 
         try:
             objetos_tienda = tienda_paginator.page(tienda_page)
@@ -241,11 +197,12 @@ def tienda(request):
                 "jugador": jugador,
                 "tipos": tipos,
                 "user": request.user,
-                "query": query  # Pasar el query de búsqueda al contexto
+                "query": query,  # Pasar el query de búsqueda al contexto
             },
         )
     except models.Jugadores.DoesNotExist:
         return HttpResponseBadRequest("No se encontró al jugador.")
+
 
 @require_POST
 @login_required
@@ -268,7 +225,6 @@ def comprar_objeto(request, objeto_id):
                 # Si es un nuevo objeto en el inventario, inicializar la cantidad a 1
                 inventario_objeto.cantidad = 1
             inventario_objeto.save()
-            messages.success(request, f"¡Has comprado {objeto.nombre}!")
         else:
             messages.error(
                 request, "No tienes suficiente dinero para comprar este objeto."
@@ -297,7 +253,6 @@ def vender_objeto(request, inventario_id):
         else:
             # Si inventario_objeto es None o la cantidad es 1, eliminar el objeto del inventario
             inventario_objeto.delete()
-        messages.success(request, f"¡Has vendido {objeto.nombre}!")
     except Inventario.DoesNotExist:
         messages.error(request, "El objeto que intentas vender no existe.")
     except Jugadores.DoesNotExist:
