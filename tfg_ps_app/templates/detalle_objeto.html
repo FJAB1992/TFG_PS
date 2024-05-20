@@ -17,7 +17,9 @@
             <p class="card-text">Precio: {{ objeto.precio }}</p>
             <p class="card-text">Tipo: {{ objeto.tipo_objeto }}</p>
             {% if objeto.url_imagen %}
-            <img src="{{ objeto.url_imagen }}" alt="{{ objeto.nombre }}" class="img-fluid">
+            <div class="image-container">
+                <img src="{{ objeto.url_imagen }}" alt="{{ objeto.nombre }}" class="img-fluid">
+            </div>
             {% else %}
             <p>No hay imagen disponible.</p>
             {% endif %}
@@ -25,4 +27,3 @@
     </div>
 </div>
 {% endblock %}
-

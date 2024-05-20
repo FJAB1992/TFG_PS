@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 20-05-2024 a las 10:40:49
+-- Tiempo de generación: 20-05-2024 a las 11:21:06
 -- Versión del servidor: 8.0.31
 -- Versión de PHP: 8.0.26
 
@@ -156,10 +156,10 @@ CREATE TABLE IF NOT EXISTS `auth_user` (
 --
 
 INSERT INTO `auth_user` (`id`, `password`, `last_login`, `is_superuser`, `username`, `first_name`, `last_name`, `email`, `is_staff`, `is_active`, `date_joined`) VALUES
-(1, 'pbkdf2_sha256$720000$3Hj8anaqdugzAhZ5WFfXjH$SAXFBA8UJff3IIMC/IqEdAfEVP7I2eHK854y7Q/G+HE=', '2024-05-20 09:33:49.911877', 1, 'curro', '', '', '', 1, 1, '2024-04-23 17:34:30.059575'),
+(1, 'pbkdf2_sha256$720000$3Hj8anaqdugzAhZ5WFfXjH$SAXFBA8UJff3IIMC/IqEdAfEVP7I2eHK854y7Q/G+HE=', '2024-05-20 10:47:07.976955', 1, 'curro', '', '', '', 1, 1, '2024-04-23 17:34:30.059575'),
 (2, 'pbkdf2_sha256$720000$ik1vnUd4WHCgdDVxw4PGoL$HCActxksXPcxoLWYlP1vQYVuNMzvHHh1+6jNcSdZf20=', '2024-05-14 10:37:05.439112', 0, 'raul', '', '', '', 0, 1, '2024-04-23 17:42:26.285962'),
-(3, 'pbkdf2_sha256$720000$Fp4iA7FzvgKFZS25wPUhzi$MH8hAfV20IKOp0/comXVSy1PHf1uVt8yszrAZP1WNLA=', '2024-05-20 10:39:58.847066', 0, 'luca', '', '', '', 0, 1, '2024-04-23 18:25:47.142396'),
-(4, 'pbkdf2_sha256$720000$W8ZyZ9KMTODfvYL9iyouaj$a6Hq7hL3fwkLOBCROcEa6nNC8B7Qx4lIevL1E8brUE0=', '2024-05-20 09:37:47.570362', 0, 'dani', '', '', '', 0, 1, '2024-04-23 19:33:07.697818'),
+(3, 'pbkdf2_sha256$720000$Fp4iA7FzvgKFZS25wPUhzi$MH8hAfV20IKOp0/comXVSy1PHf1uVt8yszrAZP1WNLA=', '2024-05-20 10:43:51.359083', 0, 'luca', '', '', '', 0, 1, '2024-04-23 18:25:47.142396'),
+(4, 'pbkdf2_sha256$720000$W8ZyZ9KMTODfvYL9iyouaj$a6Hq7hL3fwkLOBCROcEa6nNC8B7Qx4lIevL1E8brUE0=', '2024-05-20 10:52:04.775487', 0, 'dani', '', '', '', 0, 1, '2024-04-23 19:33:07.697818'),
 (8, 'pbkdf2_sha256$720000$19y85mRHr6CGXtaXUUm4BN$DqtqMtCKsZ0ktIb10Us/y0Eea9wfrHB4z3WHej92mXo=', '2024-05-20 09:43:38.175744', 0, 'maria', '', '', '', 0, 1, '2024-05-15 18:02:22.376613'),
 (9, 'pbkdf2_sha256$720000$tDB8MG6YC1YsFnFAAUw6Y6$y2JIhpuQw4YIGtjorkzmirGHxUXexEAYQ5mzRfI/KLg=', '2024-05-20 09:57:47.198759', 0, 'carla', '', '', '', 0, 1, '2024-05-16 08:30:39.880662'),
 (10, 'pbkdf2_sha256$720000$K4bDFqxt7R8z1ZZZFteP73$S+IbF1CQ8VQMsOMdzcJz6B8uxiJE/Zg1Kp8lLGPKq18=', '2024-05-19 10:15:56.300929', 0, 'javi', '', '', '', 0, 1, '2024-05-19 10:15:55.757371');
@@ -329,7 +329,8 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('vq8auwp20em5z5g8u4hkc89cazu5tq6t', '.eJxVjMsOwiAQRf-FtSEOw6O4dN9vIAMDUjU0Ke3K-O_apAvd3nPOfYlA21rD1vMSJhYXAeL0u0VKj9x2wHdqt1mmua3LFOWuyIN2Oc6cn9fD_Tuo1Ou31smUAgm0Qu8oKU3MiOg8KhzIsEfKztpoLBdVKOPgtTmDxQzgtbLi_QHXnDcW:1s7Wh7:algwpnV8D5ruZebvqltg2adndFSJuRN1ZNE46xqDl44', '2024-05-16 09:42:33.412445'),
 ('rpz1jpz4wq5p2x0yxsuj1g7py8qvxo0d', '.eJxVjDEOwjAMRe-SGUVYsUvKyM4ZIsdOSAElUtNOiLtDpQ6w_vfef5nA61LC2tMcJjVng-bwu0WWR6ob0DvXW7PS6jJP0W6K3Wm316bpedndv4PCvXxrh4QE6EXYMYvGnCPAoCKoAAyY6cTkFaJDBhpZRy84cNQjEYCY9wf8_zhu:1s7Bz7:pm0x28ww_g-7gJbbzYt8wEI3wQn2NngsS1AC5JcCtnM', '2024-05-15 11:35:45.782329'),
 ('swepu7l9zer3xeg2qicl2l89vw74mjkr', '.eJxVjEsOAiEQBe_C2hDQ5ufSvWcgDd3IqIFkmFkZ766TzEK3r6reS0RclxrXwXOcSJyFF4ffLWF-cNsA3bHdusy9LfOU5KbInQ557cTPy-7-HVQc9VtbGwLkrBP4opTOxTlmXbC4E2GwbOgITvuEijhoy2yNStmwUWCBGcT7A_LpOEQ:1s7IxK:9xdVVaiHM7yjtPOodb5tOgAovN04KZG2v_qX6fWsBrI', '2024-05-15 19:02:22.914082'),
-('n54r5gps1fyunttv49hrc0a726zdwovy', '.eJxVjDsOwjAQBe_iGlm2499S0nMGa9decAA5UpxUiLuTSCmgfTPz3iLhutS0dp7TWMRZDOL0uxHmJ7cdlAe2-yTz1JZ5JLkr8qBdXqfCr8vh_h1U7HWrvULlGZFycODB2MEWQ4aZbjZoDYPToBicRmbnAQgs-WhDNHFrTBSfL9dJN1U:1s90Qw:Gi_S6bxf74Wz-0SfdUxYL2MM0q5bJJzV08pcJSuvdmY', '2024-05-20 11:39:58.847066');
+('n54r5gps1fyunttv49hrc0a726zdwovy', '.eJxVjDsOwjAQBe_iGlm2499S0nMGa9decAA5UpxUiLuTSCmgfTPz3iLhutS0dp7TWMRZDOL0uxHmJ7cdlAe2-yTz1JZ5JLkr8qBdXqfCr8vh_h1U7HWrvULlGZFycODB2MEWQ4aZbjZoDYPToBicRmbnAQgs-WhDNHFrTBSfL9dJN1U:1s90Qw:Gi_S6bxf74Wz-0SfdUxYL2MM0q5bJJzV08pcJSuvdmY', '2024-05-20 11:39:58.847066'),
+('yzea2y977gc3ywl6h6i4z9fmzokrgb99', '.eJxVjDEOwjAMRe-SGUVYsUvKyM4ZIsdOSAElUtNOiLtDpQ6w_vfef5nA61LC2tMcJjVng-bwu0WWR6ob0DvXW7PS6jJP0W6K3Wm316bpedndv4PCvXxrh4QE6EXYMYvGnCPAoCKoAAyY6cTkFaJDBhpZRy84cNQjEYCY9wf8_zhu:1s90ce:AsT5rB6I7cau423Zq0w_yQMgoz85Fhrr2VW_HlRrVrw', '2024-05-20 11:52:04.775487');
 
 -- --------------------------------------------------------
 
@@ -453,8 +454,8 @@ INSERT INTO `objetos` (`id`, `nombre`, `descripcion`, `precio`, `tipo_objeto`, `
 (18, 'Granada de Humo', 'Granada de humo para encubrir.', 25, 'Municion', 'https://static.wikia.nocookie.net/residentevil/images/3/3a/Flash_Grenade.jpg/revision/latest?cb=20130802001027&path-prefix=es'),
 (19, 'Granada Paralizante', 'Granada paralizante que aturde temporalmente a los enemigos.', 35, 'Municion', 'https://static.wikia.nocookie.net/residentevil/images/1/1f/Incendiary_Grenade.jpg/revision/latest?cb=20130801234028&path-prefix=es'),
 (20, 'Poción de Velocidad', 'Poción que aumenta temporalmente la velocidad del jugador.', 30, 'Curacion', 'https://img.freepik.com/fotos-premium/pocion-magica-velocidad-etiqueta-botella-tiene-simbolo-remolino-que-sugiere-velocidad_555090-30509.jpg'),
-(21, 'Skin de Leon S. Kennedy', 'Una skin que transforma el aspecto del personaje en Leon S. Kennedy, el protagonista de Resident Evil 2.', 800, 'Skin', 'https://static.wikia.nocookie.net/residentevil/images/2/27/RE4R_Leon_Render_2.jpeg/revision/latest?cb=20230224165400'),
-(22, 'Skin de Jill Valentine', 'Una skin que cambia el aspecto del personaje en Jill Valentine, la heroína de Resident Evil 3.', 850, 'Skin', 'https://i.pinimg.com/originals/8f/94/4d/8f944d5c0a158a8541b4005d618ad369.jpg'),
+(21, 'Skin de Leon S. Kennedy', 'Una skin que transforma el aspecto del personaje en Leon S. Kennedy, el protagonista de Resident Evil 2.', 800, 'Skin', 'https://i0.wp.com/www.residenteviljacket.com/wp-content/uploads/2023/10/1-Resident-Evil-4-Jacket-Leon-S-Kennedy-Shearling-Jacket.webp?fit=500%2C680&ssl=1'),
+(22, 'Skin de Jill Valentine', 'Una skin que cambia el aspecto del personaje en Jill Valentine, la heroína de Resident Evil 3.', 850, 'Skin', 'https://static.wikia.nocookie.net/nemesis/images/5/58/Jill-valentine.jpg/revision/latest?cb=20101106192009&path-prefix=es'),
 (23, 'Skin de Nemesis', 'Una skin que convierte al personaje en Nemesis, la temible criatura de Resident Evil 3.', 1000, 'Skin', 'https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/media/image/2019/11/resident-evil-3-nemesis_0.jpg?tf=3840x'),
 (24, 'Lanzagranadas', 'Un arma que dispara granadas explosivas.', 500, 'Arma', 'https://static.wikia.nocookie.net/residentevil/images/2/22/Lanzagranadas_REmake.jpg/revision/latest?cb=20191213153913&path-prefix=es'),
 (25, 'Municion acida', 'Munición especial que contiene ácido, utilizada en el lanzagranadas.', 300, 'Municion', 'https://static.wikia.nocookie.net/residentevil/images/2/22/Granadas_%C3%A1cidas_RE0.png/revision/latest?cb=20200702073608&path-prefix=es'),
