@@ -1,6 +1,7 @@
 body {
     font-family: Arial, sans-serif;
     background-color: rgba(130, 66, 155, 0.8);
+    color: #4b0082;
 }
 
 .container {
@@ -19,7 +20,6 @@ body {
 
 h1 {
     color: #4b0082;
-    text-align: center;
 }
 
 .button-container {
@@ -30,4 +30,20 @@ h1 {
 .button-container .btn {
     margin: 5px;
     width: 100%;
+}
+
+.tienda-btn {
+    width: 25%;
+}
+
+@media (max-width: 768px) {
+    .tienda-btn {
+        width: 50%;
+    }
+}
+
+@media (max-width: 576px) {
+    .card {
+        width: 90%;
+    }
 }
