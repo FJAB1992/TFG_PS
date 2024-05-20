@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 16-05-2024 a las 08:39:23
+-- Tiempo de generación: 20-05-2024 a las 09:41:07
 -- Versión del servidor: 8.0.31
 -- Versión de PHP: 8.0.26
 
@@ -19,11 +19,7 @@ SET time_zone = "+00:00";
 
 --
 -- Base de datos: `django_tfg_ps_db`
-
-
-
-CREATE DATABASE IF NOT EXISTS `django_tfg_ps_db` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
-USE `django_tfg_ps_db`;
+--
 
 -- --------------------------------------------------------
 
@@ -152,19 +148,20 @@ CREATE TABLE IF NOT EXISTS `auth_user` (
   `date_joined` datetime(6) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`)
-) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Volcado de datos para la tabla `auth_user`
 --
 
 INSERT INTO `auth_user` (`id`, `password`, `last_login`, `is_superuser`, `username`, `first_name`, `last_name`, `email`, `is_staff`, `is_active`, `date_joined`) VALUES
-(1, 'pbkdf2_sha256$720000$3Hj8anaqdugzAhZ5WFfXjH$SAXFBA8UJff3IIMC/IqEdAfEVP7I2eHK854y7Q/G+HE=', '2024-05-15 18:01:37.984486', 1, 'curro', '', '', '', 1, 1, '2024-04-23 17:34:30.059575'),
+(1, 'pbkdf2_sha256$720000$3Hj8anaqdugzAhZ5WFfXjH$SAXFBA8UJff3IIMC/IqEdAfEVP7I2eHK854y7Q/G+HE=', '2024-05-20 09:33:49.911877', 1, 'curro', '', '', '', 1, 1, '2024-04-23 17:34:30.059575'),
 (2, 'pbkdf2_sha256$720000$ik1vnUd4WHCgdDVxw4PGoL$HCActxksXPcxoLWYlP1vQYVuNMzvHHh1+6jNcSdZf20=', '2024-05-14 10:37:05.439112', 0, 'raul', '', '', '', 0, 1, '2024-04-23 17:42:26.285962'),
 (3, 'pbkdf2_sha256$720000$Fp4iA7FzvgKFZS25wPUhzi$MH8hAfV20IKOp0/comXVSy1PHf1uVt8yszrAZP1WNLA=', '2024-05-15 10:26:40.782697', 0, 'luca', '', '', '', 0, 1, '2024-04-23 18:25:47.142396'),
-(4, 'pbkdf2_sha256$720000$W8ZyZ9KMTODfvYL9iyouaj$a6Hq7hL3fwkLOBCROcEa6nNC8B7Qx4lIevL1E8brUE0=', '2024-05-16 08:23:18.128773', 0, 'dani', '', '', '', 0, 1, '2024-04-23 19:33:07.697818'),
-(8, 'pbkdf2_sha256$720000$19y85mRHr6CGXtaXUUm4BN$DqtqMtCKsZ0ktIb10Us/y0Eea9wfrHB4z3WHej92mXo=', '2024-05-15 18:02:22.913082', 0, 'maria', '', '', '', 0, 1, '2024-05-15 18:02:22.376613'),
-(9, 'pbkdf2_sha256$720000$tDB8MG6YC1YsFnFAAUw6Y6$y2JIhpuQw4YIGtjorkzmirGHxUXexEAYQ5mzRfI/KLg=', '2024-05-16 08:30:40.405795', 0, 'carla', '', '', '', 0, 1, '2024-05-16 08:30:39.880662');
+(4, 'pbkdf2_sha256$720000$W8ZyZ9KMTODfvYL9iyouaj$a6Hq7hL3fwkLOBCROcEa6nNC8B7Qx4lIevL1E8brUE0=', '2024-05-20 09:37:47.570362', 0, 'dani', '', '', '', 0, 1, '2024-04-23 19:33:07.697818'),
+(8, 'pbkdf2_sha256$720000$19y85mRHr6CGXtaXUUm4BN$DqtqMtCKsZ0ktIb10Us/y0Eea9wfrHB4z3WHej92mXo=', '2024-05-20 09:39:13.546051', 0, 'maria', '', '', '', 0, 1, '2024-05-15 18:02:22.376613'),
+(9, 'pbkdf2_sha256$720000$tDB8MG6YC1YsFnFAAUw6Y6$y2JIhpuQw4YIGtjorkzmirGHxUXexEAYQ5mzRfI/KLg=', '2024-05-16 08:30:40.405795', 0, 'carla', '', '', '', 0, 1, '2024-05-16 08:30:39.880662'),
+(10, 'pbkdf2_sha256$720000$K4bDFqxt7R8z1ZZZFteP73$S+IbF1CQ8VQMsOMdzcJz6B8uxiJE/Zg1Kp8lLGPKq18=', '2024-05-19 10:15:56.300929', 0, 'javi', '', '', '', 0, 1, '2024-05-19 10:15:55.757371');
 
 -- --------------------------------------------------------
 
@@ -328,7 +325,7 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('e0vv1gdv99r8lp2uuxmrpe8bzv3zyog3', '.eJxVjDsOwjAQBe_iGlm2499S0nMGazdecADZUpxUiLuTSCmgfTPz3iLhupS0dp7TlMVZWHH63QjHJ9cd5AfWe5Njq8s8kdwVedAury3z63K4fwcFe9lqr1B5RqQxOPBg7GCzIcNMNxu0hsFpUAxOI7PzAASWfLQhmrg1JorPF9fiN1Y:1s1WSH:vvOnpAAecsj1UEVjJNv7LAenLGqVkLRBv36Fbrf5CII', '2024-05-13 19:14:25.681000'),
 ('83d9kleko0ai0rqcl8xgndefslu18idd', '.eJxVjMsOwiAQRf-FtSEOw6O4dN9vIAMDUjU0Ke3K-O_apAvd3nPOfYlA21rD1vMSJhYXAeL0u0VKj9x2wHdqt1mmua3LFOWuyIN2Oc6cn9fD_Tuo1Ou31smUAgm0Qu8oKU3MiOg8KhzIsEfKztpoLBdVKOPgtTmDxQzgtbLi_QHXnDcW:1s6pLv:oeP1-bAbIZWXDaBdVxLw7QFnkB1kdcd27KLaRDGUHyM', '2024-05-14 11:25:47.015852'),
 ('g7gutiodbumlo6ytdug2cyyq77h8fgu1', '.eJxVjMsOwiAQRf-FtSEOw6O4dN9vIAMDUjU0Ke3K-O_apAvd3nPOfYlA21rD1vMSJhYXAeL0u0VKj9x2wHdqt1mmua3LFOWuyIN2Oc6cn9fD_Tuo1Ou31smUAgm0Qu8oKU3MiOg8KhzIsEfKztpoLBdVKOPgtTmDxQzgtbLi_QHXnDcW:1s7Bqn:u5YO0CdaByJQ8vg0zkpyahPh6JXJw5hlPU1j_hnWZbw', '2024-05-15 11:27:09.568071'),
-('5a4ig0geim0faxkyxujlyebw7fb7udxn', '.eJxVjEEOwiAQRe_C2pApncrg0n3P0DAwSNVAUtqV8e7apAvd_vfef6nJb2uetibLNEd1UU6dfjf24SFlB_Huy63qUMu6zKx3RR-06bFGeV4P9-8g-5a_dU8kBIJ0Dila09kEaBEFAosFg970GJ0DIugGSiaQF-BkGJAHZ1i9P8xeN0o:1s7WVc:okfnz9NlQm2FS-WFxlFrre71K_gyjPYK0I-frbavtrY', '2024-05-16 09:30:40.406806'),
+('vq8auwp20em5z5g8u4hkc89cazu5tq6t', '.eJxVjMsOwiAQRf-FtSEOw6O4dN9vIAMDUjU0Ke3K-O_apAvd3nPOfYlA21rD1vMSJhYXAeL0u0VKj9x2wHdqt1mmua3LFOWuyIN2Oc6cn9fD_Tuo1Ou31smUAgm0Qu8oKU3MiOg8KhzIsEfKztpoLBdVKOPgtTmDxQzgtbLi_QHXnDcW:1s7Wh7:algwpnV8D5ruZebvqltg2adndFSJuRN1ZNE46xqDl44', '2024-05-16 09:42:33.412445'),
 ('rpz1jpz4wq5p2x0yxsuj1g7py8qvxo0d', '.eJxVjDEOwjAMRe-SGUVYsUvKyM4ZIsdOSAElUtNOiLtDpQ6w_vfef5nA61LC2tMcJjVng-bwu0WWR6ob0DvXW7PS6jJP0W6K3Wm316bpedndv4PCvXxrh4QE6EXYMYvGnCPAoCKoAAyY6cTkFaJDBhpZRy84cNQjEYCY9wf8_zhu:1s7Bz7:pm0x28ww_g-7gJbbzYt8wEI3wQn2NngsS1AC5JcCtnM', '2024-05-15 11:35:45.782329'),
 ('swepu7l9zer3xeg2qicl2l89vw74mjkr', '.eJxVjEsOAiEQBe_C2hDQ5ufSvWcgDd3IqIFkmFkZ766TzEK3r6reS0RclxrXwXOcSJyFF4ffLWF-cNsA3bHdusy9LfOU5KbInQ557cTPy-7-HVQc9VtbGwLkrBP4opTOxTlmXbC4E2GwbOgITvuEijhoy2yNStmwUWCBGcT7A_LpOEQ:1s7IxK:9xdVVaiHM7yjtPOodb5tOgAovN04KZG2v_qX6fWsBrI', '2024-05-15 19:02:22.914082');
 
@@ -347,7 +344,7 @@ CREATE TABLE IF NOT EXISTS `inventario` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `jugador_id` (`jugador_id`,`objeto_id`),
   KEY `inventario_objeto_id_fk` (`objeto_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=34 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=46 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Volcado de datos para la tabla `inventario`
@@ -367,14 +364,23 @@ INSERT INTO `inventario` (`id`, `jugador_id`, `objeto_id`, `cantidad`) VALUES
 (29, 3, 21, 1),
 (30, 3, 1, 1),
 (32, 6, 22, 1),
-(31, 4, 1, 1),
+(39, 4, 1, 1),
 (23, 4, 12, 1),
 (27, 4, 23, 1),
 (17, 5, 2, 1),
 (18, 5, 5, 1),
 (19, 5, 8, 1),
 (20, 5, 11, 1),
-(33, 7, 36, 1);
+(34, 7, 3, 1),
+(35, 7, 5, 1),
+(36, 4, 33, 1),
+(37, 8, 30, 1),
+(38, 8, 31, 1),
+(41, 6, 32, 1),
+(42, 6, 21, 1),
+(43, 6, 3, 1),
+(44, 6, 31, 1),
+(45, 6, 30, 1);
 
 -- --------------------------------------------------------
 
@@ -389,7 +395,7 @@ CREATE TABLE IF NOT EXISTS `jugadores` (
   `dinero` int DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `user_id` (`user_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Volcado de datos para la tabla `jugadores`
@@ -399,9 +405,10 @@ INSERT INTO `jugadores` (`id`, `user_id`, `dinero`) VALUES
 (1, 1, 1000),
 (2, 2, 600),
 (3, 3, 755),
-(4, 4, 1070),
-(6, 8, 4150),
-(7, 9, 0);
+(4, 4, 70),
+(6, 8, 1695),
+(7, 9, 4765),
+(8, 10, 4550);
 
 -- --------------------------------------------------------
 
@@ -416,8 +423,7 @@ CREATE TABLE IF NOT EXISTS `objetos` (
   `descripcion` text,
   `precio` int NOT NULL,
   `tipo_objeto` enum('Arma','Municion','Curacion','Armadura','Skin') DEFAULT NULL,
-  `imagen` mediumblob,
-  `extension` varchar(4) DEFAULT NULL,
+  `url_imagen` text,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=37 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -425,43 +431,43 @@ CREATE TABLE IF NOT EXISTS `objetos` (
 -- Volcado de datos para la tabla `objetos`
 --
 
-INSERT INTO `objetos` (`id`, `nombre`, `descripcion`, `precio`, `tipo_objeto`, `imagen`, `extension`) VALUES
-(1, 'Cuchillo', 'Un cuchillo afilado, ideal para combates cuerpo a cuerpo.', 50, 'Arma', NULL, ''),
-(2, 'Pistola Samurai Edge', 'La icónica pistola de S.T.A.R.S., modelo Samurai Edge.', 150, 'Arma', NULL, ''),
-(3, 'Escopeta M37', 'Una poderosa escopeta de doble cañón, ideal para enfrentarse a hordas de enemigos.', 205, 'Arma', '', NULL),
-(4, 'Granada de Fragmentación', 'Una granada explosiva que causa daño en un área determinada.', 80, 'Municion', NULL, ''),
-(5, 'Spray Medicinal', 'Un spray medicinal que restaura una cantidad moderada de salud.', 30, 'Curacion', NULL, ''),
-(6, 'Chaleco Táctico', 'Un chaleco táctico que proporciona una protección moderada.', 100, 'Armadura', NULL, ''),
-(7, 'Traje de Kevlar', 'Un traje de kevlar que proporciona una protección excepcional.', 200, 'Armadura', NULL, ''),
-(8, 'Hierba Verde', 'Una hierba verde que restaura cierta cantidad de salud.', 150, 'Curacion', NULL, ''),
-(9, 'Hierba Roja', 'Una hierba roja que potencia la curación si se combina con una verde.', 250, 'Curacion', NULL, ''),
-(10, 'Spray de Primeros Auxilios', 'Un spray de primeros auxilios que restaura completamente la salud.', 300, 'Curacion', NULL, ''),
-(11, 'Munición de 9mm', 'Munición estándar para la pistola.', 10, 'Municion', NULL, ''),
-(12, 'Munición de Escopeta', 'Munición de escopeta de calibre 12.', 15, 'Municion', NULL, ''),
-(13, 'Munición de Granada', 'Munición especial para granadas.', 5, 'Municion', NULL, ''),
-(14, 'Piedra de afilar', 'Afilar el cuchillo', 10, 'Municion', NULL, ''),
-(15, 'Botiquín de Primeros Auxilios', 'Un botiquín básico que restaura una cantidad moderada de salud.', 40, 'Curacion', NULL, ''),
-(16, 'Botiquín Avanzado', 'Un botiquín avanzado que restaura una cantidad considerable de salud.', 80, 'Curacion', NULL, ''),
-(17, 'Escudo Anti-Criaturas', 'Un escudo diseñado específicamente para protegerse de las criaturas.', 50, 'Armadura', NULL, ''),
-(18, 'Granada de Humo', 'Granada de humo para encubrir.', 25, 'Municion', 0x696d672f6772616e61646152452e6a7067, NULL),
-(19, 'Granada Paralizante', 'Granada paralizante que aturde temporalmente a los enemigos.', 35, 'Municion', NULL, ''),
-(20, 'Poción de Velocidad', 'Poción que aumenta temporalmente la velocidad del jugador.', 30, 'Curacion', NULL, ''),
-(21, 'Skin de Leon S. Kennedy', 'Una skin que transforma el aspecto del personaje en Leon S. Kennedy, el protagonista de Resident Evil 2.', 800, 'Skin', NULL, NULL),
-(22, 'Skin de Jill Valentine', 'Una skin que cambia el aspecto del personaje en Jill Valentine, la heroína de Resident Evil 3.', 850, 'Skin', NULL, NULL),
-(23, 'Skin de Nemesis', 'Una skin que convierte al personaje en Nemesis, la temible criatura de Resident Evil 3.', 1000, 'Skin', NULL, NULL),
-(24, 'Lanzagranadas', 'Un arma que dispara granadas explosivas.', 500, 'Arma', NULL, NULL),
-(25, 'Municion acida', 'Munición especial que contiene ácido, utilizada en el lanzagranadas.', 300, 'Municion', NULL, NULL),
-(26, 'Municion incendiaria', 'Munición que causa incendios, utilizada en el lanzagranadas.', 300, 'Municion', NULL, NULL),
-(27, 'Municion de lanzagranadas', 'Munición estándar para el lanzagranadas.', 250, 'Municion', NULL, NULL),
-(28, 'Rifle de asalto', 'Un arma automática de alta cadencia de fuego.', 450, 'Arma', NULL, NULL),
-(29, 'Municion para rifle de asalto', 'Munición utilizada en el rifle de asalto.', 200, 'Municion', NULL, NULL),
-(30, 'Magnum 45', 'Un potente revólver de gran calibre.', 400, 'Arma', NULL, NULL),
-(31, 'Balas para magnum', 'Munición para el revólver Magnum 45.', 50, 'Municion', NULL, NULL),
-(32, 'Skin de Ada Wong', 'Aspecto alternativo para el personaje Ada Wong.', 1000, 'Skin', NULL, NULL),
-(33, 'Skin de Wesker', 'Aspecto alternativo para el personaje Wesker.', 1000, 'Skin', NULL, NULL),
-(34, 'Chaleco S.T.A.R.S.', 'Chaleco táctico usado por miembros del equipo S.T.A.R.S.', 200, 'Armadura', NULL, NULL),
-(35, 'Gabardina UMBRELLA', 'Gabardina utilizada por agentes de UMBRELLA.', 500, 'Armadura', NULL, NULL),
-(36, 'Remedio virus-T', 'Remedio para el virus-T.', 5000, 'Curacion', NULL, NULL);
+INSERT INTO `objetos` (`id`, `nombre`, `descripcion`, `precio`, `tipo_objeto`, `url_imagen`) VALUES
+(1, 'Cuchillo', 'Un cuchillo afilado, ideal para combates cuerpo a cuerpo.', 50, 'Arma', NULL),
+(2, 'Pistola Samurai Edge', 'La icónica pistola de S.T.A.R.S., modelo Samurai Edge.', 150, 'Arma', NULL),
+(3, 'Escopeta M37', 'Una poderosa escopeta de doble cañón, ideal para enfrentarse a hordas de enemigos.', 205, 'Arma', NULL),
+(4, 'Granada de Fragmentación', 'Una granada explosiva que causa daño en un área determinada.', 80, 'Municion', NULL),
+(5, 'Spray Medicinal', 'Un spray medicinal que restaura una cantidad moderada de salud.', 30, 'Curacion', NULL),
+(6, 'Chaleco Táctico', 'Un chaleco táctico que proporciona una protección moderada.', 100, 'Armadura', NULL),
+(7, 'Traje de Kevlar', 'Un traje de kevlar que proporciona una protección excepcional.', 200, 'Armadura', NULL),
+(8, 'Hierba Verde', 'Una hierba verde que restaura cierta cantidad de salud.', 150, 'Curacion', NULL),
+(9, 'Hierba Roja', 'Una hierba roja que potencia la curación si se combina con una verde.', 250, 'Curacion', NULL),
+(10, 'Spray de Primeros Auxilios', 'Un spray de primeros auxilios que restaura completamente la salud.', 300, 'Curacion', NULL),
+(11, 'Munición de 9mm', 'Munición estándar para la pistola.', 10, 'Municion', NULL),
+(12, 'Munición de Escopeta', 'Munición de escopeta de calibre 12.', 15, 'Municion', NULL),
+(13, 'Munición de Granada', 'Munición especial para granadas.', 5, 'Municion', NULL),
+(14, 'Piedra de afilar', 'Afilar el cuchillo', 10, 'Municion', NULL),
+(15, 'Botiquín de Primeros Auxilios', 'Un botiquín básico que restaura una cantidad moderada de salud.', 40, 'Curacion', NULL),
+(16, 'Botiquín Avanzado', 'Un botiquín avanzado que restaura una cantidad considerable de salud.', 80, 'Curacion', NULL),
+(17, 'Escudo Anti-Criaturas', 'Un escudo diseñado específicamente para protegerse de las criaturas.', 50, 'Armadura', NULL),
+(18, 'Granada de Humo', 'Granada de humo para encubrir.', 25, 'Municion', 'https://example.com/images/granada_humo.jpg'),
+(19, 'Granada Paralizante', 'Granada paralizante que aturde temporalmente a los enemigos.', 35, 'Municion', NULL),
+(20, 'Poción de Velocidad', 'Poción que aumenta temporalmente la velocidad del jugador.', 30, 'Curacion', NULL),
+(21, 'Skin de Leon S. Kennedy', 'Una skin que transforma el aspecto del personaje en Leon S. Kennedy, el protagonista de Resident Evil 2.', 800, 'Skin', NULL),
+(22, 'Skin de Jill Valentine', 'Una skin que cambia el aspecto del personaje en Jill Valentine, la heroína de Resident Evil 3.', 850, 'Skin', NULL),
+(23, 'Skin de Nemesis', 'Una skin que convierte al personaje en Nemesis, la temible criatura de Resident Evil 3.', 1000, 'Skin', NULL),
+(24, 'Lanzagranadas', 'Un arma que dispara granadas explosivas.', 500, 'Arma', NULL),
+(25, 'Municion acida', 'Munición especial que contiene ácido, utilizada en el lanzagranadas.', 300, 'Municion', NULL),
+(26, 'Municion incendiaria', 'Munición que causa incendios, utilizada en el lanzagranadas.', 300, 'Municion', NULL),
+(27, 'Municion de lanzagranadas', 'Munición estándar para el lanzagranadas.', 250, 'Municion', NULL),
+(28, 'Rifle de asalto', 'Un arma automática de alta cadencia de fuego.', 450, 'Arma', NULL),
+(29, 'Municion para rifle de asalto', 'Munición utilizada en el rifle de asalto.', 200, 'Municion', NULL),
+(30, 'Magnum 45', 'Un potente revólver de gran calibre.', 400, 'Arma', NULL),
+(31, 'Balas para magnum', 'Munición para el revólver Magnum 45.', 50, 'Municion', NULL),
+(32, 'Skin de Ada Wong', 'Aspecto alternativo para el personaje Ada Wong.', 1000, 'Skin', NULL),
+(33, 'Skin de Wesker', 'Aspecto alternativo para el personaje Wesker.', 1000, 'Skin', NULL),
+(34, 'Chaleco S.T.A.R.S.', 'Chaleco táctico usado por miembros del equipo S.T.A.R.S.', 200, 'Armadura', NULL),
+(35, 'Gabardina UMBRELLA', 'Gabardina utilizada por agentes de UMBRELLA.', 500, 'Armadura', NULL),
+(36, 'Remedio virus-T', 'Remedio para el virus-T.', 5000, 'Curacion', NULL);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
