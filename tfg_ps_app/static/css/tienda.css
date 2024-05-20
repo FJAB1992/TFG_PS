@@ -13,3 +13,25 @@ aside {
 #cerrar-sesion-btn {
     float: right;
 }
+/* Estilos para la página de tienda */
+.container {
+    width: 70%;
+    margin: 0 auto; /* Centra el contenedor */
+}
+
+.centered-table {
+    margin: 0 auto; /* Centra la tabla */
+}
+
+.usuario-info {
+    text-align: center; /* Centra el contenido del usuario-info */
+}
+
+.pagination {
+    text-align: center; /* Centra la paginación */
+    clear: both; /* Asegura que el footer no tape el contenido */
+}
+
+.footer {
+    text-align: center; /* Centra el contenido del footer */
+}
