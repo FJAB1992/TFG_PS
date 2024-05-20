@@ -18,7 +18,7 @@
             <p class="card-text">Tipo: {{ objeto.tipo_objeto }}</p>
             {% if objeto.url_imagen %}
             <div class="image-container">
-                <img src="{{ objeto.url_imagen }}" alt="{{ objeto.nombre }}" class="img-fluid">
+                <img src="{{ objeto.url_imagen }}" alt="{{ objeto.nombre }}" style="max-width: 400px;max-height: 400px;">
             </div>
             {% else %}
             <p>No hay imagen disponible.</p>
