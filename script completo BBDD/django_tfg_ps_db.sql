@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 20-05-2024 a las 09:41:07
+-- Tiempo de generación: 20-05-2024 a las 10:40:49
 -- Versión del servidor: 8.0.31
 -- Versión de PHP: 8.0.26
 
@@ -20,7 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `django_tfg_ps_db`
 --
-
+CREATE DATABASE IF NOT EXISTS django_tfg_ps_db;
+USE django_tfg_ps_db;
 -- --------------------------------------------------------
 
 --
@@ -157,10 +158,10 @@ CREATE TABLE IF NOT EXISTS `auth_user` (
 INSERT INTO `auth_user` (`id`, `password`, `last_login`, `is_superuser`, `username`, `first_name`, `last_name`, `email`, `is_staff`, `is_active`, `date_joined`) VALUES
 (1, 'pbkdf2_sha256$720000$3Hj8anaqdugzAhZ5WFfXjH$SAXFBA8UJff3IIMC/IqEdAfEVP7I2eHK854y7Q/G+HE=', '2024-05-20 09:33:49.911877', 1, 'curro', '', '', '', 1, 1, '2024-04-23 17:34:30.059575'),
 (2, 'pbkdf2_sha256$720000$ik1vnUd4WHCgdDVxw4PGoL$HCActxksXPcxoLWYlP1vQYVuNMzvHHh1+6jNcSdZf20=', '2024-05-14 10:37:05.439112', 0, 'raul', '', '', '', 0, 1, '2024-04-23 17:42:26.285962'),
-(3, 'pbkdf2_sha256$720000$Fp4iA7FzvgKFZS25wPUhzi$MH8hAfV20IKOp0/comXVSy1PHf1uVt8yszrAZP1WNLA=', '2024-05-15 10:26:40.782697', 0, 'luca', '', '', '', 0, 1, '2024-04-23 18:25:47.142396'),
+(3, 'pbkdf2_sha256$720000$Fp4iA7FzvgKFZS25wPUhzi$MH8hAfV20IKOp0/comXVSy1PHf1uVt8yszrAZP1WNLA=', '2024-05-20 10:39:58.847066', 0, 'luca', '', '', '', 0, 1, '2024-04-23 18:25:47.142396'),
 (4, 'pbkdf2_sha256$720000$W8ZyZ9KMTODfvYL9iyouaj$a6Hq7hL3fwkLOBCROcEa6nNC8B7Qx4lIevL1E8brUE0=', '2024-05-20 09:37:47.570362', 0, 'dani', '', '', '', 0, 1, '2024-04-23 19:33:07.697818'),
-(8, 'pbkdf2_sha256$720000$19y85mRHr6CGXtaXUUm4BN$DqtqMtCKsZ0ktIb10Us/y0Eea9wfrHB4z3WHej92mXo=', '2024-05-20 09:39:13.546051', 0, 'maria', '', '', '', 0, 1, '2024-05-15 18:02:22.376613'),
-(9, 'pbkdf2_sha256$720000$tDB8MG6YC1YsFnFAAUw6Y6$y2JIhpuQw4YIGtjorkzmirGHxUXexEAYQ5mzRfI/KLg=', '2024-05-16 08:30:40.405795', 0, 'carla', '', '', '', 0, 1, '2024-05-16 08:30:39.880662'),
+(8, 'pbkdf2_sha256$720000$19y85mRHr6CGXtaXUUm4BN$DqtqMtCKsZ0ktIb10Us/y0Eea9wfrHB4z3WHej92mXo=', '2024-05-20 09:43:38.175744', 0, 'maria', '', '', '', 0, 1, '2024-05-15 18:02:22.376613'),
+(9, 'pbkdf2_sha256$720000$tDB8MG6YC1YsFnFAAUw6Y6$y2JIhpuQw4YIGtjorkzmirGHxUXexEAYQ5mzRfI/KLg=', '2024-05-20 09:57:47.198759', 0, 'carla', '', '', '', 0, 1, '2024-05-16 08:30:39.880662'),
 (10, 'pbkdf2_sha256$720000$K4bDFqxt7R8z1ZZZFteP73$S+IbF1CQ8VQMsOMdzcJz6B8uxiJE/Zg1Kp8lLGPKq18=', '2024-05-19 10:15:56.300929', 0, 'javi', '', '', '', 0, 1, '2024-05-19 10:15:55.757371');
 
 -- --------------------------------------------------------
@@ -327,7 +328,8 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('g7gutiodbumlo6ytdug2cyyq77h8fgu1', '.eJxVjMsOwiAQRf-FtSEOw6O4dN9vIAMDUjU0Ke3K-O_apAvd3nPOfYlA21rD1vMSJhYXAeL0u0VKj9x2wHdqt1mmua3LFOWuyIN2Oc6cn9fD_Tuo1Ou31smUAgm0Qu8oKU3MiOg8KhzIsEfKztpoLBdVKOPgtTmDxQzgtbLi_QHXnDcW:1s7Bqn:u5YO0CdaByJQ8vg0zkpyahPh6JXJw5hlPU1j_hnWZbw', '2024-05-15 11:27:09.568071'),
 ('vq8auwp20em5z5g8u4hkc89cazu5tq6t', '.eJxVjMsOwiAQRf-FtSEOw6O4dN9vIAMDUjU0Ke3K-O_apAvd3nPOfYlA21rD1vMSJhYXAeL0u0VKj9x2wHdqt1mmua3LFOWuyIN2Oc6cn9fD_Tuo1Ou31smUAgm0Qu8oKU3MiOg8KhzIsEfKztpoLBdVKOPgtTmDxQzgtbLi_QHXnDcW:1s7Wh7:algwpnV8D5ruZebvqltg2adndFSJuRN1ZNE46xqDl44', '2024-05-16 09:42:33.412445'),
 ('rpz1jpz4wq5p2x0yxsuj1g7py8qvxo0d', '.eJxVjDEOwjAMRe-SGUVYsUvKyM4ZIsdOSAElUtNOiLtDpQ6w_vfef5nA61LC2tMcJjVng-bwu0WWR6ob0DvXW7PS6jJP0W6K3Wm316bpedndv4PCvXxrh4QE6EXYMYvGnCPAoCKoAAyY6cTkFaJDBhpZRy84cNQjEYCY9wf8_zhu:1s7Bz7:pm0x28ww_g-7gJbbzYt8wEI3wQn2NngsS1AC5JcCtnM', '2024-05-15 11:35:45.782329'),
-('swepu7l9zer3xeg2qicl2l89vw74mjkr', '.eJxVjEsOAiEQBe_C2hDQ5ufSvWcgDd3IqIFkmFkZ766TzEK3r6reS0RclxrXwXOcSJyFF4ffLWF-cNsA3bHdusy9LfOU5KbInQ557cTPy-7-HVQc9VtbGwLkrBP4opTOxTlmXbC4E2GwbOgITvuEijhoy2yNStmwUWCBGcT7A_LpOEQ:1s7IxK:9xdVVaiHM7yjtPOodb5tOgAovN04KZG2v_qX6fWsBrI', '2024-05-15 19:02:22.914082');
+('swepu7l9zer3xeg2qicl2l89vw74mjkr', '.eJxVjEsOAiEQBe_C2hDQ5ufSvWcgDd3IqIFkmFkZ766TzEK3r6reS0RclxrXwXOcSJyFF4ffLWF-cNsA3bHdusy9LfOU5KbInQ557cTPy-7-HVQc9VtbGwLkrBP4opTOxTlmXbC4E2GwbOgITvuEijhoy2yNStmwUWCBGcT7A_LpOEQ:1s7IxK:9xdVVaiHM7yjtPOodb5tOgAovN04KZG2v_qX6fWsBrI', '2024-05-15 19:02:22.914082'),
+('n54r5gps1fyunttv49hrc0a726zdwovy', '.eJxVjDsOwjAQBe_iGlm2499S0nMGa9decAA5UpxUiLuTSCmgfTPz3iLhutS0dp7TWMRZDOL0uxHmJ7cdlAe2-yTz1JZ5JLkr8qBdXqfCr8vh_h1U7HWrvULlGZFycODB2MEWQ4aZbjZoDYPToBicRmbnAQgs-WhDNHFrTBSfL9dJN1U:1s90Qw:Gi_S6bxf74Wz-0SfdUxYL2MM0q5bJJzV08pcJSuvdmY', '2024-05-20 11:39:58.847066');
 
 -- --------------------------------------------------------
 
@@ -432,42 +434,40 @@ CREATE TABLE IF NOT EXISTS `objetos` (
 --
 
 INSERT INTO `objetos` (`id`, `nombre`, `descripcion`, `precio`, `tipo_objeto`, `url_imagen`) VALUES
-(1, 'Cuchillo', 'Un cuchillo afilado, ideal para combates cuerpo a cuerpo.', 50, 'Arma', NULL),
-(2, 'Pistola Samurai Edge', 'La icónica pistola de S.T.A.R.S., modelo Samurai Edge.', 150, 'Arma', NULL),
-(3, 'Escopeta M37', 'Una poderosa escopeta de doble cañón, ideal para enfrentarse a hordas de enemigos.', 205, 'Arma', NULL),
-(4, 'Granada de Fragmentación', 'Una granada explosiva que causa daño en un área determinada.', 80, 'Municion', NULL),
-(5, 'Spray Medicinal', 'Un spray medicinal que restaura una cantidad moderada de salud.', 30, 'Curacion', NULL),
-(6, 'Chaleco Táctico', 'Un chaleco táctico que proporciona una protección moderada.', 100, 'Armadura', NULL),
-(7, 'Traje de Kevlar', 'Un traje de kevlar que proporciona una protección excepcional.', 200, 'Armadura', NULL),
-(8, 'Hierba Verde', 'Una hierba verde que restaura cierta cantidad de salud.', 150, 'Curacion', NULL),
-(9, 'Hierba Roja', 'Una hierba roja que potencia la curación si se combina con una verde.', 250, 'Curacion', NULL),
-(10, 'Spray de Primeros Auxilios', 'Un spray de primeros auxilios que restaura completamente la salud.', 300, 'Curacion', NULL),
-(11, 'Munición de 9mm', 'Munición estándar para la pistola.', 10, 'Municion', NULL),
-(12, 'Munición de Escopeta', 'Munición de escopeta de calibre 12.', 15, 'Municion', NULL),
-(13, 'Munición de Granada', 'Munición especial para granadas.', 5, 'Municion', NULL),
-(14, 'Piedra de afilar', 'Afilar el cuchillo', 10, 'Municion', NULL),
-(15, 'Botiquín de Primeros Auxilios', 'Un botiquín básico que restaura una cantidad moderada de salud.', 40, 'Curacion', NULL),
-(16, 'Botiquín Avanzado', 'Un botiquín avanzado que restaura una cantidad considerable de salud.', 80, 'Curacion', NULL),
-(17, 'Escudo Anti-Criaturas', 'Un escudo diseñado específicamente para protegerse de las criaturas.', 50, 'Armadura', NULL),
-(18, 'Granada de Humo', 'Granada de humo para encubrir.', 25, 'Municion', 'https://example.com/images/granada_humo.jpg'),
-(19, 'Granada Paralizante', 'Granada paralizante que aturde temporalmente a los enemigos.', 35, 'Municion', NULL),
-(20, 'Poción de Velocidad', 'Poción que aumenta temporalmente la velocidad del jugador.', 30, 'Curacion', NULL),
-(21, 'Skin de Leon S. Kennedy', 'Una skin que transforma el aspecto del personaje en Leon S. Kennedy, el protagonista de Resident Evil 2.', 800, 'Skin', NULL),
-(22, 'Skin de Jill Valentine', 'Una skin que cambia el aspecto del personaje en Jill Valentine, la heroína de Resident Evil 3.', 850, 'Skin', NULL),
-(23, 'Skin de Nemesis', 'Una skin que convierte al personaje en Nemesis, la temible criatura de Resident Evil 3.', 1000, 'Skin', NULL),
-(24, 'Lanzagranadas', 'Un arma que dispara granadas explosivas.', 500, 'Arma', NULL),
-(25, 'Municion acida', 'Munición especial que contiene ácido, utilizada en el lanzagranadas.', 300, 'Municion', NULL),
-(26, 'Municion incendiaria', 'Munición que causa incendios, utilizada en el lanzagranadas.', 300, 'Municion', NULL),
-(27, 'Municion de lanzagranadas', 'Munición estándar para el lanzagranadas.', 250, 'Municion', NULL),
-(28, 'Rifle de asalto', 'Un arma automática de alta cadencia de fuego.', 450, 'Arma', NULL),
-(29, 'Municion para rifle de asalto', 'Munición utilizada en el rifle de asalto.', 200, 'Municion', NULL),
-(30, 'Magnum 45', 'Un potente revólver de gran calibre.', 400, 'Arma', NULL),
-(31, 'Balas para magnum', 'Munición para el revólver Magnum 45.', 50, 'Municion', NULL),
-(32, 'Skin de Ada Wong', 'Aspecto alternativo para el personaje Ada Wong.', 1000, 'Skin', NULL),
-(33, 'Skin de Wesker', 'Aspecto alternativo para el personaje Wesker.', 1000, 'Skin', NULL),
-(34, 'Chaleco S.T.A.R.S.', 'Chaleco táctico usado por miembros del equipo S.T.A.R.S.', 200, 'Armadura', NULL),
-(35, 'Gabardina UMBRELLA', 'Gabardina utilizada por agentes de UMBRELLA.', 500, 'Armadura', NULL),
-(36, 'Remedio virus-T', 'Remedio para el virus-T.', 5000, 'Curacion', NULL);
+(1, 'Cuchillo', 'Un cuchillo afilado, ideal para combates cuerpo a cuerpo.', 50, 'Arma', 'https://static.wikia.nocookie.net/residentevil/images/0/04/Arm2_%281%29.jpg/revision/latest?cb=20120415030947&path-prefix=es'),
+(2, 'Pistola Samurai Edge', 'La icónica pistola de S.T.A.R.S., modelo Samurai Edge.', 150, 'Arma', 'https://static.wikia.nocookie.net/residentevil/images/b/b1/PistolajillRE.png/revision/latest?cb=20200205224138&path-prefix=es'),
+(3, 'Escopeta M37', 'Una poderosa escopeta de doble cañón, ideal para enfrentarse a hordas de enemigos.', 205, 'Arma', 'https://static.wikia.nocookie.net/residentevil/images/f/f9/Escopeta_M37.jpg/revision/latest/scale-to-width-down/1000?cb=20170127192932&path-prefix=es'),
+(4, 'Granada de Fragmentación', 'Una granada explosiva que causa daño en un área determinada.', 80, 'Municion', 'https://static.wikia.nocookie.net/residentevil/images/2/2d/Granada_de_mano_RE2_remake.jpg/revision/latest/scale-to-width-down/1000?cb=20190205050418&path-prefix=es'),
+(5, 'Spray Medicinal', 'Un spray medicinal que restaura una cantidad moderada de salud.', 300, 'Curacion', 'https://static.wikia.nocookie.net/residentevil/images/6/60/Spray_primeros_auxilios.png/revision/latest?cb=20200625210523&path-prefix=es'),
+(6, 'Chaleco Táctico', 'Un chaleco táctico que proporciona una protección moderada.', 100, 'Armadura', 'https://static.wikia.nocookie.net/residentevil/images/8/89/Chaleco_antibalas_RE4R.png/revision/latest?cb=20230619134025&path-prefix=es'),
+(7, 'Traje de Kevlar', 'Un traje de kevlar que proporciona una protección excepcional.', 200, 'Armadura', 'https://i.etsystatic.com/30592998/r/il/b10746/4041638410/il_fullxfull.4041638410_6z9c.jpg'),
+(8, 'Hierba Verde', 'Una hierba verde que restaura cierta cantidad de salud.', 150, 'Curacion', 'https://static.wikia.nocookie.net/residentevil/images/a/a3/Hierba_verde.png/revision/latest?cb=20200625210632&path-prefix=es'),
+(9, 'Hierba Roja', 'Una hierba roja que potencia la curación si se combina con una verde.', 250, 'Curacion', 'https://static.wikia.nocookie.net/residentevil/images/e/ea/Hierba_roja.png/revision/latest?cb=20200625210642&path-prefix=es'),
+(11, 'Munición de 9mm', 'Munición estándar para la pistola.', 10, 'Municion', 'https://static.wikia.nocookie.net/residentevil/images/e/e0/Munici%C3%B3n_pistola_RE0.png/revision/latest?cb=20200702073508&path-prefix=es'),
+(12, 'Munición de Escopeta', 'Munición de escopeta de calibre 12.', 15, 'Municion', 'https://static.wikia.nocookie.net/residentevil/images/3/32/Cartuchos_de_escopeta_RE4_remake.png/revision/latest?cb=20230615203215&path-prefix=es'),
+(13, 'Munición de lanzaranadas', 'Munición especial para lanzagranadas.', 5, 'Municion', 'https://static.wikia.nocookie.net/residentevil/images/5/5a/Granadas_explosivas_RE0.png/revision/latest?cb=20200702073540&path-prefix=es'),
+(14, 'Piedra de afilar', 'Afilar el cuchillo', 10, 'Municion', 'https://www.eliteguias.com/img/juegos/elden-ring/hoja-de-afilar-de-piedras-refulgentes.jpg'),
+(15, 'Botiquín de Primeros Auxilios', 'Un botiquín básico que restaura una cantidad moderada de salud.', 40, 'Curacion', 'https://static.wikia.nocookie.net/residentevil/images/0/02/Botiqu%C3%ADn.jpg/revision/latest?cb=20180311235815&path-prefix=es'),
+(16, 'Botiquín Avanzado', 'Un botiquín avanzado que restaura una cantidad considerable de salud.', 80, 'Curacion', 'https://static.wikia.nocookie.net/residentevil/images/1/1f/Botiquin_abierto.jpg/revision/latest?cb=20180318203708&path-prefix=es'),
+(17, 'Escudo Anti-Criaturas', 'Un escudo diseñado específicamente para protegerse de las criaturas.', 50, 'Armadura', 'https://static.wikia.nocookie.net/residentevil/images/0/00/Escudo_de_los_Salazar.jpg/revision/latest/scale-to-width-down/1000?cb=20180414045641&path-prefix=es'),
+(18, 'Granada de Humo', 'Granada de humo para encubrir.', 25, 'Municion', 'https://static.wikia.nocookie.net/residentevil/images/3/3a/Flash_Grenade.jpg/revision/latest?cb=20130802001027&path-prefix=es'),
+(19, 'Granada Paralizante', 'Granada paralizante que aturde temporalmente a los enemigos.', 35, 'Municion', 'https://static.wikia.nocookie.net/residentevil/images/1/1f/Incendiary_Grenade.jpg/revision/latest?cb=20130801234028&path-prefix=es'),
+(20, 'Poción de Velocidad', 'Poción que aumenta temporalmente la velocidad del jugador.', 30, 'Curacion', 'https://img.freepik.com/fotos-premium/pocion-magica-velocidad-etiqueta-botella-tiene-simbolo-remolino-que-sugiere-velocidad_555090-30509.jpg'),
+(21, 'Skin de Leon S. Kennedy', 'Una skin que transforma el aspecto del personaje en Leon S. Kennedy, el protagonista de Resident Evil 2.', 800, 'Skin', 'https://static.wikia.nocookie.net/residentevil/images/2/27/RE4R_Leon_Render_2.jpeg/revision/latest?cb=20230224165400'),
+(22, 'Skin de Jill Valentine', 'Una skin que cambia el aspecto del personaje en Jill Valentine, la heroína de Resident Evil 3.', 850, 'Skin', 'https://i.pinimg.com/originals/8f/94/4d/8f944d5c0a158a8541b4005d618ad369.jpg'),
+(23, 'Skin de Nemesis', 'Una skin que convierte al personaje en Nemesis, la temible criatura de Resident Evil 3.', 1000, 'Skin', 'https://cdn.hobbyconsolas.com/sites/navi.axelspringer.es/public/media/image/2019/11/resident-evil-3-nemesis_0.jpg?tf=3840x'),
+(24, 'Lanzagranadas', 'Un arma que dispara granadas explosivas.', 500, 'Arma', 'https://static.wikia.nocookie.net/residentevil/images/2/22/Lanzagranadas_REmake.jpg/revision/latest?cb=20191213153913&path-prefix=es'),
+(25, 'Municion acida', 'Munición especial que contiene ácido, utilizada en el lanzagranadas.', 300, 'Municion', 'https://static.wikia.nocookie.net/residentevil/images/2/22/Granadas_%C3%A1cidas_RE0.png/revision/latest?cb=20200702073608&path-prefix=es'),
+(26, 'Municion incendiaria', 'Munición que causa incendios, utilizada en el lanzagranadas.', 300, 'Municion', 'https://static.wikia.nocookie.net/residentevil/images/9/91/Granadas_%C3%ADgneas_RE0.png/revision/latest?cb=20200702073558&path-prefix=es'),
+(28, 'Rifle de asalto', 'Un arma automática de alta cadencia de fuego.', 450, 'Arma', 'https://static.wikia.nocookie.net/residentevil/images/1/1d/Rifle_de_asalto_CQBR_RE4_arma.jpg/revision/latest/scale-to-width-down/1000?cb=20230626071225&path-prefix=es'),
+(29, 'Municion para rifle de asalto', 'Munición utilizada en el rifle de asalto.', 200, 'Municion', 'https://static.wikia.nocookie.net/residentevil/images/b/bf/Cargador_ametralladora_RE0.png/revision/latest?cb=20200702073639&path-prefix=es'),
+(30, 'Magnum 357', 'Un potente revólver de gran calibre.', 400, 'Arma', 'https://static.wikia.nocookie.net/residentevil/images/5/55/Rev%C3%B3lver_magnum.jpg/revision/latest?cb=20191213144929&path-prefix=es'),
+(31, 'Balas para magnum', 'Munición para el revólver Magnum 45.', 50, 'Municion', 'https://static.wikia.nocookie.net/residentevil/images/c/c4/Balas_magnum_RE0.png/revision/latest?cb=20200702073529&path-prefix=es'),
+(32, 'Skin de Ada Wong', 'Aspecto alternativo para el personaje Ada Wong.', 1000, 'Skin', 'https://new.imagehostx.com/upload/2024/02/26/ada-wong-pack-for-g8f-01_1708920698.jpg'),
+(33, 'Skin de Wesker', 'Aspecto alternativo para el personaje Wesker.', 1000, 'Skin', 'https://i.pinimg.com/736x/f1/f7/e5/f1f7e520e7269462a71fa14099550966.jpg'),
+(34, 'Chaleco S.T.A.R.S.', 'Chaleco táctico usado por miembros del equipo S.T.A.R.S.', 200, 'Armadura', 'https://i.ebayimg.com/images/g/UPAAAOSw615g2sUS/s-l1200.webp'),
+(35, 'Gabardina UMBRELLA', 'Gabardina utilizada por agentes de UMBRELLA.', 500, 'Armadura', 'https://m.media-amazon.com/images/I/61n62MoRePL.jpg'),
+(36, 'Remedio virus-T', 'Remedio para el virus-T.', 5000, 'Curacion', 'https://ae01.alicdn.com/kf/S31733e8c33514414aa02a84d318b04bdq/Umbrella-biochemistry-Suitcase-T-Virus-Vial-Display-Case-Cosplay-horror-Movie-Villainous-Item-Prop-Replica.jpg');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
