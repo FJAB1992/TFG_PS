@@ -11,14 +11,13 @@ class Inventario(models.Model):
         verbose_name = "inventario"
         verbose_name_plural = "inventarios"
         db_table = "inventario"
-        # La restricción unique_together asegura que no haya duplicados en la tabla de inventario.
-        unique_together = (("jugador_id", "objeto_id"),)
+        unique_together = (("jugador", "objeto"),)
         app_label = "tfg_ps_app"
 
 
 class Jugadores(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    dinero = models.IntegerField(default=5000)  # Valor por defecto, el jugador inicia con 5000 ptas
+    dinero = models.IntegerField(default=5000)
 
     def __str__(self):
         return self.user.username
@@ -46,8 +45,7 @@ class Objetos(models.Model):
         blank=True,
         null=True,
     )
-    imagen = models.ImageField(upload_to="img/", blank=True, null=True)
-    extension = models.CharField(max_length=4, blank=True, null=True)
+    url_imagen = models.TextField(blank=True, null=True)
 
     class Meta:
         verbose_name = "objeto"

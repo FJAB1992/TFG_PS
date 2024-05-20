@@ -38,7 +38,6 @@
                     <th>Descripción</th>
                     <th>Precio</th>
                     <th>Tipo</th>
-                    <th>Imagen</th>
                     <th>Cantidad</th>
                     <th>Acción</th>
                 </tr>
@@ -54,13 +53,6 @@
                     <td>{{ item.objeto.descripcion }}</td>
                     <td>{{ item.objeto.precio }}</td>
                     <td>{{ item.objeto.tipo_objeto }}</td>
-                    <td>
-                        {% if item.objeto.imagen %}
-                        <img src="{{ item.objeto.imagen.url }}" alt="{{ item.objeto.nombre }}" width="100">
-                        {% else %}
-                        No imagen disponible
-                        {% endif %}
-                    </td>
                     <td>{{ item.cantidad }}</td>
                     <td>
                         <form action="{% url 'tfg_ps_app:vender_objeto' item.id %}" method="post">
@@ -107,7 +99,6 @@
                     <th scope="col">Descripción</th>
                     <th scope="col">Precio</th>
                     <th scope="col">Tipo</th>
-                    <th scope="col">Imagen</th>
                     <th scope="col">Acción</th>
                 </tr>
             </thead>
@@ -122,13 +113,6 @@
                     <td>{{ objeto.descripcion }}</td>
                     <td>{{ objeto.precio }}</td>
                     <td>{{ objeto.tipo_objeto }}</td>
-                    <td>
-                        {% if objeto.imagen %}
-                        <img src="{{ objeto.imagen.url }}" alt="{{ objeto.nombre }}" width="100">
-                        {% else %}
-                        No imagen disponible
-                        {% endif %}
-                    </td>
                     <td>
                         {% if jugador.dinero >= objeto.precio %}
                         <form action="{% url 'tfg_ps_app:comprar_objeto' objeto.id %}" method="post">
