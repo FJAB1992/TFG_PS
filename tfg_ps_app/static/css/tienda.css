@@ -9,29 +9,29 @@ aside {
     float: left; /* Asegura que el contenedor principal no se superponga con el aside */
 }
 
-/* Estilos para el botón de cerrar sesión */
+
 #cerrar-sesion-btn {
     float: right;
 }
-/* Estilos para la página de tienda */
+
 .container {
     width: 70%;
-    margin: 0 auto; /* Centra el contenedor */
+    margin: 0 auto;
 }
 
 .centered-table {
-    margin: 0 auto; /* Centra la tabla */
+    margin: 0 auto;
 }
 
 .usuario-info {
-    text-align: center; /* Centra el contenido del usuario-info */
+    text-align: center;
 }
 
 .pagination {
-    text-align: center; /* Centra la paginación */
-    clear: both; /* Asegura que el footer no tape el contenido */
+    text-align: center;
+    clear: both;
 }
 
 .footer {
-    text-align: center; /* Centra el contenido del footer */
+    text-align: center;
 }

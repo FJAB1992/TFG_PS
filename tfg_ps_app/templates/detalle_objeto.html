@@ -10,14 +10,14 @@
 {% block cuerpo %}
 <div class="container mt-4">
     <h1>Detalle del Objeto</h1>
-    <div class="card">
+    <div class="card slider-container">
         <div class="card-body">
             <h5 class="card-title">Nombre: {{ objeto.nombre }}</h5>
             <p class="card-text">Descripción: {{ objeto.descripcion }}</p>
             <p class="card-text">Precio: {{ objeto.precio }}</p>
             <p class="card-text">Tipo: {{ objeto.tipo_objeto }}</p>
             {% if objeto.url_imagen %}
-            <div class="image-container">
+            <div class="image-container img-box">
                 <img src="{{ objeto.url_imagen }}" alt="{{ objeto.nombre }}" style="max-width: 400px;max-height: 400px;">
             </div>
             {% else %}
