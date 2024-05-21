@@ -8,7 +8,7 @@
 {% endblock %}
 
 {% block cuerpo %}
-<div class="container mt-4 mb-5">
+<div class="container text-center">
     <h1>Inventario de {{ jugador.user.username }}</h1>
     <h1>Dinero: {{ jugador.dinero }}</h1>
 
@@ -30,6 +30,7 @@
             {% endif %}
         </span>
     </div>
+    
     <div class="table-responsive">
         <table class="table table-primary">
             <thead>
@@ -58,7 +59,7 @@
                     <td>
                         {% if item.objeto.url_imagen %}
                         <div class="image-container">
-                            <img src="{{ item.objeto.url_imagen }}" alt="{{ item.objeto.nombre }}" class="img-fluid" style=" max-width: 50px;max-height: 50px;">
+                            <img src="{{ item.objeto.url_imagen }}" alt="{{ item.objeto.nombre }}" class="img-fluid" style="max-width: 50px; max-height: 50px;">
                         </div>
                         {% else %}
                         <p>No hay imagen disponible.</p>
@@ -75,10 +76,11 @@
             </tbody>
         </table>
     </div>
+
     <br/>
     <h1 class="text-center">Tienda</h1>
 
-   <!-- Formulario de búsqueda y filtro -->
+    <!-- Formulario de búsqueda y filtro -->
     <form method="GET" action="{% url 'tfg_ps_app:tienda' %}" class="form-inline mb-4">
         <input type="text" name="q" class="form-control mr-sm-2" placeholder="Buscar por nombre" value="{{ query }}">
         
@@ -134,7 +136,7 @@
                     <td>
                         {% if objeto.url_imagen %}
                         <div class="image-container">
-                            <img src="{{ objeto.url_imagen }}" alt="{{ objeto.nombre }}" class="img-fluid" style=" max-width: 50px;max-height: 50px;">
+                            <img src="{{ objeto.url_imagen }}" alt="{{ objeto.nombre }}" class="img-fluid" style="max-width: 50px; max-height: 50px;">
                         </div>
                         {% else %}
                         <p>No hay imagen disponible.</p>
