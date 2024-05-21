@@ -6,12 +6,11 @@ aside {
 
 .container {
     width: 70%; /* Ajusta el ancho del contenedor principal */
-    float: left; /* Asegura que el contenedor principal no se superponga con el aside */
 }
 
-#cerrar-sesion-btn {
+/* #cerrar-sesion-btn {
     float: right;
-}
+} */
 
 .container {
     width: 70%;
