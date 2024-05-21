@@ -9,7 +9,6 @@ aside {
     float: left; /* Asegura que el contenedor principal no se superponga con el aside */
 }
 
-
 #cerrar-sesion-btn {
     float: right;
 }
