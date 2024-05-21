@@ -64,11 +64,11 @@ class DetalleObjetoView(generic.DetailView):
     def get_queryset(self):
         return models.Objetos.objects.all()
 
-
 @login_required
 def tienda(request):
     jugador_id = request.user.id
     query = request.GET.get("q", "")  # Obtener el parámetro de búsqueda
+    tipo = request.GET.get("tipo", "")  # Obtener el parámetro de filtro por tipo
 
     try:
         jugador = models.Jugadores.objects.get(user_id=jugador_id)
@@ -89,12 +89,12 @@ def tienda(request):
                 inventario_paginator.num_pages
             )
 
-        # Filtro objetos de la tienda por nombre
-        objetos_tienda_list = (
-            models.Objetos.objects.filter(nombre__icontains=query)
-            if query
-            else models.Objetos.objects.all()
-        )
+        # Filtrar objetos de la tienda por nombre y tipo
+        objetos_tienda_list = models.Objetos.objects.all()
+        if query:
+            objetos_tienda_list = objetos_tienda_list.filter(nombre__icontains=query)
+        if tipo:
+            objetos_tienda_list = objetos_tienda_list.filter(tipo_objeto=tipo)
         
         # Paginación para la tienda
         tienda_paginator = Paginator(objetos_tienda_list, 5)
@@ -118,7 +118,8 @@ def tienda(request):
                 "jugador": jugador,
                 "tipos": tipos,
                 "user": request.user,
-                "query": query,  # Pasar el query de búsqueda al contexto
+                "query": query,
+                "tipo": tipo,  
             },
         )
     except models.Jugadores.DoesNotExist:
