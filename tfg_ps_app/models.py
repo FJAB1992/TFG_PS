@@ -47,6 +47,9 @@ class Objetos(models.Model):
     )
     url_imagen = models.URLField(blank=True, null=True)
 
+    def __str__(self):
+        return self.nombre
+
     class Meta:
         verbose_name = "objeto"
         verbose_name_plural = "objetos"
