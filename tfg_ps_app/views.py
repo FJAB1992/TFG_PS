@@ -30,6 +30,8 @@ def login_view(request):
             user = form.get_user()
             login(request, user)
             return redirect("tfg_ps_app:tienda")
+        else:
+            messages.error(request, 'Nombre de usuario o contraseña incorrectos.')
     else:
         form = AuthenticationForm(request)
 
@@ -46,6 +48,8 @@ def signup_view(request):
             jugador = Jugadores.objects.create(user=user)
             login(request, user)
             return redirect("tfg_ps_app:tienda")
+        else:
+            messages.error(request, 'Por favor corrija los errores en el formulario.')
     else:
         form = UserCreationForm()
     return render(request, "signup.html", {"form": form, "user": request.user})
