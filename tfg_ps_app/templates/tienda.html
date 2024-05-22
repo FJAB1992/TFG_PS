@@ -84,18 +84,21 @@
     <h1 class="text-center">Tienda</h1>
 
     <!-- Formulario de búsqueda y filtro -->
-<form method="GET" action="{% url 'tfg_ps_app:tienda' %}" class="form-inline mb-4 text-center">
-    <input type="text" name="q" class="form-control mr-sm-2" style="font-size: 18px;" placeholder="Buscar por nombre" value="{{ query }}">
+    <div class="text-center">
+        <form method="GET" action="{% url 'tfg_ps_app:tienda' %}" class="form-inline mb-4 text-center mx-auto" style="width: 50%;">
+            <input type="text" name="q" class="form-control mr-sm-2" style="font-size: 18px; width: 100%;" placeholder="Buscar por nombre" value="{{ query }}">
+            <br/>
+            <select name="tipo" class="form-control mr-sm-2" style="font-size: 18px; width: 100%;">
+                <option value="">Todos los tipos</option>
+                {% for tipo in tipos %}
+                <option value="{{ tipo.tipo_objeto }}" {% if tipo.tipo_objeto == tipo %}selected{% endif %}>{{ tipo.tipo_objeto }}</option>
+                {% endfor %}
+            </select>
+            <br/>
+            <button type="submit" class="btn btn-primary" style="font-size: 18px; width: 100%;">Buscar</button>
+        </form>
+    </div>
     
-    <select name="tipo" class="form-control mr-sm-2" style="font-size: 18px;">
-        <option value="">Todos los tipos</option>
-        {% for tipo in tipos %}
-        <option value="{{ tipo.tipo_objeto }}" {% if tipo.tipo_objeto == tipo %}selected{% endif %}>{{ tipo.tipo_objeto }}</option>
-        {% endfor %}
-    </select>
-    <button type="submit" class="btn btn-primary" style="font-size: 18px;">Buscar</button>
-</form>
-
 <!-- Paginación -->
 <div class="pagination text-center" style="margin-top: 10px;">
     <span class="step-links">
