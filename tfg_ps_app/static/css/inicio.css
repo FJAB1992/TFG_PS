@@ -13,7 +13,7 @@ body {
 
 .card {
     width: 40%;
-    margin: 50px auto;
+    margin: 20px auto;
     padding: 5px;
     background-color: #d1d1ff;
     border-radius: 10px;
@@ -29,11 +29,11 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 .button-container .btn {
-    margin: 10px 0;
+    margin: 3px 0;
     width: 80%;
 }
 
