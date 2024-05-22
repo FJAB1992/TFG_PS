@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -5,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="refresh" content="30">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+    <link rel="icon" href="{% static 'img/favicon.ico' %}">
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
     <title>{% block titulo %}{% endblock %}</title>
@@ -20,8 +22,9 @@
             z-index: 1030;
         }
         footer.fixed-bottom {
-            background-color: #343a40;
+            background-color: #28003a;
             color: white;
+            font-size: 22px;
         }
     </style>
 </head>
@@ -41,7 +44,7 @@
     </div>
     {% endif %}
     
-    <footer class="fixed-bottom bg-dark text-white p-3">
+    <footer class="fixed-bottom text-white">
         <div class="container">
             <div class="row justify-content-between">
                 <div class="col-lg-6 text-start">
