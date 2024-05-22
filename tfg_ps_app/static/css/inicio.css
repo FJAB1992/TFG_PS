@@ -7,17 +7,18 @@ body {
 }
 
 .container {
-    margin-top: 25px;
+    margin-top: 15px;
     text-align: center;
 }
 
 .card {
-    width: 300px;
+    width: 40%;
     margin: 50px auto;
-    padding: 20px;
+    padding: 5px;
     background-color: #d1d1ff;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Center content inside card */
 }
 
 h1 {
@@ -25,13 +26,15 @@ h1 {
 }
 
 .button-container {
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin-top: 20px;
 }
 
 .button-container .btn {
-    margin: 5px;
-    width: 100%;
+    margin: 10px 0; /* Add vertical margin for spacing between buttons */
+    width: 80%; /* Adjust button width as needed */
 }
 
 .btn-primary {
@@ -67,7 +70,7 @@ h1 {
 .tienda-btn {
     margin-top: 40%;
     margin-bottom: 40%;
-    width: 25%;
+    width: 15%;
 }
 
 @media (max-width: 768px) {
