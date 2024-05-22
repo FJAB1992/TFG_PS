@@ -3,39 +3,75 @@
 body {
     font-family: 'Bebas Neue', sans-serif;
     background-color: rgba(130, 66, 155, 0.8);
+    color: #4b0082;
     font-size: 20px;
 }
 
 .container {
-    margin-top: 10px;
+    margin-top: 5px;
+    text-align: center;
 }
 
 .card {
-    width: 70%;
+    width: 40%;
     margin: 50px auto;
-    padding: 20px;
+    padding: 5px;
     background-color: #d1d1ff;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
 h1 {
     color: #4b0082;
-    text-align: center;
 }
 
 .button-container {
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin-top: 20px;
 }
 
 .button-container .btn {
-    margin: 5px;
-    width: 100%;
+    margin: 10px 0;
+    width: 80%;
+}
+
+.btn-primary {
+    background-color: #800080;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 22px;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn-primary:hover {
+    background-color: #4b0082;
+}
+
+.btn-success {
+    background-color: #4a074ab1;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 22px;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-success:hover {
+    background-color: #703898;
 }
 
 .tienda-btn {
-    width: 25%;
+    margin-top: 40%;
+    margin-bottom: 40%;
+    width: 15%;
 }
 
 @media (max-width: 768px) {
@@ -49,10 +85,42 @@ h1 {
         width: 90%;
     }
 }
-.image-container {
-    display: flex;
-    justify-content: center;
+
+.slider-container {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.561);
+}
+
+.slider-container .img-box {
+    border-radius: 10px;
+}
+
+.container {
+    width: 70%;
+    margin: 0 auto;
+}
+
+.button-container {
     margin-top: 20px;
 }
 
+.pagination {
+    text-align: center;
+    clear: both;
+}
 
+.table-primary th,
+.table-primary td {
+    font-size: 22px;
+    margin-bottom: 20%;
+}
+
+.table-primary {
+    border: 3px solid #250925d9;
+    color: #250925d9;
+}
+
+.table-responsive {
+    margin-bottom: 10%;
+}
