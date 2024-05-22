@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Bebas Neue', sans-serif;
     background-color: rgba(130, 66, 155, 0.8);
     color: #4b0082;
 }
@@ -32,6 +34,36 @@ h1 {
     width: 100%;
 }
 
+.btn-primary {
+    background-color: #800080;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 22px;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #4b0082;
+}
+
+.btn-success {
+    background-color: #4a074ab1;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 22px;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-success:hover {
+    background-color: #703898;
+}
+
 .tienda-btn {
     width: 25%;
 }
@@ -47,6 +79,7 @@ h1 {
         width: 90%;
     }
 }
+
 .slider-container {
     border-radius: 10px;
     overflow: hidden; 

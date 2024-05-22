@@ -1,12 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Bebas Neue', sans-serif;
     background-color: rgba(130, 66, 155, 0.8);
-    color: #4b0082;
+    font-size: 20px;
 }
 
 .container {
-    margin-top: 50px;
-    text-align: left;
+    margin-top: 10px;
 }
 
 .card {
@@ -20,6 +21,7 @@ body {
 
 h1 {
     color: #4b0082;
+    text-align: center;
 }
 
 .button-container {
