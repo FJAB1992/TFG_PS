@@ -18,7 +18,7 @@ body {
     background-color: #d1d1ff;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center; /* Center content inside card */
+    text-align: center;
 }
 
 h1 {
@@ -33,8 +33,8 @@ h1 {
 }
 
 .button-container .btn {
-    margin: 10px 0; /* Add vertical margin for spacing between buttons */
-    width: 80%; /* Adjust button width as needed */
+    margin: 10px 0;
+    width: 80%;
 }
 
 .btn-primary {

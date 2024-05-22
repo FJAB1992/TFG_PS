@@ -9,27 +9,30 @@
 
 {% block cuerpo %}
 <div class="container text-center">
-    <h1>Inventario de {{ jugador.user.username }}</h1>
-    <h1>Dinero: {{ jugador.dinero }}</h1>
+    <div class="card bg-dark text-light p-4 mb-4">
+        <h1 class="text-center mb-4">Inventario de {{ jugador.user.username }}</h1>
+        <h1 class="text-center">Dinero: {{ jugador.dinero }}</h1>
+    </div>
+    
 
     <!-- Paginación del inventario -->
-    <div class="pagination">
-        <span class="step-links">
-            {% if inventario_jugador.has_previous %}
-                <a href="?inventario_page=1{% if query %}&q={{ query }}{% endif %}">&laquo; primero</a>
-                <a href="?inventario_page={{ inventario_jugador.previous_page_number }}{% if query %}&q={{ query }}{% endif %}">anterior</a>
-            {% endif %}
+<div class="pagination text-center" style="margin-top: 10px;">
+    <span class="step-links" style="font-size: 18px;">
+        {% if inventario_jugador.has_previous %}
+            <a href="?inventario_page=1{% if query %}&q={{ query }}{% endif %}">&laquo; primero</a>
+            <a href="?inventario_page={{ inventario_jugador.previous_page_number }}{% if query %}&q={{ query }}{% endif %}">anterior</a>
+        {% endif %}
 
-            <span class="current">
-                Página {{ inventario_jugador.number }} de {{ inventario_jugador.paginator.num_pages }}.
-            </span>
-
-            {% if inventario_jugador.has_next %}
-                <a href="?inventario_page={{ inventario_jugador.next_page_number }}{% if query %}&q={{ query }}{% endif %}">siguiente</a>
-                <a href="?inventario_page={{ inventario_jugador.paginator.num_pages }}{% if query %}&q={{ query }}{% endif %}">último &raquo;</a>
-            {% endif %}
+        <span class="current">
+            Página {{ inventario_jugador.number }} de {{ inventario_jugador.paginator.num_pages }}.
         </span>
-    </div>
+
+        {% if inventario_jugador.has_next %}
+            <a href="?inventario_page={{ inventario_jugador.next_page_number }}{% if query %}&q={{ query }}{% endif %}">siguiente</a>
+            <a href="?inventario_page={{ inventario_jugador.paginator.num_pages }}{% if query %}&q={{ query }}{% endif %}">último &raquo;</a>
+        {% endif %}
+    </span>
+</div>
     
     <div class="table-responsive">
         <table class="table table-primary">
@@ -68,7 +71,7 @@
                     <td>
                         <form action="{% url 'tfg_ps_app:vender_objeto' item.id %}" method="post">
                             {% csrf_token %}
-                            <button type="submit" class="btn btn-danger">Vender</button>
+                            <button type="submit" class="btn btn-success">Vender</button>
                         </form>
                     </td>
                 </tr>
@@ -81,34 +84,34 @@
     <h1 class="text-center">Tienda</h1>
 
     <!-- Formulario de búsqueda y filtro -->
-    <form method="GET" action="{% url 'tfg_ps_app:tienda' %}" class="form-inline mb-4">
-        <input type="text" name="q" class="form-control mr-sm-2" placeholder="Buscar por nombre" value="{{ query }}">
-        
-        <select name="tipo" class="form-control mr-sm-2">
-            <option value="">Todos los tipos</option>
-            {% for tipo in tipos %}
-            <option value="{{ tipo.tipo_objeto }}" {% if tipo.tipo_objeto == tipo %}selected{% endif %}>{{ tipo.tipo_objeto }}</option>
-            {% endfor %}
-        </select>
-        <button type="submit" class="btn btn-primary">Buscar</button>
-    </form>
+<form method="GET" action="{% url 'tfg_ps_app:tienda' %}" class="form-inline mb-4 text-center">
+    <input type="text" name="q" class="form-control mr-sm-2" style="font-size: 18px;" placeholder="Buscar por nombre" value="{{ query }}">
+    
+    <select name="tipo" class="form-control mr-sm-2" style="font-size: 18px;">
+        <option value="">Todos los tipos</option>
+        {% for tipo in tipos %}
+        <option value="{{ tipo.tipo_objeto }}" {% if tipo.tipo_objeto == tipo %}selected{% endif %}>{{ tipo.tipo_objeto }}</option>
+        {% endfor %}
+    </select>
+    <button type="submit" class="btn btn-primary" style="font-size: 18px;">Buscar</button>
+</form>
 
-    <!-- Paginación -->
-    <div class="pagination">
-        <span class="step-links">
-            {% if objetos_tienda.has_previous %}
-                <a href="?tienda_page=1{% if query %}&q={{ query }}{% endif %}">&laquo; primero</a>
-                <a href="?tienda_page={{ objetos_tienda.previous_page_number }}{% if query %}&q={{ query }}{% endif %}">anterior</a>
-            {% endif %}
-            <span class="current">
-                Página {{ objetos_tienda.number }} de {{ objetos_tienda.paginator.num_pages }}.
-            </span>
-            {% if objetos_tienda.has_next %}
-                <a href="?tienda_page={{ objetos_tienda.next_page_number }}{% if query %}&q={{ query }}{% endif %}">siguiente</a>
-                <a href="?tienda_page={{ objetos_tienda.paginator.num_pages }}{% if query %}&q={{ query }}{% endif %}">último &raquo;</a>
-            {% endif %}
+<!-- Paginación -->
+<div class="pagination text-center" style="margin-top: 10px;">
+    <span class="step-links">
+        {% if objetos_tienda.has_previous %}
+            <a href="?tienda_page=1{% if query %}&q={{ query }}{% endif %}" style="font-size: 18px;">&laquo; primero</a>
+            <a href="?tienda_page={{ objetos_tienda.previous_page_number }}{% if query %}&q={{ query }}{% endif %}" style="font-size: 18px;">anterior</a>
+        {% endif %}
+        <span class="current" style="font-size: 18px;">
+            Página {{ objetos_tienda.number }} de {{ objetos_tienda.paginator.num_pages }}.
         </span>
-    </div>
+        {% if objetos_tienda.has_next %}
+            <a href="?tienda_page={{ objetos_tienda.next_page_number }}{% if query %}&q={{ query }}{% endif %}" style="font-size: 18px;">siguiente</a>
+            <a href="?tienda_page={{ objetos_tienda.paginator.num_pages }}{% if query %}&q={{ query }}{% endif %}" style="font-size: 18px;">último &raquo;</a>
+        {% endif %}
+    </span>
+</div>
 
     <div class="table-responsive">
         <table class="table table-primary">
@@ -149,7 +152,7 @@
                             <button type="submit" class="btn btn-success">Comprar</button>
                         </form>
                         {% else %}
-                        <span class="text-danger">No tienes suficiente dinero</span>
+                        <span class="text-success">No tienes suficiente dinero</span>
                         {% endif %}
                     </td>
                 </tr>

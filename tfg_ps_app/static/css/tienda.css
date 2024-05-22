@@ -1,28 +1,107 @@
-/* Estilos para la página de tienda */
-aside {
-    float: right;
-    width: 30%;
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+body {
+    font-family: 'Bebas Neue', sans-serif;
+    background-color: rgba(130, 66, 155, 0.8);
+    color: #4b0082;
 }
 
 .container {
-    width: 70%; /* Ajusta el ancho del contenedor principal */
+    margin-top: 5px;
+    text-align: center;
 }
 
-/* #cerrar-sesion-btn {
-    float: right;
-} */
+.card {
+    width: 40%;
+    margin: 50px auto;
+    padding: 5px;
+    background-color: #d1d1ff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h1 {
+    color: #4b0082;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.button-container .btn {
+    margin: 10px 0;
+    width: 80%;
+}
+
+.btn-primary {
+    background-color: #800080;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 22px;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn-primary:hover {
+    background-color: #4b0082;
+}
+
+.btn-success {
+    background-color: #4a074ab1;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 22px;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-success:hover {
+    background-color: #703898;
+}
+
+.tienda-btn {
+    margin-top: 40%;
+    margin-bottom: 40%;
+    width: 15%;
+}
+
+@media (max-width: 768px) {
+    .tienda-btn {
+        width: 50%;
+    }
+}
+
+@media (max-width: 576px) {
+    .card {
+        width: 90%;
+    }
+}
+
+.slider-container {
+    border-radius: 10px;
+    overflow: hidden; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.561); 
+}
+
+.slider-container .img-box {
+    border-radius: 10px; 
+}
 
 .container {
     width: 70%;
     margin: 0 auto;
 }
 
-.centered-table {
-    margin: 0 auto;
-}
-
-.usuario-info {
-    text-align: center;
+.button-container {
+    margin-top: 20px;
 }
 
 .pagination {
@@ -30,6 +109,12 @@ aside {
     clear: both;
 }
 
-.footer {
-    text-align: center;
+.table-primary th,
+.table-primary td {
+    font-size: 20px;
+}
+
+.table-primary {
+    border: 3px solid #250925d9;
+    color: #250925d9;
 }
