@@ -191,3 +191,43 @@ class TiendaTestCase02(TestCase):
         self.assertNotEqual(
             response.status_code, 200
         )  # No debería devolver un código de éxito sin iniciar sesión
+
+from django.contrib.auth.models import User
+from django.test import TestCase
+from django.urls import reverse
+from .models import Jugadores, Objetos, Inventario
+
+
+class TiendaTestCase03(TestCase):
+    @classmethod
+    def setUpTestData(cls):
+        cls.objeto_1 = Objetos.objects.create(nombre="Objeto1", precio=10)
+        cls.objeto_2 = Objetos.objects.create(nombre="Objeto2", precio=20)
+
+    def setUp(self):
+        self.user = User.objects.create_user(username="test_user", password="test_password")
+        self.client.login(username="test_user", password="test_password")
+        self.jugador = Jugadores.objects.create(user=self.user)
+
+    def test_compra_venta(self):
+        # Comprar un objeto en la tienda
+        response = self.client.post(reverse("tfg_ps_app:comprar_objeto", args=[self.objeto_1.pk]))
+        self.assertEqual(response.status_code, 302)  # Debería redirigir a la página de la tienda
+        # Verificar que el objeto se haya agregado al inventario del jugador
+        inventario_objeto_1 = Inventario.objects.get(jugador=self.jugador, objeto=self.objeto_1)
+        self.assertEqual(inventario_objeto_1.cantidad, 1)
+
+        # Vender el objeto comprado
+        response = self.client.post(reverse("tfg_ps_app:vender_objeto", args=[inventario_objeto_1.pk]))
+        self.assertEqual(response.status_code, 302)  # Debería redirigir a la página de la tienda
+        # Verificar que el objeto se haya eliminado del inventario del jugador
+        with self.assertRaises(Inventario.DoesNotExist):
+            Inventario.objects.get(jugador=self.jugador, objeto=self.objeto_1)
+
+        # Ver el inventario del jugador
+        response = self.client.get(reverse("tfg_ps_app:tienda"))
+        self.assertEqual(response.status_code, 200)  # Debería devolver un código de éxito
+        self.assertNotContains(response, "Objeto1")  # No debería mostrar el objeto vendido en el inventario
+
+    def tearDown(self):
+        self.client.logout()
