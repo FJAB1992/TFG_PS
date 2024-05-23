@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 20-05-2024 a las 11:21:06
+-- Tiempo de generación: 23-05-2024 a las 10:38:54
 -- Versión del servidor: 8.0.31
 -- Versión de PHP: 8.0.26
 
@@ -149,20 +149,30 @@ CREATE TABLE IF NOT EXISTS `auth_user` (
   `date_joined` datetime(6) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`)
-) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Volcado de datos para la tabla `auth_user`
 --
 
 INSERT INTO `auth_user` (`id`, `password`, `last_login`, `is_superuser`, `username`, `first_name`, `last_name`, `email`, `is_staff`, `is_active`, `date_joined`) VALUES
-(1, 'pbkdf2_sha256$720000$3Hj8anaqdugzAhZ5WFfXjH$SAXFBA8UJff3IIMC/IqEdAfEVP7I2eHK854y7Q/G+HE=', '2024-05-20 10:47:07.976955', 1, 'curro', '', '', '', 1, 1, '2024-04-23 17:34:30.059575'),
-(2, 'pbkdf2_sha256$720000$ik1vnUd4WHCgdDVxw4PGoL$HCActxksXPcxoLWYlP1vQYVuNMzvHHh1+6jNcSdZf20=', '2024-05-14 10:37:05.439112', 0, 'raul', '', '', '', 0, 1, '2024-04-23 17:42:26.285962'),
-(3, 'pbkdf2_sha256$720000$Fp4iA7FzvgKFZS25wPUhzi$MH8hAfV20IKOp0/comXVSy1PHf1uVt8yszrAZP1WNLA=', '2024-05-20 10:43:51.359083', 0, 'luca', '', '', '', 0, 1, '2024-04-23 18:25:47.142396'),
-(4, 'pbkdf2_sha256$720000$W8ZyZ9KMTODfvYL9iyouaj$a6Hq7hL3fwkLOBCROcEa6nNC8B7Qx4lIevL1E8brUE0=', '2024-05-20 10:52:04.775487', 0, 'dani', '', '', '', 0, 1, '2024-04-23 19:33:07.697818'),
-(8, 'pbkdf2_sha256$720000$19y85mRHr6CGXtaXUUm4BN$DqtqMtCKsZ0ktIb10Us/y0Eea9wfrHB4z3WHej92mXo=', '2024-05-20 09:43:38.175744', 0, 'maria', '', '', '', 0, 1, '2024-05-15 18:02:22.376613'),
+(1, 'pbkdf2_sha256$720000$3Hj8anaqdugzAhZ5WFfXjH$SAXFBA8UJff3IIMC/IqEdAfEVP7I2eHK854y7Q/G+HE=', '2024-05-23 07:17:03.465124', 1, 'curro', '', '', '', 1, 1, '2024-04-23 17:34:30.059575'),
+(2, 'pbkdf2_sha256$720000$ik1vnUd4WHCgdDVxw4PGoL$HCActxksXPcxoLWYlP1vQYVuNMzvHHh1+6jNcSdZf20=', '2024-05-21 09:31:36.989303', 0, 'raul', '', '', '', 0, 1, '2024-04-23 17:42:26.285962'),
+(3, 'pbkdf2_sha256$720000$Fp4iA7FzvgKFZS25wPUhzi$MH8hAfV20IKOp0/comXVSy1PHf1uVt8yszrAZP1WNLA=', '2024-05-23 08:31:24.479713', 0, 'luca', '', '', '', 0, 1, '2024-04-23 18:25:47.142396'),
+(4, 'pbkdf2_sha256$720000$W8ZyZ9KMTODfvYL9iyouaj$a6Hq7hL3fwkLOBCROcEa6nNC8B7Qx4lIevL1E8brUE0=', '2024-05-23 10:34:40.015662', 0, 'dani', '', '', '', 0, 1, '2024-04-23 19:33:07.697818'),
+(8, 'pbkdf2_sha256$720000$19y85mRHr6CGXtaXUUm4BN$DqtqMtCKsZ0ktIb10Us/y0Eea9wfrHB4z3WHej92mXo=', '2024-05-20 16:43:44.180758', 0, 'maria', '', '', '', 0, 1, '2024-05-15 18:02:22.376613'),
 (9, 'pbkdf2_sha256$720000$tDB8MG6YC1YsFnFAAUw6Y6$y2JIhpuQw4YIGtjorkzmirGHxUXexEAYQ5mzRfI/KLg=', '2024-05-20 09:57:47.198759', 0, 'carla', '', '', '', 0, 1, '2024-05-16 08:30:39.880662'),
-(10, 'pbkdf2_sha256$720000$K4bDFqxt7R8z1ZZZFteP73$S+IbF1CQ8VQMsOMdzcJz6B8uxiJE/Zg1Kp8lLGPKq18=', '2024-05-19 10:15:56.300929', 0, 'javi', '', '', '', 0, 1, '2024-05-19 10:15:55.757371');
+(10, 'pbkdf2_sha256$720000$K4bDFqxt7R8z1ZZZFteP73$S+IbF1CQ8VQMsOMdzcJz6B8uxiJE/Zg1Kp8lLGPKq18=', '2024-05-19 10:15:56.300929', 0, 'javi', '', '', '', 0, 1, '2024-05-19 10:15:55.757371'),
+(11, 'pbkdf2_sha256$720000$UzLOrmTHys883A04BbVUVD$ETRMmW4FzIohu95HA6NLYvJbOzhWWOTVGrjRI0Ye3fI=', '2024-05-20 19:44:03.840425', 0, 'demon', '', '', '', 0, 1, '2024-05-20 19:44:03.301063'),
+(12, 'pbkdf2_sha256$720000$VZOR7Bl6ZN2UGf1W4C3uGe$za3RdviDpquvFAAQyaC/Cv9ylsLD2h5imxZzGv+1z5U=', '2024-05-20 19:45:56.429621', 0, 'demon2', '', '', '', 0, 1, '2024-05-20 19:45:55.883823'),
+(13, 'pbkdf2_sha256$720000$jprNUwZ66MDgDdYlzDhbtz$9eSdDsRZfDfrGGpHCDnSaXrk13s8trifwqS91RoXLWs=', '2024-05-20 19:56:19.191464', 0, 'vichi', '', '', '', 0, 1, '2024-05-20 19:56:18.655135'),
+(14, 'pbkdf2_sha256$720000$PzQlfywg4VBWQcpQ1WOrsT$Drt4msC7/Xj+O2pQHN76FoTfE9w7ZHiLO7Dv76N0Ckw=', '2024-05-20 20:00:21.531607', 0, 'lolo', '', '', '', 0, 1, '2024-05-20 20:00:20.990674'),
+(15, 'pbkdf2_sha256$720000$q9dOnyn7XBKydbJQJc7QpJ$tqkJLQD7kHWiSfqWmy8x8rYl5C5nsOuz9uOZZ3i1mus=', '2024-05-20 20:26:29.787563', 0, 'victor', '', '', '', 0, 1, '2024-05-20 20:25:08.705453'),
+(16, 'pbkdf2_sha256$720000$2xiHP6YFuAbulO1YqDXgst$JAWqik5bsrLHk7Xvp6VEHsegevXWPxCiCGf9NEj4CDM=', '2024-05-22 11:16:19.755511', 0, 'kokoro', '', '', '', 0, 1, '2024-05-22 11:16:19.192127'),
+(17, 'pbkdf2_sha256$720000$r9VWApvVCGBKYCPCnbHeAR$YskADiOrbaihryZ41BPIqrlMzeYmF99nv1w1w8CJxC0=', '2024-05-22 20:37:11.818674', 0, 'xavivi', '', '', '', 0, 1, '2024-05-22 20:34:45.176179'),
+(18, 'pbkdf2_sha256$720000$ylXKrCF8JPJAHZzLoGvF72$i5G2b07YS3F4sxa71LVvP9y6JwjOybomGFzMjkkT+NQ=', '2024-05-22 21:26:24.248943', 0, 'paquito', '', '', '', 0, 1, '2024-05-22 21:26:23.715779'),
+(19, 'pbkdf2_sha256$720000$P1i4M4wKp63x9jNpJWZv3x$0hrMwhxClI8kVzWq3GrFK+W/nHA4UJsBJ/pVmhiZqdM=', '2024-05-23 05:45:33.733817', 0, 'dani2', '', '', '', 0, 1, '2024-05-23 05:45:33.203909'),
+(20, 'pbkdf2_sha256$720000$mONgbHfy5gArPndcapeOM7$ZYVcJwSpMBPpgiMD/nlTB2sqt0/InY73MrOJ65/wy8s=', '2024-05-23 06:48:14.731909', 0, 'koko', '', '', '', 0, 1, '2024-05-23 06:48:14.195546');
 
 -- --------------------------------------------------------
 
@@ -217,7 +227,7 @@ CREATE TABLE IF NOT EXISTS `django_admin_log` (
   PRIMARY KEY (`id`),
   KEY `django_admin_log_content_type_id_c4bce8eb` (`content_type_id`),
   KEY `django_admin_log_user_id_c564eba6` (`user_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Volcado de datos para la tabla `django_admin_log`
@@ -225,7 +235,10 @@ CREATE TABLE IF NOT EXISTS `django_admin_log` (
 
 INSERT INTO `django_admin_log` (`id`, `action_time`, `object_id`, `object_repr`, `action_flag`, `change_message`, `content_type_id`, `user_id`) VALUES
 (1, '2024-04-23 19:35:38.074774', '18', 'Objetos object (18)', 2, '[{\"changed\": {\"fields\": [\"Imagen\"]}}]', 13, 1),
-(2, '2024-05-15 10:27:20.733376', '3', 'Objetos object (3)', 2, '[{\"changed\": {\"fields\": [\"Precio\"]}}]', 13, 1);
+(2, '2024-05-15 10:27:20.733376', '3', 'Objetos object (3)', 2, '[{\"changed\": {\"fields\": [\"Precio\"]}}]', 13, 1),
+(3, '2024-05-20 20:30:49.222285', '37', 'Objetos object (37)', 1, '[{\"added\": {}}]', 13, 1),
+(4, '2024-05-20 20:31:09.645600', '37', 'Objetos object (37)', 3, '', 13, 1),
+(5, '2024-05-21 09:04:59.909543', '50', 'Inventario object (50)', 2, '[{\"changed\": {\"fields\": [\"Cantidad\"]}}]', 11, 1);
 
 -- --------------------------------------------------------
 
@@ -274,7 +287,7 @@ CREATE TABLE IF NOT EXISTS `django_migrations` (
   `name` varchar(255) NOT NULL,
   `applied` datetime(6) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Volcado de datos para la tabla `django_migrations`
@@ -299,7 +312,8 @@ INSERT INTO `django_migrations` (`id`, `app`, `name`, `applied`) VALUES
 (16, 'auth', '0011_update_proxy_permissions', '2024-04-23 17:34:08.256241'),
 (17, 'auth', '0012_alter_user_first_name_max_length', '2024-04-23 17:34:08.279248'),
 (18, 'sessions', '0001_initial', '2024-04-23 17:34:08.303252'),
-(19, 'tfg_ps_app', '0001_initial', '2024-04-23 17:34:08.308253');
+(19, 'tfg_ps_app', '0001_initial', '2024-04-23 17:34:08.308253'),
+(20, 'tfg_ps_app', '0002_delete_authpermission_delete_authuser_and_more', '2024-05-23 10:34:13.482382');
 
 -- --------------------------------------------------------
 
@@ -330,7 +344,16 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('rpz1jpz4wq5p2x0yxsuj1g7py8qvxo0d', '.eJxVjDEOwjAMRe-SGUVYsUvKyM4ZIsdOSAElUtNOiLtDpQ6w_vfef5nA61LC2tMcJjVng-bwu0WWR6ob0DvXW7PS6jJP0W6K3Wm316bpedndv4PCvXxrh4QE6EXYMYvGnCPAoCKoAAyY6cTkFaJDBhpZRy84cNQjEYCY9wf8_zhu:1s7Bz7:pm0x28ww_g-7gJbbzYt8wEI3wQn2NngsS1AC5JcCtnM', '2024-05-15 11:35:45.782329'),
 ('swepu7l9zer3xeg2qicl2l89vw74mjkr', '.eJxVjEsOAiEQBe_C2hDQ5ufSvWcgDd3IqIFkmFkZ766TzEK3r6reS0RclxrXwXOcSJyFF4ffLWF-cNsA3bHdusy9LfOU5KbInQ557cTPy-7-HVQc9VtbGwLkrBP4opTOxTlmXbC4E2GwbOgITvuEijhoy2yNStmwUWCBGcT7A_LpOEQ:1s7IxK:9xdVVaiHM7yjtPOodb5tOgAovN04KZG2v_qX6fWsBrI', '2024-05-15 19:02:22.914082'),
 ('n54r5gps1fyunttv49hrc0a726zdwovy', '.eJxVjDsOwjAQBe_iGlm2499S0nMGa9decAA5UpxUiLuTSCmgfTPz3iLhutS0dp7TWMRZDOL0uxHmJ7cdlAe2-yTz1JZ5JLkr8qBdXqfCr8vh_h1U7HWrvULlGZFycODB2MEWQ4aZbjZoDYPToBicRmbnAQgs-WhDNHFrTBSfL9dJN1U:1s90Qw:Gi_S6bxf74Wz-0SfdUxYL2MM0q5bJJzV08pcJSuvdmY', '2024-05-20 11:39:58.847066'),
-('yzea2y977gc3ywl6h6i4z9fmzokrgb99', '.eJxVjDEOwjAMRe-SGUVYsUvKyM4ZIsdOSAElUtNOiLtDpQ6w_vfef5nA61LC2tMcJjVng-bwu0WWR6ob0DvXW7PS6jJP0W6K3Wm316bpedndv4PCvXxrh4QE6EXYMYvGnCPAoCKoAAyY6cTkFaJDBhpZRy84cNQjEYCY9wf8_zhu:1s90ce:AsT5rB6I7cau423Zq0w_yQMgoz85Fhrr2VW_HlRrVrw', '2024-05-20 11:52:04.775487');
+('rnnqyz5shkt3bhha74lkjsap66q68f9f', '.eJxVjDsOwjAQBe_iGlm2499S0nMGa9decAA5UpxUiLuTSCmgfTPz3iLhutS0dp7TWMRZDOL0uxHmJ7cdlAe2-yTz1JZ5JLkr8qBdXqfCr8vh_h1U7HWrvULlGZFycODB2MEWQ4aZbjZoDYPToBicRmbnAQgs-WhDNHFrTBSfL9dJN1U:1s9Qw4:3qBzRbo-Q72Rqk5nePIx2CN4pOe-S9aVxVwimvViGZs', '2024-05-21 15:57:52.810812'),
+('yzea2y977gc3ywl6h6i4z9fmzokrgb99', '.eJxVjDEOwjAMRe-SGUVYsUvKyM4ZIsdOSAElUtNOiLtDpQ6w_vfef5nA61LC2tMcJjVng-bwu0WWR6ob0DvXW7PS6jJP0W6K3Wm316bpedndv4PCvXxrh4QE6EXYMYvGnCPAoCKoAAyY6cTkFaJDBhpZRy84cNQjEYCY9wf8_zhu:1s90ce:AsT5rB6I7cau423Zq0w_yQMgoz85Fhrr2VW_HlRrVrw', '2024-05-20 11:52:04.775487'),
+('kkinau2n00adola19qwn6ccdiv1csyzz', '.eJxVjMsOwiAQRf-FtSEOw6O4dN9vIAMDUjU0Ke3K-O_apAvd3nPOfYlA21rD1vMSJhYXAeL0u0VKj9x2wHdqt1mmua3LFOWuyIN2Oc6cn9fD_Tuo1Ou31smUAgm0Qu8oKU3MiOg8KhzIsEfKztpoLBdVKOPgtTmDxQzgtbLi_QHXnDcW:1s99bC:77OZz1fWtXNfOBWwCCVdRM5gIgmf8HRcypXsniPGzlM', '2024-05-20 21:27:10.388530'),
+('kho6nn12l5fyjahbvba8lcmgr2oqvtjc', '.eJxVjEsOAiEQBe_C2hCaPy7dewYCdCujBpJhZmW8uyGZhW5fVb03i2nfatwHrXFBdmaSnX63nMqT2gT4SO3eeeltW5fMp8IPOvi1I70uh_t3UNOosxZK6uyUd1Z5C87cjBWIRRMVD2BKIANauOwpmOCyRhACpPdYICMK9vkCuzU3FQ:1s9LqK:U0pWR2l-6WTzOtOCQAR3FAeNjmTovFafFKQLfkdFkSg', '2024-05-21 10:31:36.990304'),
+('jm5t93fxwcg9c1icznmen6m1e6pkkiri', '.eJxVjDsOwjAQBe_iGlm2499S0nMGa9decAA5UpxUiLuTSCmgfTPz3iLhutS0dp7TWMRZDOL0uxHmJ7cdlAe2-yTz1JZ5JLkr8qBdXqfCr8vh_h1U7HWrvULlGZFycODB2MEWQ4aZbjZoDYPToBicRmbnAQgs-WhDNHFrTBSfL9dJN1U:1s9kkh:NywMffRZMd4CuHQZ3QkM8w3gHRVid55tGqEp4Bqe0kg', '2024-05-22 13:07:27.125092'),
+('mlugrbcpq7ki4cd8dy00zv0cjlgwsnm5', '.eJxVjDsOwjAQBe_iGlm2499S0nMGa9decAA5UpxUiLuTSCmgfTPz3iLhutS0dp7TWMRZDOL0uxHmJ7cdlAe2-yTz1JZ5JLkr8qBdXqfCr8vh_h1U7HWrvULlGZFycODB2MEWQ4aZbjZoDYPToBicRmbnAQgs-WhDNHFrTBSfL9dJN1U:1s9tiU:17MGHHOqXHI1OUFUdqCwTopc4WzMgY3N7GCAtAq0OGc', '2024-05-22 22:41:46.008983'),
+('07l77knjxymjz9ctiaquhxsd2sj5fk8p', '.eJxVjMsOwiAQRf-FtSGlPAZcuvcbyJQZpGogKe3K-O_apAvd3nPOfYmI21ri1nmJM4mzUCBOv-OE6cF1J3THemsytbou8yR3RR60y2sjfl4O9--gYC_fOlutbdIYFKNFQlJAzgdvRu-AB1aGyTnUYFNiNqPNWZEz4DIAhWkQ7w8ScThQ:1s9shz:sLxcjAF6E5LUyVNdPja8WnE0ODxboui56nG9kkRoM4s', '2024-05-22 21:37:11.819675'),
+('f8s623lx4gd4nt8q3yxellw1wcr7xde7', '.eJxVjDsKwzAQRO-iOgj91kIp0-cMYrVaRU6CDJZdmdw9NrhIqoF5b2YTEdelxrXzHMcsrkIHcfktE9KL20HyE9tjkjS1ZR6TPBR50i7vU-b37XT_Dir2uq8Dm4TGFtAeigMDCMU4G1zYE5IeyHjFGllZT9bwoEpIxOSYNCCz-HwB9jE4MA:1sA1Gf:OhkohCB3y979o5a4vh0MSX5o4f3MKqPNNNpNic3sMhU', '2024-05-23 06:45:33.734817'),
+('yqcbjzfj91ryvxjobsznjmgx7ye6lgry', '.eJxVjDsOwjAQBe_iGlm2499S0nMGa9decAA5UpxUiLuTSCmgfTPz3iLhutS0dp7TWMRZDOL0uxHmJ7cdlAe2-yTz1JZ5JLkr8qBdXqfCr8vh_h1U7HWrvULlGZFycODB2MEWQ4aZbjZoDYPToBicRmbnAQgs-WhDNHFrTBSfL9dJN1U:1sA3rA:237caswuPJou7s6rbtQxPSURNuwv6Ii1oGGFPpVO0Uk', '2024-05-23 09:31:24.480700'),
+('ukqi6knjb7ngg9zfjbpxoufg4c7uud7a', '.eJxVjDEOwjAMRe-SGUVYsUvKyM4ZIsdOSAElUtNOiLtDpQ6w_vfef5nA61LC2tMcJjVng-bwu0WWR6ob0DvXW7PS6jJP0W6K3Wm316bpedndv4PCvXxrh4QE6EXYMYvGnCPAoCKoAAyY6cTkFaJDBhpZRy84cNQjEYCY9wf8_zhu:1sA5mS:Qr0aPuWCIiqCbY3W34ZXKw5GJTEh0k0hJgfgjOqQ7Z0', '2024-05-23 11:34:40.015662');
 
 -- --------------------------------------------------------
 
@@ -347,7 +370,7 @@ CREATE TABLE IF NOT EXISTS `inventario` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `jugador_id` (`jugador_id`,`objeto_id`),
   KEY `inventario_objeto_id_fk` (`objeto_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=46 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=83 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Volcado de datos para la tabla `inventario`
@@ -359,31 +382,56 @@ INSERT INTO `inventario` (`id`, `jugador_id`, `objeto_id`, `cantidad`) VALUES
 (3, 1, 7, 1),
 (4, 1, 10, 1),
 (5, 2, 2, 1),
-(6, 2, 5, 1),
-(7, 2, 8, 1),
+(52, 11, 35, 1),
+(61, 2, 1, 1),
 (8, 2, 11, 1),
-(26, 3, 11, 1),
+(67, 4, 6, 1),
 (25, 3, 2, 1),
 (29, 3, 21, 1),
 (30, 3, 1, 1),
 (32, 6, 22, 1),
-(39, 4, 1, 1),
+(51, 4, 3, 1),
 (23, 4, 12, 1),
-(27, 4, 23, 1),
+(50, 4, 21, 1),
 (17, 5, 2, 1),
 (18, 5, 5, 1),
 (19, 5, 8, 1),
 (20, 5, 11, 1),
 (34, 7, 3, 1),
 (35, 7, 5, 1),
-(36, 4, 33, 1),
+(46, 4, 33, 1),
 (37, 8, 30, 1),
 (38, 8, 31, 1),
 (41, 6, 32, 1),
 (42, 6, 21, 1),
 (43, 6, 3, 1),
 (44, 6, 31, 1),
-(45, 6, 30, 1);
+(45, 6, 30, 1),
+(53, 11, 1, 1),
+(54, 11, 33, 1),
+(55, 11, 34, 1),
+(58, 13, 1, 2),
+(59, 13, 2, 2),
+(60, 13, 3, 1),
+(62, 2, 3, 1),
+(63, 2, 4, 1),
+(64, 2, 34, 1),
+(66, 3, 3, 1),
+(68, 4, 4, 1),
+(69, 4, 8, 1),
+(70, 15, 26, 1),
+(71, 15, 24, 1),
+(72, 16, 1, 1),
+(73, 16, 3, 1),
+(74, 17, 14, 1),
+(75, 17, 22, 1),
+(76, 17, 35, 1),
+(77, 17, 4, 1),
+(78, 17, 5, 1),
+(79, 18, 34, 1),
+(80, 18, 3, 1),
+(81, 3, 8, 1),
+(82, 3, 5, 1);
 
 -- --------------------------------------------------------
 
@@ -398,7 +446,7 @@ CREATE TABLE IF NOT EXISTS `jugadores` (
   `dinero` int DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `user_id` (`user_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Volcado de datos para la tabla `jugadores`
@@ -406,12 +454,22 @@ CREATE TABLE IF NOT EXISTS `jugadores` (
 
 INSERT INTO `jugadores` (`id`, `user_id`, `dinero`) VALUES
 (1, 1, 1000),
-(2, 2, 600),
-(3, 3, 755),
-(4, 4, 70),
+(2, 2, 515),
+(3, 3, 110),
+(4, 4, 2185),
 (6, 8, 1695),
 (7, 9, 4765),
-(8, 10, 4550);
+(8, 10, 4550),
+(9, 11, 5000),
+(10, 12, 5000),
+(11, 13, 3250),
+(12, 14, 5000),
+(13, 15, 4395),
+(14, 16, 5000),
+(15, 17, 4200),
+(16, 18, 4745),
+(17, 19, 3260),
+(18, 20, 4595);
 
 -- --------------------------------------------------------
 
@@ -428,7 +486,7 @@ CREATE TABLE IF NOT EXISTS `objetos` (
   `tipo_objeto` enum('Arma','Municion','Curacion','Armadura','Skin') DEFAULT NULL,
   `url_imagen` text,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=37 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=38 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Volcado de datos para la tabla `objetos`

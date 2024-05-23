@@ -102,3 +102,10 @@ Tendrás que hacer lo siguiente MANUALMENTE para dejarlo limpio:
 
 ```python manage.py migrate```
 ```python manage.py makemigrations```
+
+# Comando genérico para ejecutar TestCase en django
+
+```python manage.py test nombre_de_tu_app.tests.NombreTestCase```
+
+# Eliminar todos los datos de las tablas de la base de datos
+```python manage.py flush```
