@@ -8,7 +8,17 @@
 {% endblock %}
 
 {% block cuerpo %}
+
 <div class="container mt-4">
+    <div class="absolute-top-left">
+        <div class="text-center mt-4">
+            <div class="container">
+                <form action="{% url 'tfg_ps_app:tienda' %}" method="get">
+                    <button id="volver-button" type="submit" class="btn btn-primary mt-1">Volver</button>
+                </form>
+            </div>
+        </div>
+    </div>
     <div class="card bg-dark text-light p-2 mb-1">
         <h1 class="text-white"> Detalle del Objeto</h1>
     </div>

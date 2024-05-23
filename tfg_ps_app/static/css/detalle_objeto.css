@@ -69,6 +69,31 @@ h1 {
     background-color: #703898;
 }
 
+.absolute-top-left {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 1030;
+}
+
+#volver-button {
+    display: inline-block;
+    width: auto;
+    height: auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background-color: #800080;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+#volver-button:hover {
+    background-color: #4b0082;
+}
+
 .tienda-btn {
     margin-top: 40%;
     margin-bottom: 40%;
