@@ -45,7 +45,7 @@ class Objetos(models.Model):
         blank=True,
         null=True,
     )
-    url_imagen = models.URLField(blank=True, null=True)
+    url_imagen = models.TextField(blank=True, null=True)
 
     def __str__(self):
         return self.nombre
