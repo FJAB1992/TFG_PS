@@ -9,15 +9,25 @@
 
 {% block cuerpo %}
 <div class="container mt-4">
-    <div class="card bg-dark text-light p-1 mb-4">
-        <h1>Detalle del Objeto</h1>
+    <div class="card bg-dark text-light p-2 mb-1">
+        <h1 class="text-white"> Detalle del Objeto</h1>
     </div>
     <div class="card slider-container">
         <div class="card-body">
-            <h5 class="card-title">Nombre: {{ objeto.nombre }}</h5>
-            <p class="card-text">Descripción: {{ objeto.descripcion }}</p>
-            <p class="card-text">Precio: {{ objeto.precio }}</p>
-            <p class="card-text">Tipo: {{ objeto.tipo_objeto }}</p>
+            <div class="text-left">
+                <h5 class="card-title">
+                    <span class="nombre-destacado">Nombre: </span>{{ objeto.nombre }}
+                </h5>
+                <p class="card-text">
+                    <span class="nombre-destacado">Descripción: </span>{{ objeto.descripcion }}
+                </p>
+                <p class="card-text">
+                    <span class="nombre-destacado">Precio: </span>{{ objeto.precio }}
+                </p>
+                <p class="card-text">
+                    <span class="nombre-destacado">Tipo: </span>{{ objeto.tipo_objeto }}
+                </p>
+            </div>
             {% if objeto.url_imagen %}
             <div class="image-container img-box">
                 <img src="{{ objeto.url_imagen }}" alt="{{ objeto.nombre }}" style="max-width: 400px;max-height: 400px;">
