@@ -129,6 +129,22 @@ def tienda(request):
     except models.Jugadores.DoesNotExist:
         return HttpResponseBadRequest("No se encontró al jugador.")
 
+        return render(
+            request,
+            "tienda.html",
+            {
+                "inventario_jugador": inventario_jugador,
+                "objetos_tienda": objetos_tienda,
+                "jugador": jugador,
+                "tipos": tipos,
+                "user": request.user,
+                "query": query,
+                "tipo": tipo,  
+            },
+        )
+    except models.Jugadores.DoesNotExist:
+        return HttpResponseBadRequest("No se encontró al jugador.")
+
 
 @require_POST
 @login_required
