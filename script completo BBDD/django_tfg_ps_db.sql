@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 23-05-2024 a las 10:38:54
+-- Tiempo de generación: 26-05-2024 a las 11:25:47
 -- Versión del servidor: 8.0.31
 -- Versión de PHP: 8.0.26
 
@@ -20,8 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `django_tfg_ps_db`
 --
-CREATE DATABASE IF NOT EXISTS django_tfg_ps_db;
-USE django_tfg_ps_db;
+CREATE DATABASE IF NOT EXISTS `django_tfg_ps_db` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci ;
+USE `django_tfg_ps_db`;
 -- --------------------------------------------------------
 
 --
@@ -149,17 +149,17 @@ CREATE TABLE IF NOT EXISTS `auth_user` (
   `date_joined` datetime(6) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`)
-) ENGINE=MyISAM AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Volcado de datos para la tabla `auth_user`
 --
 
 INSERT INTO `auth_user` (`id`, `password`, `last_login`, `is_superuser`, `username`, `first_name`, `last_name`, `email`, `is_staff`, `is_active`, `date_joined`) VALUES
-(1, 'pbkdf2_sha256$720000$3Hj8anaqdugzAhZ5WFfXjH$SAXFBA8UJff3IIMC/IqEdAfEVP7I2eHK854y7Q/G+HE=', '2024-05-23 07:17:03.465124', 1, 'curro', '', '', '', 1, 1, '2024-04-23 17:34:30.059575'),
+(1, 'pbkdf2_sha256$720000$3Hj8anaqdugzAhZ5WFfXjH$SAXFBA8UJff3IIMC/IqEdAfEVP7I2eHK854y7Q/G+HE=', '2024-05-26 11:10:37.316023', 1, 'curro', '', '', '', 1, 1, '2024-04-23 17:34:30.059575'),
 (2, 'pbkdf2_sha256$720000$ik1vnUd4WHCgdDVxw4PGoL$HCActxksXPcxoLWYlP1vQYVuNMzvHHh1+6jNcSdZf20=', '2024-05-21 09:31:36.989303', 0, 'raul', '', '', '', 0, 1, '2024-04-23 17:42:26.285962'),
-(3, 'pbkdf2_sha256$720000$Fp4iA7FzvgKFZS25wPUhzi$MH8hAfV20IKOp0/comXVSy1PHf1uVt8yszrAZP1WNLA=', '2024-05-23 08:31:24.479713', 0, 'luca', '', '', '', 0, 1, '2024-04-23 18:25:47.142396'),
-(4, 'pbkdf2_sha256$720000$W8ZyZ9KMTODfvYL9iyouaj$a6Hq7hL3fwkLOBCROcEa6nNC8B7Qx4lIevL1E8brUE0=', '2024-05-23 10:34:40.015662', 0, 'dani', '', '', '', 0, 1, '2024-04-23 19:33:07.697818'),
+(3, 'pbkdf2_sha256$720000$Fp4iA7FzvgKFZS25wPUhzi$MH8hAfV20IKOp0/comXVSy1PHf1uVt8yszrAZP1WNLA=', '2024-05-23 12:21:13.113916', 0, 'luca', '', '', '', 0, 1, '2024-04-23 18:25:47.142396'),
+(4, 'pbkdf2_sha256$720000$W8ZyZ9KMTODfvYL9iyouaj$a6Hq7hL3fwkLOBCROcEa6nNC8B7Qx4lIevL1E8brUE0=', '2024-05-23 12:25:53.600065', 0, 'dani', '', '', '', 0, 1, '2024-04-23 19:33:07.697818'),
 (8, 'pbkdf2_sha256$720000$19y85mRHr6CGXtaXUUm4BN$DqtqMtCKsZ0ktIb10Us/y0Eea9wfrHB4z3WHej92mXo=', '2024-05-20 16:43:44.180758', 0, 'maria', '', '', '', 0, 1, '2024-05-15 18:02:22.376613'),
 (9, 'pbkdf2_sha256$720000$tDB8MG6YC1YsFnFAAUw6Y6$y2JIhpuQw4YIGtjorkzmirGHxUXexEAYQ5mzRfI/KLg=', '2024-05-20 09:57:47.198759', 0, 'carla', '', '', '', 0, 1, '2024-05-16 08:30:39.880662'),
 (10, 'pbkdf2_sha256$720000$K4bDFqxt7R8z1ZZZFteP73$S+IbF1CQ8VQMsOMdzcJz6B8uxiJE/Zg1Kp8lLGPKq18=', '2024-05-19 10:15:56.300929', 0, 'javi', '', '', '', 0, 1, '2024-05-19 10:15:55.757371'),
@@ -172,7 +172,9 @@ INSERT INTO `auth_user` (`id`, `password`, `last_login`, `is_superuser`, `userna
 (17, 'pbkdf2_sha256$720000$r9VWApvVCGBKYCPCnbHeAR$YskADiOrbaihryZ41BPIqrlMzeYmF99nv1w1w8CJxC0=', '2024-05-22 20:37:11.818674', 0, 'xavivi', '', '', '', 0, 1, '2024-05-22 20:34:45.176179'),
 (18, 'pbkdf2_sha256$720000$ylXKrCF8JPJAHZzLoGvF72$i5G2b07YS3F4sxa71LVvP9y6JwjOybomGFzMjkkT+NQ=', '2024-05-22 21:26:24.248943', 0, 'paquito', '', '', '', 0, 1, '2024-05-22 21:26:23.715779'),
 (19, 'pbkdf2_sha256$720000$P1i4M4wKp63x9jNpJWZv3x$0hrMwhxClI8kVzWq3GrFK+W/nHA4UJsBJ/pVmhiZqdM=', '2024-05-23 05:45:33.733817', 0, 'dani2', '', '', '', 0, 1, '2024-05-23 05:45:33.203909'),
-(20, 'pbkdf2_sha256$720000$mONgbHfy5gArPndcapeOM7$ZYVcJwSpMBPpgiMD/nlTB2sqt0/InY73MrOJ65/wy8s=', '2024-05-23 06:48:14.731909', 0, 'koko', '', '', '', 0, 1, '2024-05-23 06:48:14.195546');
+(20, 'pbkdf2_sha256$720000$mONgbHfy5gArPndcapeOM7$ZYVcJwSpMBPpgiMD/nlTB2sqt0/InY73MrOJ65/wy8s=', '2024-05-23 06:48:14.731909', 0, 'koko', '', '', '', 0, 1, '2024-05-23 06:48:14.195546'),
+(21, 'pbkdf2_sha256$720000$pS3pYuBhq4I4cf1i0m0dUB$hE5CfiN+1tVbcMCM4pZwEt43+DXYK1pg8TAlmrTxixU=', '2024-05-26 11:22:18.421372', 0, 'zana', '', '', '', 0, 1, '2024-05-24 14:35:04.606404'),
+(22, 'pbkdf2_sha256$720000$Y379qg6qegrK1KvZuFaSTk$Ju589fJ3NGNH7CV6gLeMoLl3fzETfwGognmSowUiYr4=', '2024-05-26 11:09:58.621783', 0, 'marta', '', '', '', 0, 1, '2024-05-26 11:09:58.100322');
 
 -- --------------------------------------------------------
 
@@ -227,7 +229,7 @@ CREATE TABLE IF NOT EXISTS `django_admin_log` (
   PRIMARY KEY (`id`),
   KEY `django_admin_log_content_type_id_c4bce8eb` (`content_type_id`),
   KEY `django_admin_log_user_id_c564eba6` (`user_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Volcado de datos para la tabla `django_admin_log`
@@ -238,7 +240,8 @@ INSERT INTO `django_admin_log` (`id`, `action_time`, `object_id`, `object_repr`,
 (2, '2024-05-15 10:27:20.733376', '3', 'Objetos object (3)', 2, '[{\"changed\": {\"fields\": [\"Precio\"]}}]', 13, 1),
 (3, '2024-05-20 20:30:49.222285', '37', 'Objetos object (37)', 1, '[{\"added\": {}}]', 13, 1),
 (4, '2024-05-20 20:31:09.645600', '37', 'Objetos object (37)', 3, '', 13, 1),
-(5, '2024-05-21 09:04:59.909543', '50', 'Inventario object (50)', 2, '[{\"changed\": {\"fields\": [\"Cantidad\"]}}]', 11, 1);
+(5, '2024-05-21 09:04:59.909543', '50', 'Inventario object (50)', 2, '[{\"changed\": {\"fields\": [\"Cantidad\"]}}]', 11, 1),
+(6, '2024-05-26 11:21:50.443459', '38', 'Lanzacohetes', 1, '[{\"added\": {}}]', 13, 1);
 
 -- --------------------------------------------------------
 
@@ -353,7 +356,9 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('07l77knjxymjz9ctiaquhxsd2sj5fk8p', '.eJxVjMsOwiAQRf-FtSGlPAZcuvcbyJQZpGogKe3K-O_apAvd3nPOfYmI21ri1nmJM4mzUCBOv-OE6cF1J3THemsytbou8yR3RR60y2sjfl4O9--gYC_fOlutbdIYFKNFQlJAzgdvRu-AB1aGyTnUYFNiNqPNWZEz4DIAhWkQ7w8ScThQ:1s9shz:sLxcjAF6E5LUyVNdPja8WnE0ODxboui56nG9kkRoM4s', '2024-05-22 21:37:11.819675'),
 ('f8s623lx4gd4nt8q3yxellw1wcr7xde7', '.eJxVjDsKwzAQRO-iOgj91kIp0-cMYrVaRU6CDJZdmdw9NrhIqoF5b2YTEdelxrXzHMcsrkIHcfktE9KL20HyE9tjkjS1ZR6TPBR50i7vU-b37XT_Dir2uq8Dm4TGFtAeigMDCMU4G1zYE5IeyHjFGllZT9bwoEpIxOSYNCCz-HwB9jE4MA:1sA1Gf:OhkohCB3y979o5a4vh0MSX5o4f3MKqPNNNpNic3sMhU', '2024-05-23 06:45:33.734817'),
 ('yqcbjzfj91ryvxjobsznjmgx7ye6lgry', '.eJxVjDsOwjAQBe_iGlm2499S0nMGa9decAA5UpxUiLuTSCmgfTPz3iLhutS0dp7TWMRZDOL0uxHmJ7cdlAe2-yTz1JZ5JLkr8qBdXqfCr8vh_h1U7HWrvULlGZFycODB2MEWQ4aZbjZoDYPToBicRmbnAQgs-WhDNHFrTBSfL9dJN1U:1sA3rA:237caswuPJou7s6rbtQxPSURNuwv6Ii1oGGFPpVO0Uk', '2024-05-23 09:31:24.480700'),
-('ukqi6knjb7ngg9zfjbpxoufg4c7uud7a', '.eJxVjDEOwjAMRe-SGUVYsUvKyM4ZIsdOSAElUtNOiLtDpQ6w_vfef5nA61LC2tMcJjVng-bwu0WWR6ob0DvXW7PS6jJP0W6K3Wm316bpedndv4PCvXxrh4QE6EXYMYvGnCPAoCKoAAyY6cTkFaJDBhpZRy84cNQjEYCY9wf8_zhu:1sA5mS:Qr0aPuWCIiqCbY3W34ZXKw5GJTEh0k0hJgfgjOqQ7Z0', '2024-05-23 11:34:40.015662');
+('ukqi6knjb7ngg9zfjbpxoufg4c7uud7a', '.eJxVjDEOwjAMRe-SGUVYsUvKyM4ZIsdOSAElUtNOiLtDpQ6w_vfef5nA61LC2tMcJjVng-bwu0WWR6ob0DvXW7PS6jJP0W6K3Wm316bpedndv4PCvXxrh4QE6EXYMYvGnCPAoCKoAAyY6cTkFaJDBhpZRy84cNQjEYCY9wf8_zhu:1sA5mS:Qr0aPuWCIiqCbY3W34ZXKw5GJTEh0k0hJgfgjOqQ7Z0', '2024-05-23 11:34:40.015662'),
+('1n5cdhxhmkcinfrgnu6978zdh6ebr6zm', '.eJxVjMsOwiAQRf-FtSEOw6O4dN9vIAMDUjU0Ke3K-O_apAvd3nPOfYlA21rD1vMSJhYXAeL0u0VKj9x2wHdqt1mmua3LFOWuyIN2Oc6cn9fD_Tuo1Ou31smUAgm0Qu8oKU3MiOg8KhzIsEfKztpoLBdVKOPgtTmDxQzgtbLi_QHXnDcW:1sAW4r:RYDMsC5gnnPhElNekY4ZDqFOYpt-yCToz59LD515w9k', '2024-05-24 15:39:25.217843'),
+('xsuxorqmsqb7htjwtvo7xuouaf0py380', '.eJxVjEsOwiAUAO_C2hB4IB-X7nsGwuOBVA1NSrsy3l1JutDtzGReLMR9q2HveQ0zsQsDyU6_EGN65DYM3WO7LTwtbVtn5CPhh-18Wig_r0f7N6ix1_FFabw6o7AeQZniSRTQEb5Uk7Ig0BBhEtnGAk6A05a00qUUSc46yd4f6b83dQ:1sBBxC:2DNfmPmBVhtzhdwXaHMdLxWo8cZ6tieFMxzrclrt-jI', '2024-05-26 12:22:18.422376');
 
 -- --------------------------------------------------------
 
@@ -370,7 +375,7 @@ CREATE TABLE IF NOT EXISTS `inventario` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `jugador_id` (`jugador_id`,`objeto_id`),
   KEY `inventario_objeto_id_fk` (`objeto_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=83 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=96 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Volcado de datos para la tabla `inventario`
@@ -386,12 +391,12 @@ INSERT INTO `inventario` (`id`, `jugador_id`, `objeto_id`, `cantidad`) VALUES
 (61, 2, 1, 1),
 (8, 2, 11, 1),
 (67, 4, 6, 1),
-(25, 3, 2, 1),
-(29, 3, 21, 1),
-(30, 3, 1, 1),
+(83, 3, 2, 1),
+(84, 3, 5, 3),
+(30, 3, 1, 2),
 (32, 6, 22, 1),
 (51, 4, 3, 1),
-(23, 4, 12, 1),
+(90, 19, 18, 1),
 (50, 4, 21, 1),
 (17, 5, 2, 1),
 (18, 5, 5, 1),
@@ -416,8 +421,8 @@ INSERT INTO `inventario` (`id`, `jugador_id`, `objeto_id`, `cantidad`) VALUES
 (62, 2, 3, 1),
 (63, 2, 4, 1),
 (64, 2, 34, 1),
-(66, 3, 3, 1),
-(68, 4, 4, 1),
+(92, 19, 5, 1),
+(68, 4, 4, 2),
 (69, 4, 8, 1),
 (70, 15, 26, 1),
 (71, 15, 24, 1),
@@ -430,8 +435,11 @@ INSERT INTO `inventario` (`id`, `jugador_id`, `objeto_id`, `cantidad`) VALUES
 (78, 17, 5, 1),
 (79, 18, 34, 1),
 (80, 18, 3, 1),
-(81, 3, 8, 1),
-(82, 3, 5, 1);
+(89, 19, 12, 1),
+(91, 19, 2, 1),
+(93, 19, 33, 1),
+(94, 19, 4, 1),
+(95, 20, 36, 1);
 
 -- --------------------------------------------------------
 
@@ -446,7 +454,7 @@ CREATE TABLE IF NOT EXISTS `jugadores` (
   `dinero` int DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `user_id` (`user_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Volcado de datos para la tabla `jugadores`
@@ -455,8 +463,8 @@ CREATE TABLE IF NOT EXISTS `jugadores` (
 INSERT INTO `jugadores` (`id`, `user_id`, `dinero`) VALUES
 (1, 1, 1000),
 (2, 2, 515),
-(3, 3, 110),
-(4, 4, 2185),
+(3, 3, 615),
+(4, 4, 2120),
 (6, 8, 1695),
 (7, 9, 4765),
 (8, 10, 4550),
@@ -469,7 +477,9 @@ INSERT INTO `jugadores` (`id`, `user_id`, `dinero`) VALUES
 (15, 17, 4200),
 (16, 18, 4745),
 (17, 19, 3260),
-(18, 20, 4595);
+(18, 20, 4595),
+(19, 21, 3430),
+(20, 22, 0);
 
 -- --------------------------------------------------------
 
@@ -486,7 +496,7 @@ CREATE TABLE IF NOT EXISTS `objetos` (
   `tipo_objeto` enum('Arma','Municion','Curacion','Armadura','Skin') DEFAULT NULL,
   `url_imagen` text,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=38 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=39 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Volcado de datos para la tabla `objetos`
@@ -526,7 +536,8 @@ INSERT INTO `objetos` (`id`, `nombre`, `descripcion`, `precio`, `tipo_objeto`, `
 (33, 'Skin de Wesker', 'Aspecto alternativo para el personaje Wesker.', 1000, 'Skin', 'https://i.pinimg.com/736x/f1/f7/e5/f1f7e520e7269462a71fa14099550966.jpg'),
 (34, 'Chaleco S.T.A.R.S.', 'Chaleco táctico usado por miembros del equipo S.T.A.R.S.', 200, 'Armadura', 'https://i.ebayimg.com/images/g/UPAAAOSw615g2sUS/s-l1200.webp'),
 (35, 'Gabardina UMBRELLA', 'Gabardina utilizada por agentes de UMBRELLA.', 500, 'Armadura', 'https://m.media-amazon.com/images/I/61n62MoRePL.jpg'),
-(36, 'Remedio virus-T', 'Remedio para el virus-T.', 5000, 'Curacion', 'https://ae01.alicdn.com/kf/S31733e8c33514414aa02a84d318b04bdq/Umbrella-biochemistry-Suitcase-T-Virus-Vial-Display-Case-Cosplay-horror-Movie-Villainous-Item-Prop-Replica.jpg');
+(36, 'Remedio virus-T', 'Remedio para el virus-T.', 5000, 'Curacion', 'https://ae01.alicdn.com/kf/S31733e8c33514414aa02a84d318b04bdq/Umbrella-biochemistry-Suitcase-T-Virus-Vial-Display-Case-Cosplay-horror-Movie-Villainous-Item-Prop-Replica.jpg'),
+(38, 'Lanzacohetes', 'El lanzacohetes es un RPG-7 de origen ruso muy poderoso, solo una ojiva. Suele derribar de un solo golpe a todos los enemigos.', 30000, 'Arma', 'https://static.wikia.nocookie.net/residentevil/images/b/ba/Rocket-launcherre5.png/revision/latest?cb=20200304225043&path-prefix=es');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

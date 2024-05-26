@@ -59,15 +59,6 @@ Será necesario añadir los path de la aplicación (creados en esta), e incluirl
 
 ### Nota:En caso de conflictos con la migración, eliminar carpeta migration y realizarla de nuevo. 
 
-## Ejercicio 1 - Listado de nombres
-
-  1. Url del ejercicio ```/ejemplo/usuario/```
-  2. Url completa ```http://127.0.0.1:8000/ejemplo/usuario/```
-
-### Ficheros
-Los ficheros del ejercicio se encuentran en la carpeta ejemplo
-
-
 ### OJO: recargar cache con: ctrl + shift +r (para  refrescar caché) o ctrl+ r (solo para actualizar)
 
 ---------------------------------------------------------------------------------------
@@ -86,10 +77,10 @@ Sacar en terminal en models.py los modelos de las tablas, junto con este aviso s
 
 
 Este es un módulo de modelos autogenerado de Django.
-Tendrás que hacer lo siguiente MANUALMENTE para dejarlo limpio:
+Hay que hacer lo siguiente MANUALMENTE para dejarlo limpio:
 * Reordenar el orden de los modelos.
-* Asegurarte de que cada modelo tiene un campo con primary_key=True
-* Asegurarte de que cada ForeignKey y OneToOneField tiene `on_delete` ajustado al comportamiento que desees
+* Asegurar que cada modelo tiene un campo con primary_key=True
+* Asegurar que cada ForeignKey y OneToOneField tiene `on_delete` ajustado al comportamiento que desees
 * Eliminar las líneas con  `managed=False` si quieres dejar que Django cree, modifique y borre la tabla
 * Renombra los modelos como gustes, pero NO renombres los valores de db_table o los campos de las tablas.
 
