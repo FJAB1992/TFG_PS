@@ -71,8 +71,8 @@ class DetalleObjetoView(generic.DetailView):
 @login_required
 def tienda(request):
     jugador_id = request.user.id
-    query = request.GET.get("q", "")  # Obtener el parámetro de búsqueda
-    tipo = request.GET.get("tipo", "")  # Obtener el parámetro de filtro por tipo
+    query = request.GET.get("q", "")  # Parámetro de búsqueda por nombre
+    tipo = request.GET.get("tipo", "")  # Parámetro de filtro por tipo
 
     try:
         jugador = models.Jugadores.objects.get(user_id=jugador_id)
