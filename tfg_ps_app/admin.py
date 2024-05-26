@@ -24,7 +24,7 @@ class ObjetosAdmin(admin.ModelAdmin):
 
     def mostrar_imagen(self, obj):
         if obj.url_imagen:
-            return format_html('<img src="{}" width="100" />', obj.url_imagen)
+            return format_html('<img src="{}" width="60" height="60" />', obj.url_imagen)
         else:
             return "No hay imagen"
 
