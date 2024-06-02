@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 26-05-2024 a las 11:25:47
+-- Tiempo de generación: 02-06-2024 a las 18:09:32
 -- Versión del servidor: 8.0.31
 -- Versión de PHP: 8.0.26
 
@@ -149,16 +149,16 @@ CREATE TABLE IF NOT EXISTS `auth_user` (
   `date_joined` datetime(6) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`)
-) ENGINE=MyISAM AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Volcado de datos para la tabla `auth_user`
 --
 
 INSERT INTO `auth_user` (`id`, `password`, `last_login`, `is_superuser`, `username`, `first_name`, `last_name`, `email`, `is_staff`, `is_active`, `date_joined`) VALUES
-(1, 'pbkdf2_sha256$720000$3Hj8anaqdugzAhZ5WFfXjH$SAXFBA8UJff3IIMC/IqEdAfEVP7I2eHK854y7Q/G+HE=', '2024-05-26 11:10:37.316023', 1, 'curro', '', '', '', 1, 1, '2024-04-23 17:34:30.059575'),
-(2, 'pbkdf2_sha256$720000$ik1vnUd4WHCgdDVxw4PGoL$HCActxksXPcxoLWYlP1vQYVuNMzvHHh1+6jNcSdZf20=', '2024-05-21 09:31:36.989303', 0, 'raul', '', '', '', 0, 1, '2024-04-23 17:42:26.285962'),
-(3, 'pbkdf2_sha256$720000$Fp4iA7FzvgKFZS25wPUhzi$MH8hAfV20IKOp0/comXVSy1PHf1uVt8yszrAZP1WNLA=', '2024-05-23 12:21:13.113916', 0, 'luca', '', '', '', 0, 1, '2024-04-23 18:25:47.142396'),
+(1, 'pbkdf2_sha256$720000$3Hj8anaqdugzAhZ5WFfXjH$SAXFBA8UJff3IIMC/IqEdAfEVP7I2eHK854y7Q/G+HE=', '2024-06-02 17:52:46.796412', 1, 'curro', '', '', '', 1, 1, '2024-04-23 17:34:30.059575'),
+(2, 'pbkdf2_sha256$720000$ik1vnUd4WHCgdDVxw4PGoL$HCActxksXPcxoLWYlP1vQYVuNMzvHHh1+6jNcSdZf20=', '2024-06-02 17:42:00.997598', 0, 'raul', '', '', '', 0, 1, '2024-04-23 17:42:26.285962'),
+(3, 'pbkdf2_sha256$720000$Fp4iA7FzvgKFZS25wPUhzi$MH8hAfV20IKOp0/comXVSy1PHf1uVt8yszrAZP1WNLA=', '2024-06-02 18:00:10.401626', 0, 'luca', '', '', '', 0, 1, '2024-04-23 18:25:47.142396'),
 (4, 'pbkdf2_sha256$720000$W8ZyZ9KMTODfvYL9iyouaj$a6Hq7hL3fwkLOBCROcEa6nNC8B7Qx4lIevL1E8brUE0=', '2024-05-23 12:25:53.600065', 0, 'dani', '', '', '', 0, 1, '2024-04-23 19:33:07.697818'),
 (8, 'pbkdf2_sha256$720000$19y85mRHr6CGXtaXUUm4BN$DqtqMtCKsZ0ktIb10Us/y0Eea9wfrHB4z3WHej92mXo=', '2024-05-20 16:43:44.180758', 0, 'maria', '', '', '', 0, 1, '2024-05-15 18:02:22.376613'),
 (9, 'pbkdf2_sha256$720000$tDB8MG6YC1YsFnFAAUw6Y6$y2JIhpuQw4YIGtjorkzmirGHxUXexEAYQ5mzRfI/KLg=', '2024-05-20 09:57:47.198759', 0, 'carla', '', '', '', 0, 1, '2024-05-16 08:30:39.880662'),
@@ -173,8 +173,14 @@ INSERT INTO `auth_user` (`id`, `password`, `last_login`, `is_superuser`, `userna
 (18, 'pbkdf2_sha256$720000$ylXKrCF8JPJAHZzLoGvF72$i5G2b07YS3F4sxa71LVvP9y6JwjOybomGFzMjkkT+NQ=', '2024-05-22 21:26:24.248943', 0, 'paquito', '', '', '', 0, 1, '2024-05-22 21:26:23.715779'),
 (19, 'pbkdf2_sha256$720000$P1i4M4wKp63x9jNpJWZv3x$0hrMwhxClI8kVzWq3GrFK+W/nHA4UJsBJ/pVmhiZqdM=', '2024-05-23 05:45:33.733817', 0, 'dani2', '', '', '', 0, 1, '2024-05-23 05:45:33.203909'),
 (20, 'pbkdf2_sha256$720000$mONgbHfy5gArPndcapeOM7$ZYVcJwSpMBPpgiMD/nlTB2sqt0/InY73MrOJ65/wy8s=', '2024-05-23 06:48:14.731909', 0, 'koko', '', '', '', 0, 1, '2024-05-23 06:48:14.195546'),
-(21, 'pbkdf2_sha256$720000$pS3pYuBhq4I4cf1i0m0dUB$hE5CfiN+1tVbcMCM4pZwEt43+DXYK1pg8TAlmrTxixU=', '2024-05-26 11:22:18.421372', 0, 'zana', '', '', '', 0, 1, '2024-05-24 14:35:04.606404'),
-(22, 'pbkdf2_sha256$720000$Y379qg6qegrK1KvZuFaSTk$Ju589fJ3NGNH7CV6gLeMoLl3fzETfwGognmSowUiYr4=', '2024-05-26 11:09:58.621783', 0, 'marta', '', '', '', 0, 1, '2024-05-26 11:09:58.100322');
+(21, 'pbkdf2_sha256$720000$pS3pYuBhq4I4cf1i0m0dUB$hE5CfiN+1tVbcMCM4pZwEt43+DXYK1pg8TAlmrTxixU=', '2024-06-02 18:01:34.169275', 0, 'zana', '', '', '', 0, 1, '2024-05-24 14:35:04.606404'),
+(22, 'pbkdf2_sha256$720000$Y379qg6qegrK1KvZuFaSTk$Ju589fJ3NGNH7CV6gLeMoLl3fzETfwGognmSowUiYr4=', '2024-06-02 17:47:56.477983', 0, 'marta', '', '', '', 0, 1, '2024-05-26 11:09:58.100322'),
+(23, 'pbkdf2_sha256$720000$g4PBwBE5qb3G5fj3kqDTP9$1QeAauON4XK19xECvKqLaeZxdWF9hZ3IXzi7iISzvio=', '2024-05-27 15:29:40.793793', 0, 'john', '', '', '', 0, 1, '2024-05-27 15:29:40.252076'),
+(24, 'pbkdf2_sha256$720000$u0un4gyOgn1RoRXMimjfwd$QgNjpWr9Z9Ea3eq9AO3Fwt0iLe9cdyeyUA2hKGJs0oc=', '2024-05-27 15:56:33.090612', 0, 'ayami', '', '', '', 0, 1, '2024-05-27 15:56:32.545431'),
+(25, 'pbkdf2_sha256$720000$cTHhMcnAry3FT8CAFBpMgz$66UhTTFmVdVyuF/tBTTe1C3/PQ6WHHo/HW8oDttUflc=', '2024-05-30 20:55:51.639674', 0, 'luislo', '', '', '', 0, 1, '2024-05-30 20:53:08.329906'),
+(26, 'pbkdf2_sha256$720000$vUFRKHRc4ev7QVynU5lgqK$lNN+Ht63Yk+o8QGFSIEJHqCw4Nrva/1tfBGSJhRczgY=', '2024-06-02 17:33:23.538556', 0, 'JNM', '', '', '', 0, 1, '2024-06-02 17:28:42.982747'),
+(27, 'pbkdf2_sha256$720000$an3mwDnc4p04XUwUGncPSS$OstePkZIU0oJWMOIb6h8puG8wdwfBvLVa+iIhx4YJKE=', '2024-06-02 17:55:03.689720', 0, 'danni', '', '', '', 0, 1, '2024-06-02 17:55:03.152956'),
+(28, 'pbkdf2_sha256$720000$6fi0kpmE9vZSrx6v36VMvD$0NB5sIk9e6J2b95QAXakQNiBPag+x/7qHdA1A7IDhkw=', '2024-06-02 18:05:07.508513', 0, 'maria11', '', '', '', 0, 1, '2024-06-02 18:05:06.970960');
 
 -- --------------------------------------------------------
 
@@ -229,7 +235,7 @@ CREATE TABLE IF NOT EXISTS `django_admin_log` (
   PRIMARY KEY (`id`),
   KEY `django_admin_log_content_type_id_c4bce8eb` (`content_type_id`),
   KEY `django_admin_log_user_id_c564eba6` (`user_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Volcado de datos para la tabla `django_admin_log`
@@ -241,7 +247,10 @@ INSERT INTO `django_admin_log` (`id`, `action_time`, `object_id`, `object_repr`,
 (3, '2024-05-20 20:30:49.222285', '37', 'Objetos object (37)', 1, '[{\"added\": {}}]', 13, 1),
 (4, '2024-05-20 20:31:09.645600', '37', 'Objetos object (37)', 3, '', 13, 1),
 (5, '2024-05-21 09:04:59.909543', '50', 'Inventario object (50)', 2, '[{\"changed\": {\"fields\": [\"Cantidad\"]}}]', 11, 1),
-(6, '2024-05-26 11:21:50.443459', '38', 'Lanzacohetes', 1, '[{\"added\": {}}]', 13, 1);
+(6, '2024-05-26 11:21:50.443459', '38', 'Lanzacohetes', 1, '[{\"added\": {}}]', 13, 1),
+(7, '2024-05-27 15:40:48.283345', '6', 'Chaleco Táctico', 2, '[{\"changed\": {\"fields\": [\"Precio\"]}}]', 13, 1),
+(8, '2024-05-27 15:41:25.097226', '17', 'dani2', 2, '[{\"changed\": {\"fields\": [\"Dinero\"]}}]', 12, 1),
+(9, '2024-05-27 15:58:41.754151', '13', 'Munición de lanzaranadas', 2, '[{\"changed\": {\"fields\": [\"Precio\"]}}]', 13, 1);
 
 -- --------------------------------------------------------
 
@@ -358,7 +367,8 @@ INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALU
 ('yqcbjzfj91ryvxjobsznjmgx7ye6lgry', '.eJxVjDsOwjAQBe_iGlm2499S0nMGa9decAA5UpxUiLuTSCmgfTPz3iLhutS0dp7TWMRZDOL0uxHmJ7cdlAe2-yTz1JZ5JLkr8qBdXqfCr8vh_h1U7HWrvULlGZFycODB2MEWQ4aZbjZoDYPToBicRmbnAQgs-WhDNHFrTBSfL9dJN1U:1sA3rA:237caswuPJou7s6rbtQxPSURNuwv6Ii1oGGFPpVO0Uk', '2024-05-23 09:31:24.480700'),
 ('ukqi6knjb7ngg9zfjbpxoufg4c7uud7a', '.eJxVjDEOwjAMRe-SGUVYsUvKyM4ZIsdOSAElUtNOiLtDpQ6w_vfef5nA61LC2tMcJjVng-bwu0WWR6ob0DvXW7PS6jJP0W6K3Wm316bpedndv4PCvXxrh4QE6EXYMYvGnCPAoCKoAAyY6cTkFaJDBhpZRy84cNQjEYCY9wf8_zhu:1sA5mS:Qr0aPuWCIiqCbY3W34ZXKw5GJTEh0k0hJgfgjOqQ7Z0', '2024-05-23 11:34:40.015662'),
 ('1n5cdhxhmkcinfrgnu6978zdh6ebr6zm', '.eJxVjMsOwiAQRf-FtSEOw6O4dN9vIAMDUjU0Ke3K-O_apAvd3nPOfYlA21rD1vMSJhYXAeL0u0VKj9x2wHdqt1mmua3LFOWuyIN2Oc6cn9fD_Tuo1Ou31smUAgm0Qu8oKU3MiOg8KhzIsEfKztpoLBdVKOPgtTmDxQzgtbLi_QHXnDcW:1sAW4r:RYDMsC5gnnPhElNekY4ZDqFOYpt-yCToz59LD515w9k', '2024-05-24 15:39:25.217843'),
-('xsuxorqmsqb7htjwtvo7xuouaf0py380', '.eJxVjEsOwiAUAO_C2hB4IB-X7nsGwuOBVA1NSrsy3l1JutDtzGReLMR9q2HveQ0zsQsDyU6_EGN65DYM3WO7LTwtbVtn5CPhh-18Wig_r0f7N6ix1_FFabw6o7AeQZniSRTQEb5Uk7Ig0BBhEtnGAk6A05a00qUUSc46yd4f6b83dQ:1sBBxC:2DNfmPmBVhtzhdwXaHMdLxWo8cZ6tieFMxzrclrt-jI', '2024-05-26 12:22:18.422376');
+('xsuxorqmsqb7htjwtvo7xuouaf0py380', '.eJxVjEsOwiAUAO_C2hB4IB-X7nsGwuOBVA1NSrsy3l1JutDtzGReLMR9q2HveQ0zsQsDyU6_EGN65DYM3WO7LTwtbVtn5CPhh-18Wig_r0f7N6ix1_FFabw6o7AeQZniSRTQEb5Uk7Ig0BBhEtnGAk6A05a00qUUSc46yd4f6b83dQ:1sBBxC:2DNfmPmBVhtzhdwXaHMdLxWo8cZ6tieFMxzrclrt-jI', '2024-05-26 12:22:18.422376'),
+('5029ichzbo1rnho56y3z23wyimly6onf', '.eJxVjMsOwiAQRf-FtSEOw6O4dN9vIAMDUjU0Ke3K-O_apAvd3nPOfYlA21rD1vMSJhYXAeL0u0VKj9x2wHdqt1mmua3LFOWuyIN2Oc6cn9fD_Tuo1Ou31smUAgm0Qu8oKU3MiOg8KhzIsEfKztpoLBdVKOPgtTmDxQzgtbLi_QHXnDcW:1sBC6f:dP-E7KktrMfJ7N8RJP_xLhEH8tndUuA72RW-Xk6orMA', '2024-05-26 12:32:05.800737');
 
 -- --------------------------------------------------------
 
@@ -375,7 +385,7 @@ CREATE TABLE IF NOT EXISTS `inventario` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `jugador_id` (`jugador_id`,`objeto_id`),
   KEY `inventario_objeto_id_fk` (`objeto_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=96 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=108 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Volcado de datos para la tabla `inventario`
@@ -438,8 +448,20 @@ INSERT INTO `inventario` (`id`, `jugador_id`, `objeto_id`, `cantidad`) VALUES
 (89, 19, 12, 1),
 (91, 19, 2, 1),
 (93, 19, 33, 1),
-(94, 19, 4, 1),
-(95, 20, 36, 1);
+(94, 19, 4, 3),
+(95, 20, 36, 1),
+(96, 21, 5, 1),
+(97, 21, 8, 1),
+(98, 21, 33, 1),
+(99, 21, 14, 1),
+(100, 22, 35, 1),
+(101, 22, 3, 1),
+(102, 23, 21, 1),
+(103, 23, 2, 1),
+(104, 23, 30, 1),
+(105, 24, 5, 1),
+(106, 24, 35, 1),
+(107, 24, 28, 1);
 
 -- --------------------------------------------------------
 
@@ -454,7 +476,7 @@ CREATE TABLE IF NOT EXISTS `jugadores` (
   `dinero` int DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `user_id` (`user_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Volcado de datos para la tabla `jugadores`
@@ -476,10 +498,16 @@ INSERT INTO `jugadores` (`id`, `user_id`, `dinero`) VALUES
 (14, 16, 5000),
 (15, 17, 4200),
 (16, 18, 4745),
-(17, 19, 3260),
+(17, 19, 50000),
 (18, 20, 4595),
-(19, 21, 3430),
-(20, 22, 0);
+(19, 21, 3270),
+(20, 22, 0),
+(21, 23, 3540),
+(22, 24, 4295),
+(23, 25, 3650),
+(24, 26, 3750),
+(25, 27, 5000),
+(26, 28, 5000);
 
 -- --------------------------------------------------------
 
@@ -508,13 +536,13 @@ INSERT INTO `objetos` (`id`, `nombre`, `descripcion`, `precio`, `tipo_objeto`, `
 (3, 'Escopeta M37', 'Una poderosa escopeta de doble cañón, ideal para enfrentarse a hordas de enemigos.', 205, 'Arma', 'https://static.wikia.nocookie.net/residentevil/images/f/f9/Escopeta_M37.jpg/revision/latest/scale-to-width-down/1000?cb=20170127192932&path-prefix=es'),
 (4, 'Granada de Fragmentación', 'Una granada explosiva que causa daño en un área determinada.', 80, 'Municion', 'https://static.wikia.nocookie.net/residentevil/images/2/2d/Granada_de_mano_RE2_remake.jpg/revision/latest/scale-to-width-down/1000?cb=20190205050418&path-prefix=es'),
 (5, 'Spray Medicinal', 'Un spray medicinal que restaura una cantidad moderada de salud.', 300, 'Curacion', 'https://static.wikia.nocookie.net/residentevil/images/6/60/Spray_primeros_auxilios.png/revision/latest?cb=20200625210523&path-prefix=es'),
-(6, 'Chaleco Táctico', 'Un chaleco táctico que proporciona una protección moderada.', 100, 'Armadura', 'https://static.wikia.nocookie.net/residentevil/images/8/89/Chaleco_antibalas_RE4R.png/revision/latest?cb=20230619134025&path-prefix=es'),
+(6, 'Chaleco Táctico', 'Un chaleco táctico que proporciona una protección moderada.', 150, 'Armadura', 'https://static.wikia.nocookie.net/residentevil/images/8/89/Chaleco_antibalas_RE4R.png/revision/latest?cb=20230619134025&path-prefix=es'),
 (7, 'Traje de Kevlar', 'Un traje de kevlar que proporciona una protección excepcional.', 200, 'Armadura', 'https://i.etsystatic.com/30592998/r/il/b10746/4041638410/il_fullxfull.4041638410_6z9c.jpg'),
 (8, 'Hierba Verde', 'Una hierba verde que restaura cierta cantidad de salud.', 150, 'Curacion', 'https://static.wikia.nocookie.net/residentevil/images/a/a3/Hierba_verde.png/revision/latest?cb=20200625210632&path-prefix=es'),
 (9, 'Hierba Roja', 'Una hierba roja que potencia la curación si se combina con una verde.', 250, 'Curacion', 'https://static.wikia.nocookie.net/residentevil/images/e/ea/Hierba_roja.png/revision/latest?cb=20200625210642&path-prefix=es'),
 (11, 'Munición de 9mm', 'Munición estándar para la pistola.', 10, 'Municion', 'https://static.wikia.nocookie.net/residentevil/images/e/e0/Munici%C3%B3n_pistola_RE0.png/revision/latest?cb=20200702073508&path-prefix=es'),
 (12, 'Munición de Escopeta', 'Munición de escopeta de calibre 12.', 15, 'Municion', 'https://static.wikia.nocookie.net/residentevil/images/3/32/Cartuchos_de_escopeta_RE4_remake.png/revision/latest?cb=20230615203215&path-prefix=es'),
-(13, 'Munición de lanzaranadas', 'Munición especial para lanzagranadas.', 5, 'Municion', 'https://static.wikia.nocookie.net/residentevil/images/5/5a/Granadas_explosivas_RE0.png/revision/latest?cb=20200702073540&path-prefix=es'),
+(13, 'Munición de lanzaranadas', 'Munición especial para lanzagranadas.', 50, 'Municion', 'https://static.wikia.nocookie.net/residentevil/images/5/5a/Granadas_explosivas_RE0.png/revision/latest?cb=20200702073540&path-prefix=es'),
 (14, 'Piedra de afilar', 'Afilar el cuchillo', 10, 'Municion', 'https://www.eliteguias.com/img/juegos/elden-ring/hoja-de-afilar-de-piedras-refulgentes.jpg'),
 (15, 'Botiquín de Primeros Auxilios', 'Un botiquín básico que restaura una cantidad moderada de salud.', 40, 'Curacion', 'https://static.wikia.nocookie.net/residentevil/images/0/02/Botiqu%C3%ADn.jpg/revision/latest?cb=20180311235815&path-prefix=es'),
 (16, 'Botiquín Avanzado', 'Un botiquín avanzado que restaura una cantidad considerable de salud.', 80, 'Curacion', 'https://static.wikia.nocookie.net/residentevil/images/1/1f/Botiquin_abierto.jpg/revision/latest?cb=20180318203708&path-prefix=es'),
