@@ -4,9 +4,8 @@ from django.urls import reverse
 from .models import Jugadores, Objetos, Inventario
 
 # OJO:
-# Para ejecutar el TestCase de Django y trabajar con los datos existentes en la base de datos sin limpiarla, 
-# puedes usar una configuración de pruebas un poco diferente. Los TestCase de Django, por defecto, usan una 
-# base de datos en memoria que se resetea para cada test. Para evitar esto, puedes usar TransactionTestCase y setUpTestData,
+# Los TestCase de Django, por defecto, usan una base de datos en memoria que se resetea para cada test. 
+# Para evitar esto, puedes usar TransactionTestCase y setUpTestData,
 # que no reinician la base de datos entre tests.
 # Sin embargo, para asegurarte de que los objetos de la tienda ya están en la base de datos y no deseas 
 # crearlos en el test, puedes modificar el test de la siguiente manera:
