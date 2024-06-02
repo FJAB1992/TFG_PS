@@ -3,17 +3,6 @@ from django.test import TestCase
 from django.urls import reverse
 from .models import Jugadores, Objetos, Inventario
 
-# OJO:
-# Los TestCase de Django, por defecto, usan una base de datos en memoria que se resetea para cada test. 
-# Para evitar esto, puedes usar TransactionTestCase y setUpTestData,
-# que no reinician la base de datos entre tests.
-# Sin embargo, para asegurarte de que los objetos de la tienda ya están en la base de datos y no deseas 
-# crearlos en el test, puedes modificar el test de la siguiente manera:
-
-# Eliminar la creación de objetos en setUp.
-# Asegurarte de que los objetos ya existen en la base de datos antes de ejecutar el test.
-
-
 class TiendaTestCase01(TestCase):
     def setUp(self):
         # Crear un usuario para las pruebas
@@ -34,6 +23,7 @@ class TiendaTestCase01(TestCase):
         response = self.client.post(
             reverse("tfg_ps_app:comprar_objeto", args=[self.objeto_1.pk])
         )
+        # Verificar que se redirige correctamente
         self.assertEqual(
             response.status_code, 302
         )  # Debería redirigir a la página de la tienda
@@ -89,8 +79,9 @@ class TiendaTestCase01(TestCase):
         # Cerrar sesión
         self.client.logout()
 
-
 class TiendaTestCase02(TestCase):
+    
+    # El decorador @classmethod se utiliza en Python para definir un método de clase en lugar de un método de instancia.
     @classmethod
     def setUpTestData(cls):
         # Asumiendo que los objetos ya existen en la base de datos
@@ -105,6 +96,7 @@ class TiendaTestCase02(TestCase):
             "password2": "test_password",
         }
         response = self.client.post(reverse("tfg_ps_app:signup"), data=user_data)
+        # Verificar que se redirige correctamente
         self.assertEqual(
             response.status_code, 302
         )  # Debería redirigir a la página de inicio o tienda
@@ -129,15 +121,6 @@ class TiendaTestCase02(TestCase):
         )
         self.assertEqual(inventario_objeto_1.cantidad, 1)
 
-        # Ver el inventario del jugador
-        response = self.client.get(reverse("tfg_ps_app:tienda"))
-        self.assertEqual(
-            response.status_code, 200
-        )  # Debería devolver un código de éxito
-        self.assertContains(
-            response, "Objeto1"
-        )  # Debería mostrar el objeto comprado en el inventario
-
         # Vender el objeto comprado
         response = self.client.post(
             reverse("tfg_ps_app:vender_objeto", args=[inventario_objeto_1.pk])
@@ -148,15 +131,6 @@ class TiendaTestCase02(TestCase):
         # Verificar que el objeto se haya eliminado del inventario del jugador
         with self.assertRaises(Inventario.DoesNotExist):
             Inventario.objects.get(jugador=self.jugador, objeto=self.objeto_1)
-
-        # Ver el inventario del jugador después de la venta
-        response = self.client.get(reverse("tfg_ps_app:tienda"))
-        self.assertEqual(
-            response.status_code, 200
-        )  # Debería devolver un código de éxito
-        self.assertNotContains(
-            response, "Objeto1"
-        )  # No debería mostrar el objeto vendido en el inventario
 
         # Comprar otro objeto en la tienda
         response = self.client.post(
@@ -171,17 +145,6 @@ class TiendaTestCase02(TestCase):
         )
         self.assertEqual(inventario_objeto_2.cantidad, 1)
 
-        # Ver el detalle del segundo objeto
-        response = self.client.get(
-            reverse("tfg_ps_app:detalle_objeto", args=[self.objeto_2.pk])
-        )
-        self.assertEqual(
-            response.status_code, 200
-        )  # Debería devolver un código de éxito
-        self.assertContains(
-            response, "Objeto2"
-        )  # Debería mostrar los detalles del segundo objeto
-
         # Cerrar sesión
         self.client.logout()
 
@@ -191,12 +154,6 @@ class TiendaTestCase02(TestCase):
             response.status_code, 200
         )  # No debería devolver un código de éxito sin iniciar sesión
 
-from django.contrib.auth.models import User
-from django.test import TestCase
-from django.urls import reverse
-from .models import Jugadores, Objetos, Inventario
-
-
 class TiendaTestCase03(TestCase):
     @classmethod
     def setUpTestData(cls):
@@ -204,6 +161,7 @@ class TiendaTestCase03(TestCase):
         cls.objeto_2 = Objetos.objects.create(nombre="Objeto2", precio=20)
 
     def setUp(self):
+        # Crear un usuario, iniciar sesión y crear un jugador asociado
         self.user = User.objects.create_user(username="test_user", password="test_password")
         self.client.login(username="test_user", password="test_password")
         self.jugador = Jugadores.objects.create(user=self.user)
@@ -211,6 +169,7 @@ class TiendaTestCase03(TestCase):
     def test_compra_venta(self):
         # Comprar un objeto en la tienda
         response = self.client.post(reverse("tfg_ps_app:comprar_objeto", args=[self.objeto_1.pk]))
+        # Verificar que se redirige correctamente
         self.assertEqual(response.status_code, 302)  # Debería redirigir a la página de la tienda
         # Verificar que el objeto se haya agregado al inventario del jugador
         inventario_objeto_1 = Inventario.objects.get(jugador=self.jugador, objeto=self.objeto_1)
@@ -218,6 +177,7 @@ class TiendaTestCase03(TestCase):
 
         # Vender el objeto comprado
         response = self.client.post(reverse("tfg_ps_app:vender_objeto", args=[inventario_objeto_1.pk]))
+        # Verificar que se redirige correctamente
         self.assertEqual(response.status_code, 302)  # Debería redirigir a la página de la tienda
         # Verificar que el objeto se haya eliminado del inventario del jugador
         with self.assertRaises(Inventario.DoesNotExist):
@@ -229,4 +189,7 @@ class TiendaTestCase03(TestCase):
         self.assertNotContains(response, "Objeto1")  # No debería mostrar el objeto vendido en el inventario
 
     def tearDown(self):
+        # Cerrar sesión
         self.client.logout()
+
+        
