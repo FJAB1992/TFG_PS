@@ -9,9 +9,7 @@
   2. Abrir el proyecto
 
   3. Activar el entorno virtual, para ello nos vamos a la carpeta Scripts y la activamos
-  ```bash
-  .\Scripts\activate
-  ```
+  ```.\Scripts\activate```
 
   4. Intalar Django ```pip install Django```, para una versión específica ```pip install Django==5.0.1```
   ```pip install Django```
@@ -100,3 +98,10 @@ Hay que hacer lo siguiente MANUALMENTE para dejarlo limpio:
 
 # Eliminar todos los datos de las tablas de la base de datos
 ```python manage.py flush```
+
+
+# Generar el archivo requirements/makefile
+```pip freeze > requirements.txt```
+
+# Instalar requirements
+```pip install -r requirements.txt```
