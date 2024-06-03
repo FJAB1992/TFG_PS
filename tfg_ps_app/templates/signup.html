@@ -7,22 +7,40 @@
 <link rel="stylesheet" href="{% static 'css/login.css' %}">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.3/font/bootstrap-icons.min.css">
 {% endblock %}
-
+{% block header %}
+    <header class="relative-top text-white">
+        <div class="container">
+            <div class="row justify-content-between align-items-center">
+                {% if user.is_authenticated %}
+                    <div class="col-lg-6 text-center">
+                        <a href="{% url 'tfg_ps_app:tienda' %}" class="btn tienda-btn">Tienda</a>
+                    </div>
+                    <div class="col-lg-6 text-end">
+                        <form action="{% url 'tfg_ps_app:logout' %}" method="post" class="d-inline">
+                            {% csrf_token %}
+                            <button id="logout-button" type="submit" class="btn btn-danger">Cerrar sesión</button>
+                        </form>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </header>
+{% endblock %}
 {% block cuerpo %}
 {% if user.is_authenticated %}
 <div class="absolute-top-left">
-    <div class="text-center mt-4">
+    <div class="text-center">
         <div class="container">
             <form action="{% url 'tfg_ps_app:inicio' %}" method="get">
-                <button id="volver-button" type="submit" class="btn btn-primary mt-1">Volver</button>
+                <button id="volver-button" type="submit" class="btn btn-primary">Volver</button>
             </form>
         </div>
     </div>
 </div>
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-6 text-center">
-                <a href="{% url 'tfg_ps_app:tienda' %}" class="btn btn-primary mt-4" style="width: 25%;">Tienda</a>
+            <div class="col-md-6 text-center mt-lg-3">
+                <p>SESIÓN INICIADA</p>
             </div>
         </div>
     </div>

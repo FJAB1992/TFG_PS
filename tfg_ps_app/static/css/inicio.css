@@ -2,7 +2,7 @@
 
 body {
     font-family: 'Bebas Neue', sans-serif;
-    background-color: rgba(130, 66, 155, 0.8);
+    background: rgb(231, 231, 231);
     color: #4b0082;
 }
 
@@ -12,12 +12,12 @@ body {
 }
 
 .card {
-    width: 40%;
+    width: 30%;
     margin: 20px auto;
     padding: 5px;
     background-color: #d1d1ff;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(81, 53, 84, 0.709);
     text-align: center;
 }
 
@@ -86,6 +86,7 @@ h1 {
 }
 
 .slider-container {
+    background-color: rgb(169, 101, 214);
     border-radius: 10px;
     overflow: hidden; 
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.561); 
