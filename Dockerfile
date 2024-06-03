@@ -10,7 +10,7 @@ COPY requirements.txt .
 # Instala las dependencias definidas en requirements.txt
 RUN pip install -r requirements.txt
 
-# Copia el contenido de tu proyecto Django al directorio de trabajo
+# Copia el contenido del proyecto Django al directorio de trabajo
 COPY . .
 
 # Expone el puerto 8000 para que pueda ser accesible desde fuera del contenedor
