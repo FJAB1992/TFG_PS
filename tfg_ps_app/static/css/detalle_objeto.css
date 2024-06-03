@@ -2,7 +2,7 @@
 
 body {
     font-family: 'Bebas Neue', sans-serif;
-    background-color: rgba(130, 66, 155, 0.8);
+    background: rgb(231, 231, 231);
     color: #4b0082;
     font-size: 20px;
 }
@@ -71,27 +71,24 @@ h1 {
 
 .absolute-top-left {
     position: absolute;
-    top: 10px;
+    top: 1px;
     left: 10px;
     z-index: 1030;
 }
 
 #volver-button {
     display: inline-block;
-    width: auto;
-    height: auto;
-    padding: 10px 20px;
     font-size: 16px;
     border: none;
     border-radius: 5px;
-    background-color: #800080;
+    background: linear-gradient(45deg, #d4a0ff, #b084cc);
     color: #fff;
     cursor: pointer;
     transition: background-color 0.2s ease;
 }
 
 #volver-button:hover {
-    background-color: #4b0082;
+    background: linear-gradient(45deg, #b084cc, #d4a0ff);
 }
 
 .tienda-btn {
