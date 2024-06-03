@@ -1,31 +1,35 @@
 {% extends "base_tfg.html" %}
 {% load static %}
+
 {% block titulo %}Inicio{% endblock %}
+
 {% block cabecera %}
-<link rel="stylesheet" href="{% static 'css/inicio.css' %}">
+    <link rel="stylesheet" href="{% static 'css/inicio.css' %}">
 {% endblock %}
+
 {% block header %}
-    <header class="relative-top text-white">
-        <div class="container">
-            <div class="row justify-content-between align-items-center">
-                <div class="col-lg-3 text-left">
-                    <img src="../static/img/umb.png" style="max-width: 35%; max-height: 20%; margin-top: 2px;">
-                </div>
-                {% if user.is_authenticated %}
-                    <div class="col-lg-6 text-center">
-                        <a href="{% url 'tfg_ps_app:tienda' %}" class="btn tienda-btn">Tienda</a>
-                    </div>
-                    <div class="col-lg-3 text-end">
-                        <form action="{% url 'tfg_ps_app:logout' %}" method="post" class="d-inline">
-                            {% csrf_token %}
-                            <button id="logout-button" type="submit" class="btn btn-danger">Cerrar sesión</button>
-                        </form>
-                    </div>
-                {% endif %}
+<header class="relative-top text-white">
+    <div class="container">
+        <div class="row justify-content-between align-items-center">
+            <div class="col-lg-3 text-left">
+                <img src="../static/img/umb.png" style="max-width: 35%; max-height: 20%; margin-top: 2px;">
             </div>
+            {% if user.is_authenticated %}
+            <div class="col-lg-6 text-center">
+                <a href="{% url 'tfg_ps_app:tienda' %}" class="btn tienda-btn">Tienda</a>
+            </div>
+            <div class="col-lg-3 text-end">
+                <form action="{% url 'tfg_ps_app:logout' %}" method="post" class="d-inline">
+                    {% csrf_token %}
+                    <button id="logout-button" type="submit" class="btn btn-danger">Cerrar sesión</button>
+                </form>
+            </div>
+            {% endif %}
         </div>
-    </header>
+    </div>
+</header>
 {% endblock %}
+
 {% block cuerpo %}
 <div class="container">
     <div class="card">
@@ -39,18 +43,17 @@
             <a href="{% url 'tfg_ps_app:signup' %}" class="btn btn-success btn-lg btn-block">SignUp</a>
         </div>
     </div>
-    <div>¡Bienvenidos a la tienda del Buhonero, tu refugio de recursos en el implacable combate contra la 
-        Corporación Umbrella! Aquí encontrarás todo lo necesario para sobrevivir y triunfar en esta lucha: armas, 
-        municiones, medicinas y más. No olvides, en el caos de la guerra, el verdadero tesoro es estar bien equipado. 
+    <div style="font-size: 20px; height: auto;">
+        ¡Bienvenidos a la tienda del Buhonero, tu refugio de recursos en el implacable combate contra la Corporación Umbrella! 
+        Aquí encontrarás todo lo necesario para sobrevivir y triunfar en esta lucha: armas, municiones, medicinas y más. 
+        No olvides, en el caos de la guerra, el verdadero tesoro es estar bien equipado. 
         ¡Cualquier conflicto bélico, es un negocio lucrativo, jeje!
     </div>
+    
 
-
-
-    <div class="slider-container" >
+    <div class="slider-container" style="max-width: 350px; margin: auto;">
         <section class="slider_section position-relative">
-            <div class="slider_bg-container">
-            </div>
+            <div class="slider_bg-container"></div>
             <div class="slider-container">
                 <div class="detail-box">
                     <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -66,22 +69,22 @@
                     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img src="https://static.wikia.nocookie.net/residentevil/images/2/22/Lanzagranadas_REmake.jpg/revision/latest?cb=20191213153913&path-prefix=es" alt="" style="width: 350px; height: 350px;">
+                                <img src="https://static.wikia.nocookie.net/residentevil/images/2/22/Lanzagranadas_REmake.jpg/revision/latest?cb=20191213153913&path-prefix=es" alt="" style="width: 250px; height: 250px;">
                             </div>
                             <div class="carousel-item">
-                                <img src="https://static.wikia.nocookie.net/residentevil/images/e/e0/Munici%C3%B3n_pistola_RE0.png/revision/latest?cb=20200702073508&path-prefix=es" alt="" style="width: 350px; height: 350px;">
+                                <img src="https://static.wikia.nocookie.net/residentevil/images/e/e0/Munici%C3%B3n_pistola_RE0.png/revision/latest?cb=20200702073508&path-prefix=es" alt="" style="width: 250px; height: 250px;">
                             </div>
                             <div class="carousel-item">
-                                <img src="https://new.imagehostx.com/upload/2024/02/26/ada-wong-pack-for-g8f-01_1708920698.jpg" alt="" style="width: 350px; height: 350px;">
+                                <img src="https://new.imagehostx.com/upload/2024/02/26/ada-wong-pack-for-g8f-01_1708920698.jpg" alt="" style="width: 250px; height: 250px;">
                             </div>
                             <div class="carousel-item">
-                                <img src="https://i.pinimg.com/736x/f1/f7/e5/f1f7e520e7269462a71fa14099550966.jpg" alt="" style="width: 350px; height: 350px;">
+                                <img src="https://i.pinimg.com/736x/f1/f7/e5/f1f7e520e7269462a71fa14099550966.jpg" alt="" style="width: 250px; height: 250px;">
                             </div>
                             <div class="carousel-item">
-                                <img src="https://i.ebayimg.com/images/g/UPAAAOSw615g2sUS/s-l1200.webp" alt="" style="width: 350px; height: 350px;">
+                                <img src="https://i.ebayimg.com/images/g/UPAAAOSw615g2sUS/s-l1200.webp" alt="" style="width: 250px; height: 250px;">
                             </div>
                             <div class="carousel-item">
-                                <img src="https://ae01.alicdn.com/kf/S31733e8c33514414aa02a84d318b04bdq/Umbrella-biochemistry-Suitcase-T-Virus-Vial-Display-Case-Cosplay-horror-Movie-Villainous-Item-Prop-Replica.jpg" alt="" style="width: 350px; height: 350px;">
+                                <img src="https://ae01.alicdn.com/kf/S31733e8c33514414aa02a84d318b04bdq/Umbrella-biochemistry-Suitcase-T-Virus-Vial-Display-Case-Cosplay-horror-Movie-Villainous-Item-Prop-Replica.jpg" alt="" style="width: 250px; height: 250px;">
                             </div>
                         </div>
                     </div>
@@ -90,6 +93,4 @@
         </section>
     </div>
 </div>
-
 {% endblock %}
-
