@@ -43,7 +43,7 @@
       'USER': 'usuario',
       'PASSWORD': 'contraseña',
       'HOST': 'localhost',
-      'POR T': '3306'
+      'PORT': '3306'
     }
   }
   ```
@@ -105,3 +105,13 @@ Hay que hacer lo siguiente MANUALMENTE para dejarlo limpio:
 
 # Instalar requirements
 ```pip install -r requirements.txt```
+
+
+----------------------------------------------------------------
+## Para despliegue con Docker
+
+# Construir la imagen Docker
+```docker build -t nombre_de_tu_imagen .```
+
+# Ejecutar el contenedor Docker
+```docker run -p 2317:2317 nombre_de_tu_imagen```
