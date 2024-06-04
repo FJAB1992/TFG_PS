@@ -21,3 +21,33 @@
 # Verificar la instalación:
 
 ```python3.12 --version```
+
+--------------------------------------------------------------------------------
+
+# Eliminar el entorno de windows:
+
+```rm -rf /home/ec2-user/environment/TFG_PS/.env```
+
+# Crear el nuevo entorno:
+
+```/home/ec2-user/environment/Python-3.12.2/python3.12 -m venv /home/ec2-user/environment/TFG_PS/.env```
+
+# El archivo de donfiguración del entorno (pyvenv.cfg) quedaría así:
+
+home = /home/ec2-user/environment/Python-3.12.2
+include-system-site-packages = false
+version = 3.12.2
+executable = /home/ec2-user/environment/Python-3.12.2/python3.12
+command = /home/ec2-user/environment/Python-3.12.2/python3.12 -m venv /home/ec2-user/environment/TFG_PS/.env
+
+# Activar el Entorno Virtual:
+
+```source /home/ec2-user/environment/TFG_PS/.env/bin/activate```
+
+# Instalar dependencias si fuese necesario:
+
+```pip install -r requirements.txt```
+
+# Ejecutar proyecto:
+
+```python manage.py runserver```
