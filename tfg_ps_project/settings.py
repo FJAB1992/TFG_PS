@@ -83,17 +83,28 @@ LOGIN_REDIRECT_URL = '/'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#       'ENGINE': 'django.db.backends.mysql',
+#       'NAME': 'django_tfg_ps_db',
+#       'USER': 'root',
+#       'PASSWORD': '',
+#       'HOST': 'localhost',
+#       'PORT': '3306'
+#     }
+#   }
+
+# Base de datos en la nube
 DATABASES = {
     'default': {
       'ENGINE': 'django.db.backends.mysql',
-      'NAME': 'django_tfg_ps_db',
-      'USER': 'root',
-      'PASSWORD': '',
-      'HOST': 'localhost',
+      'NAME': 'bh1x3ci2tli0nhamq3zo',
+      'USER': 'ulkh9rcyttvueuze',
+      'PASSWORD': 'j0OfaUUILZKQqbtpJMeI',
+      'HOST': 'bh1x3ci2tli0nhamq3zo-mysql.services.clever-cloud.com',
       'PORT': '3306'
     }
   }
-
 
 
 # Password validation
