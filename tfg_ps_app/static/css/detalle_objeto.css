@@ -39,7 +39,7 @@ h1 {
     width: 80%;
 }
 
-.btn-primary {
+.btn-volver {
     background-color: #800080;
     border: none;
     border-radius: 5px;
@@ -50,7 +50,7 @@ h1 {
     transition: background-color 0.2s ease;
 }
 
-.btn-primary:hover {
+.btn-volver:hover {
     background-color: #4b0082;
 }
 

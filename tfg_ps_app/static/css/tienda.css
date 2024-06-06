@@ -37,7 +37,7 @@ h1 {
     width: 80%;
 }
 
-.btn-primary {
+.btn-inicio {
     background-color: #800080;
     border: none;
     border-radius: 5px;
@@ -48,7 +48,7 @@ h1 {
     transition: background-color 0.2s ease;
 }
 
-.btn-primary:hover {
+.btn-inicio:hover {
     background-color: #4b0082;
 }
 
