@@ -114,4 +114,4 @@ Hay que hacer lo siguiente MANUALMENTE para dejarlo limpio:
 ```docker build -t nombre_de_tu_imagen .```
 
 # Ejecutar el contenedor Docker
-```docker run -p 2317:2317 nombre_de_tu_imagen```
+```docker run -p 8000:8000 nombre_de_tu_imagen```
