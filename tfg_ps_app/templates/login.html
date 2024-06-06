@@ -6,26 +6,27 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.3/font/bootstrap-icons.min.css">
 {% endblock %}
 {% block header %}
-    <header class="relative-top text-white">
+    <header class="relative-top text-white py-3">
         <div class="container">
             <div class="row justify-content-between align-items-center">
-                <div class="col-lg-3 text-left">
-                    <img src="../static/img/umb.png" style="max-width: 35%; max-height: 20%; margin-top: 2px;">
+                <div class="col-4 col-lg-3 text-left">
+                    <img src="../static/img/umb.png" class="img-fluid" style="max-width: 100px; margin-top: 2px;">
                 </div>
                 {% if user.is_authenticated %}
-                    <div class="col-lg-6 text-center">
-                        <a href="{% url 'tfg_ps_app:tienda' %}" class="btn tienda-btn">Tienda</a>
-                    </div>
-                    <div class="col-lg-3 text-end">
-                        <form action="{% url 'tfg_ps_app:logout' %}" method="post" class="d-inline">
-                            {% csrf_token %}
-                            <button id="logout-button" type="submit" class="btn btn-danger">Cerrar sesión</button>
-                        </form>
-                    </div>
+                <div class="col-4 col-lg-6 text-center">
+                    <a href="{% url 'tfg_ps_app:tienda' %}" class="btn tienda-btn btn-primary">Tienda</a>
+                </div>
+                <div class="col-4 col-lg-3 text-end">
+                    <form action="{% url 'tfg_ps_app:logout' %}" method="post" class="d-inline">
+                        {% csrf_token %}
+                        <button id="logout-button" type="submit" class="btn btn-danger">Cerrar sesión</button>
+                    </form>
+                </div>
                 {% endif %}
             </div>
         </div>
     </header>
+
 {% endblock %}
 {% block cuerpo %}
 {% if user.is_authenticated %}
