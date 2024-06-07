@@ -29,8 +29,8 @@ urlpatterns = [
 
 #CUIDAO
 
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+# if settings.DEBUG:
+#     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
     
 # Esto se debe a que esta configuración se encarga de servir los archivos multimedia en el entorno de desarrollo (DEBUG=True). 
 # Cuando DEBUG está activado, Django sirve automáticamente los archivos estáticos y multimedia. Pero en producción, 
