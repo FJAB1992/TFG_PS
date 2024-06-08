@@ -1,19 +1,23 @@
-# Usa una imagen base de Python
+# Imagen oficial de Python para Django
 FROM python:3.12
+
+# Establecer las variables de entorno para Python y el sistema operativo
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
 
 # Establece el directorio de trabajo en /app
 WORKDIR /app
 
-# Copia el archivo requirements.txt al directorio de trabajo
-COPY requirements.txt .
+# Copiar el archivo requirements.txt al directorio de trabajo
+COPY requirements.txt /app/
 
-# Instala las dependencias definidas en requirements.txt
-RUN pip install -r requirements.txt
+# Instalar las dependencias del proyecto
+RUN pip install --no-cache-dir -r requirements.txt
 
-# Copia el contenido del proyecto Django al directorio de trabajo
-COPY . .
+# Copiar el resto del proyecto al directorio de trabajo
+COPY . /app/
 
-# Expone el puerto 8000 para que pueda ser accesible desde fuera del contenedor
+# Puerto en el que Django se ejecutará dentro del contenedor
 EXPOSE 8000
 
 # Comando para ejecutar el servidor de desarrollo de Django
