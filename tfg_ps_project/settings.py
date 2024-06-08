@@ -28,15 +28,15 @@ DEBUG = True
 
 # Host permitido para el despliegue
 
-ALLOWED_HOSTS = ['078c-81-37-144-207.ngrok-free.app', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['0e7b-81-37-144-207.ngrok-free.app', 'localhost', '127.0.0.1']
 
 # Configuración de CORS
 
-CORS_ALLOWED_ORIGINS = ["https://078c-81-37-144-207.ngrok-free.app", ]
+CORS_ALLOWED_ORIGINS = ["https://0e7b-81-37-144-207.ngrok-free.app", ]
 
 # Configuración de CSRF
 
-CSRF_TRUSTED_ORIGINS = ['https://078c-81-37-144-207.ngrok-free.app']
+CSRF_TRUSTED_ORIGINS = ['https://0e7b-81-37-144-207.ngrok-free.app']
 
 # Application definition
 
@@ -94,28 +94,28 @@ LOGIN_REDIRECT_URL = '/'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#       'ENGINE': 'django.db.backends.mysql',
-#       'NAME': 'django_tfg_ps_db',
-#       'USER': 'root',
-#       'PASSWORD': '',
-#       'HOST': 'localhost',
-#       'PORT': '3306'
-#     }
-#   }
-
-# Base de datos en la nube
 DATABASES = {
     'default': {
       'ENGINE': 'django.db.backends.mysql',
-      'NAME': 'bh1x3ci2tli0nhamq3zo',
-      'USER': 'ulkh9rcyttvueuze',
-      'PASSWORD': 'j0OfaUUILZKQqbtpJMeI',
-      'HOST': 'bh1x3ci2tli0nhamq3zo-mysql.services.clever-cloud.com',
+      'NAME': 'django_tfg_ps_db',
+      'USER': 'root',
+      'PASSWORD': '',
+      'HOST': 'localhost',
       'PORT': '3306'
     }
   }
+
+# Base de datos en la nube
+# DATABASES = {
+#     'default': {
+#       'ENGINE': 'django.db.backends.mysql',
+#       'NAME': 'bh1x3ci2tli0nhamq3zo',
+#       'USER': 'ulkh9rcyttvueuze',
+#       'PASSWORD': 'j0OfaUUILZKQqbtpJMeI',
+#       'HOST': 'bh1x3ci2tli0nhamq3zo-mysql.services.clever-cloud.com',
+#       'PORT': '3306'
+#     }
+#   }
 
 
 # Password validation
