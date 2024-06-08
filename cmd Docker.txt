@@ -1,0 +1,56 @@
+Dockerizar Proyecto de Django:
+
+Necesitamos crear 3 archivos:
+
+-Dockerfile
+-docker-compose.yml
+-requirements.txt
+-.dockerignore
+
+//Levantar proyecto en local
+python manage.py collectstatic
+
+//Crear el requirements.txt (con entorno virtual activado):
+pip freeze > requirements.txt
+
+//Crear imagen de docker
+docker build --tag fjab1992/tfg_ps-app:latest .
+
+//Subir a docker Hub
+push fjab1992/tfg_ps-app:latest
+
+//Hacer migraciones del protecto
+docker compose exec app python manage.py migrate
+
+COMANDOS DOCKER:
+----------------
+
+//Ver contenedores
+docker ps -a
+
+//Ver imagenes
+docker images
+
+docker stop $(docker ps -q)
+
+//Eliminar contenedor
+docker rm 647381f6409d (ID del contenedor)
+
+//Eliminar imagenes
+docker rmi 2a667cec05d1
+
+//Levantar contenedores 
+docker compose up 
+docker compose up -d (sin logs)
+
+//Migraciones base de datos
+docker compose exec app python manage.py migrate
+
+
+
+
+
+  
+
+
+
