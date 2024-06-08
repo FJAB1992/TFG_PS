@@ -115,3 +115,9 @@ Hay que hacer lo siguiente MANUALMENTE para dejarlo limpio:
 
 # Ejecutar el contenedor Docker
 ```docker run -p 8000:8000 nombre_de_tu_imagen```
+
+
+----------------------------------------------------------------
+# Despliegue para ngrok
+
+```pip install django-cors-headers```
