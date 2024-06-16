@@ -96,6 +96,10 @@ Hay que hacer lo siguiente MANUALMENTE para dejarlo limpio:
 
 ```python manage.py test nombre_de_tu_app.tests.NombreTestCase```
 
+en este caso:
+
+```python manage.py test tfg_ps_app.tests.TiendaTestCase```
+
 # Eliminar todos los datos de las tablas de la base de datos
 ```python manage.py flush```
 
