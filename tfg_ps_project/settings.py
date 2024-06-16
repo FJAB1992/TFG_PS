@@ -28,15 +28,15 @@ DEBUG = True
 
 # Host permitido para el despliegue
 
-ALLOWED_HOSTS = ['3497-81-37-144-207.ngrok-free.app', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['d9ec-81-37-146-116.ngrok-free.app', 'localhost', '127.0.0.1']
 
 # Configuración de CORS
 
-CORS_ALLOWED_ORIGINS = ["https://3497-81-37-144-207.ngrok-free.app", ]
+CORS_ALLOWED_ORIGINS = ["https://d9ec-81-37-146-116.ngrok-free.app", ]
 
 # Configuración de CSRF
 
-CSRF_TRUSTED_ORIGINS = ['https://3497-81-37-144-207.ngrok-free.app']
+CSRF_TRUSTED_ORIGINS = ['https://d9ec-81-37-146-116.ngrok-free.app']
 
 # Application definition
 
