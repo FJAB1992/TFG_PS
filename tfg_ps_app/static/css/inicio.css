@@ -68,15 +68,24 @@ h1 {
 }
 
 .tienda-btn {
-    margin-top: 40%;
-    margin-bottom: 40%;
-    width: 15%;
+    width: 100%;
+    max-width: 150px;
 }
 
+#logout-button {
+    width: 100%;
+    max-width: 150px;
+}
 
 @media (max-width: 768px) {
     .tienda-btn {
-        width: 50%;
+        width: 100%;
+        max-width: 150px;
+    }
+
+    #logout-button {
+        width: 100%;
+        max-width: 150px;
     }
 }
 
@@ -89,10 +98,20 @@ h1 {
 .slider-container {
     background-color: rgb(169, 101, 214);
     border-radius: 10px;
-    overflow: hidden; 
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.561); 
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.561);
+    padding-bottom: 20px;
 }
 
 .slider-container .img-box {
-    border-radius: 10px; 
+    border-radius: 10px;
+    text-align: center;
+}
+
+.slider-image {
+    width: 100%;
+    max-width: 250px;
+    height: 250px;
+    object-fit: cover;
+    margin: auto;
 }

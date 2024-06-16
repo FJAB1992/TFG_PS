@@ -12,16 +12,27 @@
     <title>{% block titulo %}{% endblock %}</title>
     {% block cabecera %}{% endblock %}
     <style>
-        a {
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        main {
+            flex: 1;
+        }
+
+        a{
             text-decoration: none;
         }
-    
-        footer.fixed-bottom {
+
+        footer {
             background-color: #28003a;
             color: white;
             font-size: 22px;
+            padding: 10px 0;
         }
-    
+
         .relative-top {
             position: relative;
             top: 0;
@@ -32,31 +43,42 @@
             height: 5vh;
             display: flex;
             align-items: center;
+            justify-content: center;
         }
-    
+
         .container {
             max-width: 1140px;
             margin: 0 auto;
         }
-    
+
         .tienda-btn:hover {
             background: linear-gradient(45deg, #b084cc, #d4a0ff);
+        }
+
+        .footer-link {
+            color: white;
+        }
+
+        .footer-link:hover {
+            color: #d4a0ff;
         }
     </style>
 </head>
 <body>
     {% block header %}{% endblock %}
     
-    {% block cuerpo %}{% endblock %}
-    
-    <footer class="fixed-bottom text-white">
+    <main>
+        {% block cuerpo %}{% endblock %}
+    </main>
+
+    <footer class="text-white">
         <div class="container">
             <div class="row justify-content-between">
                 <div class="col-12 col-lg-6 text-center text-lg-start mb-2 mb-lg-0">
-                    <a href="https://github.com/FJAB1992" target="_blank" class="text-white">GitHub</a>
+                    <a href="https://github.com/FJAB1992" target="_blank" class="footer-link">GitHub</a>
                 </div>
                 <div class="col-12 col-lg-6 text-center text-lg-end">
-                    <a href="https://iesplayamar.es/" target="_blank" class="text-white">IES Playamar</a>
+                    <a href="https://iesplayamar.es/" target="_blank" class="footer-link">IES Playamar</a>
                 </div>
             </div>
             <div class="row mt-2">
