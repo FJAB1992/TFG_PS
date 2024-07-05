@@ -1,6 +1,6 @@
 Dockerizar Proyecto de Django:
 
-Necesitamos crear 3 archivos:
+Necesitamos crear 4 archivos:
 
 -Dockerfile
 -docker-compose.yml
